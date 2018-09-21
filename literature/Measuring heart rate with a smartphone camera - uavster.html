@@ -1,0 +1,904 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<!-- saved from url=(0079)http://www.ignaciomellado.es/blog/Measuring-heart-rate-with-a-smartphone-camera -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>Measuring heart rate with a smartphone camera - uavster</title>
+<meta name="description" content="There are some apps out there that can read your heart rate with a smartphone camera. No need for external pulsometers. The procedure is simple: you press the smartphone camera lens gently with your finger [...]
+It is time to open your photo app and observe what happens when you cover the camera with your finger. The frame is not black but slightly red. The ambient light is traveling through your finger tissues [...]
+The experiments in this post were done offline. I recorded the videos with an iPhone 4S and copied them to my laptop. Then, I processed them with Matlab. The full code is available here [...]
+">
+<meta name="keywords" content="Computer Vision, Tutorials, Signal processing, iPhone, Matlab, Fast Fourier Transform">
+<link type="text/css" rel="stylesheet" href="./Measuring heart rate with a smartphone camera - uavster_files/main.css">
+<link rel="shortcut icon" href="http://www.ignaciomellado.es/img/favicon.ico">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://www.ignaciomellado.es/img/apple-touch-icon-72x72-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://www.ignaciomellado.es/img/apple-touch-icon-114x114-precomposed.png">
+<link href="./Measuring heart rate with a smartphone camera - uavster_files/css" rel="stylesheet" type="text/css">
+<script type="text/javascript" async="" src="./Measuring heart rate with a smartphone camera - uavster_files/ga.js.download"></script><script type="text/javascript" src="./Measuring heart rate with a smartphone camera - uavster_files/class.js.download"></script>
+<script type="text/javascript" src="./Measuring heart rate with a smartphone camera - uavster_files/utils.js.download"></script>
+<script type="text/javascript" src="./Measuring heart rate with a smartphone camera - uavster_files/graphics.js.download"></script>
+<script type="text/javascript" src="./Measuring heart rate with a smartphone camera - uavster_files/animator.js.download"></script>
+<script type="text/javascript" src="./Measuring heart rate with a smartphone camera - uavster_files/Project.js.download"></script>
+<script type="text/javascript" src="./Measuring heart rate with a smartphone camera - uavster_files/Blog.js.download"></script>
+<link type="text/css" rel="stylesheet" href="./Measuring heart rate with a smartphone camera - uavster_files/Blog.css">
+
+
+
+<script type="text/javascript" src="./Measuring heart rate with a smartphone camera - uavster_files/TwitterPanel.js.download"></script>
+<link type="text/css" rel="stylesheet" href="./Measuring heart rate with a smartphone camera - uavster_files/TwitterPanel.css">
+<script type="text/javascript" src="./Measuring heart rate with a smartphone camera - uavster_files/ajax.js.download"></script>
+<script type="text/javascript" src="./Measuring heart rate with a smartphone camera - uavster_files/form_data.js.download"></script>
+<script type="text/javascript">
+(new Ajax()).requestAsync('http://www.ignaciomellado.es/!!blog/Measuring-heart-rate-with-a-smartphone-camera/twitterPanel', function(response, ajax) { return tweetsAvailable(ajax.xmlToArray(response), ajax) });
+</script>
+<link type="text/css" rel="stylesheet" href="./Measuring heart rate with a smartphone camera - uavster_files/BlogHighlights.css">
+<link type="text/css" rel="stylesheet" href="./Measuring heart rate with a smartphone camera - uavster_files/ProjectHighlights.css">
+<script type="text/javascript" async="" src="./Measuring heart rate with a smartphone camera - uavster_files/embed.js.download"></script><script async="" type="text/javascript" src="./Measuring heart rate with a smartphone camera - uavster_files/count.js.download"></script><script src="./Measuring heart rate with a smartphone camera - uavster_files/count-data.js.download"></script><link rel="preload" as="style" href="https://c.disquscdn.com/next/embed/styles/lounge.04dd90af7bc65bdd97911fd885cc83a9.css"><link rel="preload" as="script" href="https://c.disquscdn.com/next/embed/common.bundle.4d4c2bb66cc9fcd5a16c7ff1c1fbbe79.js"><link rel="preload" as="script" href="https://c.disquscdn.com/next/embed/lounge.bundle.fef702bed571136dc98b1dd41e1b906f.js"><link rel="preload" as="script" href="https://disqus.com/next/config.js"><script src="./Measuring heart rate with a smartphone camera - uavster_files/alfie.f51946af45e0b561c60f768335c9eb79.js.download" async="" charset="UTF-8"></script></head>
+<body>
+<div id="header">
+	<div id="header-bg"></div>
+	<div id="header-sh"><div id="menu"><a class="upperMenuLink" href="http://www.ignaciomellado.es/projects"><span id="upperMenu-projects"></span></a><span class="upperMenuSpacer">&nbsp;</span>
+<a class="upperMenuLink" href="http://www.ignaciomellado.es/blog"><span id="upperMenu-blog"></span></a><span class="upperMenuSpacer">&nbsp;</span>
+<a class="upperMenuLink" href="http://www.ignaciomellado.es/publications"><span id="upperMenu-publications"></span></a><span class="upperMenuSpacer">&nbsp;</span>
+<a class="upperMenuLink" href="http://www.ignaciomellado.es/aboutme"><span id="upperMenu-about"></span></a><span class="upperMenuSpacer">&nbsp;</span>
+<a class="upperMenuLink" href="http://www.ignaciomellado.es/contact"><span id="upperMenu-contact"></span></a><span class="upperMenuSpacer">&nbsp;</span>
+</div><div id="user-manager"></div></div>
+	<div id="networks"><a href="http://www.linkedin.com/in/ignaciomellado"><img class="networks-icon" src="./Measuring heart rate with a smartphone camera - uavster_files/linkedin.png" alt="Connect with me on LinkedIn" title="Connect with me on LinkedIn"></a><span class="networks-spacer">&nbsp;</span><a href="https://twitter.com/uavster"><img class="networks-icon" src="./Measuring heart rate with a smartphone camera - uavster_files/twitter.png" alt="Follow me on Twitter" title="Follow me on Twitter"></a><span class="networks-spacer">&nbsp;</span><a href="https://plus.google.com/110217810596678488242/posts"><img class="networks-icon" src="./Measuring heart rate with a smartphone camera - uavster_files/googleplus.png" width="20" height="20" alt="Follow me on Google+" title="Follow me on Google+"></a><span class="networks-spacer">&nbsp;</span><a href="https://github.com/uavster"><img class="networks-icon" src="./Measuring heart rate with a smartphone camera - uavster_files/github.png" width="20" height="20" alt="Check my open-source projects on GitHub" title="Check my open-source projects on GitHub"></a><span class="networks-spacer">&nbsp;</span><a href="http://pinterest.com/uavster"><img class="networks-icon" src="./Measuring heart rate with a smartphone camera - uavster_files/pinterest.png" width="20" height="20" alt="Follow me on Pinterest" title="Follow me on Pinterest"></a>
+</div>
+	<div id="robot"></div>
+	<a href="http://www.ignaciomellado.es/"><div id="logo"></div></a>
+</div>
+<div id="body">
+	<div id="content"><div id="robot-mask"></div><div>
+<h1 id="post-title">Measuring heart rate with a smartphone camera</h1>
+
+
+<div class="share-buttons" id="sb_top">
+<span>Share this page: </span>
+<a href="http://twitter.com/share?url=http://www.ignaciomellado.es/blog/Measuring-heart-rate-with-a-smartphone-camera&amp;text=Measuring+heart+rate+with+a+smartphone+camera" target="_blank"><img src="./Measuring heart rate with a smartphone camera - uavster_files/twitter(1).png" alt="Share on Twitter" title="Share on Twitter"></a>
+<a href="http://www.facebook.com/sharer.php?u=http://www.ignaciomellado.es/blog/Measuring-heart-rate-with-a-smartphone-camera&amp;t=Measuring+heart+rate+with+a+smartphone+camera" target="_blank"><img src="./Measuring heart rate with a smartphone camera - uavster_files/facebook.png" alt="Share on Facebook" title="Share on Facebook"></a>
+<a href="https://plus.google.com/share?url=http://www.ignaciomellado.es/blog/Measuring-heart-rate-with-a-smartphone-camera" target="_blank"><img src="./Measuring heart rate with a smartphone camera - uavster_files/google.png" alt="Share on Google+" title="Share on Google+"></a>
+<a href="http://www.linkedin.com/shareArticle?mini=true&amp;url=http://www.ignaciomellado.es/blog/Measuring-heart-rate-with-a-smartphone-camera&amp;title=Measuring+heart+rate+with+a+smartphone+camera&amp;summary=There+are+some+apps+out+there+that+can+read+your+heart+rate+with+a+smartphone+camera.+No+need+for+external+pulsometers.+The+procedure+is+simple%3A+you+press+the+smartphone+camera+lens+gently+with+your+finger+%5B...%5D%0AIt+is+time+to+open+your+photo+app+and+observe+what+happens+when+you+cover+the+camera+with+your+finger.+The+frame+is+not+black+but+slightly+red.+The+ambient+light+is+traveling+through+your+finger+tissues+%5B...%5D%0AThe+experiments+in+this+post+were+done+offline.+I+recorded+the+videos+with+an+iPhone+4S+and+copied+them+to+my+laptop.+Then%2C+I+processed+them+with+Matlab.+The+full+code+is+available+here+%5B...%5D%0A" target="_blank"><img src="./Measuring heart rate with a smartphone camera - uavster_files/linkedin(1).png" alt="Share on LinkedIn" title="Share on LinkedIn"></a>
+<a href="http://www.digg.com/submit?url=http://www.ignaciomellado.es/blog/Measuring-heart-rate-with-a-smartphone-camera" target="_blank"><img src="./Measuring heart rate with a smartphone camera - uavster_files/diggit.png" alt="Share on Digg" title="Share on Digg"></a>
+<a href="http://reddit.com/submit?url=http://www.ignaciomellado.es/blog/Measuring-heart-rate-with-a-smartphone-camera&amp;title=Measuring+heart+rate+with+a+smartphone+camera" target="_blank"><img src="./Measuring heart rate with a smartphone camera - uavster_files/reddit.png" alt="Share on Reddit" title="Share on Reddit"></a>
+<a href="http://www.stumbleupon.com/submit?url=http://www.ignaciomellado.es/blog/Measuring-heart-rate-with-a-smartphone-camera&amp;title=Measuring+heart+rate+with+a+smartphone+camera" target="_blank"><img src="./Measuring heart rate with a smartphone camera - uavster_files/stumbleupon.png" alt="Share on StumbleUpon" title="Share on StumbleUpon"></a>
+<a href="javascript:void((function()%7Bvar%20e=document.createElement(&#39;script&#39;);e.setAttribute(&#39;type&#39;,&#39;text/javascript&#39;);e.setAttribute(&#39;charset&#39;,&#39;UTF-8&#39;);e.setAttribute(&#39;src&#39;,&#39;http://assets.pinterest.com/js/pinmarklet.js?r=&#39;+Math.random()*99999999);document.body.appendChild(e)%7D)());"><img src="./Measuring heart rate with a smartphone camera - uavster_files/pinterest(1).png" alt="Share on Pinterest" title="Share on Pinterest"></a>
+<a href="mailto:?Subject=Measuring%20heart%20rate%20with%20a%20smartphone%20camera&amp;Body=I%20saw%20this%20and%20thought%20that%20it%20could%20be%20interesting%20to%20you:%20%20http://www.ignaciomellado.es/blog/Measuring-heart-rate-with-a-smartphone-camera"><img src="./Measuring heart rate with a smartphone camera - uavster_files/email.png" alt="Share on Twitter" title="Share by email"></a>
+</div>
+
+
+<div class="post-header">
+	<info>
+		<status>Posted on Sep 10 2013<div class="post-num-comments"><a href="http://www.ignaciomellado.es/blog/Measuring-heart-rate-with-a-smartphone-camera#disqus_thread" data-disqus-identifier="blog/Measuring-heart-rate-with-a-smartphone-camera">44 Comments</a></div></status>
+		<div class="related">See related: <a href="http://www.ignaciomellado.es/blog/Measuring-heart-rate-with-a-smartphone-camera#related-code">Code</a> / <a href="http://www.ignaciomellado.es/blog/Measuring-heart-rate-with-a-smartphone-camera#related-posts">Blog posts</a> / <a href="http://www.ignaciomellado.es/blog/Measuring-heart-rate-with-a-smartphone-camera#related-projects">Projects</a></div>
+	</info>
+</div>
+<div id="post-description">
+<p><img alt="" src="./Measuring heart rate with a smartphone camera - uavster_files/hr-monitor-smartphone.jpg" style="float:right; height:331px; margin-left:30px; width:280px">There are some apps out there that can read your heart rate with a smartphone camera. No need for external pulsometers. The procedure is simple: you press the smartphone camera lens gently with your finger and, after some seconds, a reading is shown. I was wondering how these apps were doing their magic and did some experiments to get a similar system working. In this post, a basic signal processing pipeline is discussed to estimate the heart rate evolution over time from a video sequence of a fingertip touching the camera lens. Continue reading to learn more or <a href="http://www.ignaciomellado.es/blog/Measuring-heart-rate-with-a-smartphone-camera#video">watch directly a quick video</a> with the result.</p>
+
+<p>It is time to open your photo app and observe what happens when you cover the camera with your finger. The frame is not black but slightly red. The ambient light is traveling through your finger tissues and is reaching the camera sensor. Despite the image looks like an almost static red frame (Fig. 2), the periodic oscillations of the blood flow in the vessels produce weak brightness variations that are undetectable for the naked eye, but can be discovered with signal processing.</p>
+
+<p>The experiments in this post were done offline. I recorded the videos with an iPhone 4S and copied them to my laptop. Then, I processed them with Matlab. The full code is available <a href="https://github.com/uavster/Video2HeartRate">here</a>. Matlab has a very complete signal processing toolbox that makes life easier. However, you can use GNU Octave, too, and the code should be easy to port.</p>
+
+<h2>Heart beat monitor</h2>
+
+<p>Let's start our quest for the lost signal with a proposal for a simple processing pipeline in Fig. 1.</p>
+
+<p style="text-align:center"><img alt="" src="./Measuring heart rate with a smartphone camera - uavster_files/heart-rate-monitor.png" style="height:131px; width:740px"><br>
+<small>Fig. 1: Simple processing pipeline to extract the heart rate over time from a video sequence of the fingertip skin</small></p>
+
+<h3>1. Video signal acquisition</h3>
+
+<table border="0" cellpadding="0" cellspacing="0" style="float:right; height:50px; margin-left:30px; width:150px">
+	<tbody>
+		<tr>
+			<td style="text-align:center"><img alt="" src="./Measuring heart rate with a smartphone camera - uavster_files/hr-monitor-recordvideo.jpg" style="height:375px; width:284px"></td>
+		</tr>
+		<tr>
+			<td><small>Fig. 2: When the camera is covered with a finger, the naked eye sees a static red frame, but there are subtle variations caused by the blood flow under the skin that can be recovered processing the video signal.</small></td>
+		</tr>
+	</tbody>
+</table>
+
+<p>The first thing to take into account when it comes to sampling a signal is bandwidth. The normal <a href="http://en.wikipedia.org/wiki/Heart_rate" target="_blank">human heartbeat</a> is between 60 and 200 beats per minute (bpm), depending on age, fitness condition and the physical activity that the subject is doing. In my experiments, I have generously assumed that the target signal can be found between 40 and 230 bpm, i.e. 0.667 and 3.833 Hz. According to <a href="http://en.wikipedia.org/wiki/Nyquist%E2%80%93Shannon_sampling_theorem" target="_blank">Nyquist</a>, the sampling frequency should be at least twice the highest value (7.667 Hz) to catch the whole range of heartbeat frequencies without aliasing. With the iPhone 4S camera, the videos are recorded at 24 or 30 frames per second depending on the shot, which is more than 3 times the minimum.</p>
+
+<h3>2. Brightness signal computation</h3>
+
+<p>The signal we want to process is the brightness of the skin over time. We cannot ensure that all pixels in the image will contain the brightness variation that we are looking for and we want the rest of the processing pipeline to stay computationally light. Therefore, I chose to combine all pixels into a single average brightness value per frame. On the other hand, as I am thinking about implementing the algorithm in real time, I have skipped the common image brightness computation —combining the red, green and blue planes— in favor of a simple average of all the pixels in the red plane. This is computationally much cheaper and gives very similar results because almost all the image energy is in the red plane. So, the <em>n</em>-th sample of the red brightness function can be expressed as:</p>
+
+<table border="0" cellpadding="0" cellspacing="0" style="margin-bottom:0px; margin-left:80px">
+	<tbody>
+		<tr>
+			<td style="text-align:right"><em>b </em>[<em>n</em>]<em>&nbsp; </em></td>
+			<td style="text-align:center; width:10px">&nbsp;=&nbsp;</td>
+			<td>
+			<table border="0" cellpadding="0" cellspacing="0">
+				<tbody>
+					<tr>
+						<td>
+						<table border="0" cellpadding="0" cellspacing="0">
+							<tbody>
+								<tr>
+									<td style="text-align:center">1</td>
+								</tr>
+								<tr>
+									<td style="text-align:center">
+									<table border="0" cellpadding="0" cellspacing="0" style="border-top:1px solid #444; height:100%; width:100%">
+										<tbody>
+											<tr>
+												<td style="text-align:center"><em>W </em>·<em>H</em></td>
+											</tr>
+										</tbody>
+									</table>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+						</td>
+						<td>&nbsp;</td>
+						<td>
+						<table border="0" cellpadding="0" cellspacing="0">
+							<tbody>
+								<tr>
+									<td>
+									<table border="0" cellpadding="0" cellspacing="0">
+										<tbody>
+											<tr>
+												<td style="text-align:center; vertical-align:bottom"><em><span style="font-size:10px">H</span></em></td>
+											</tr>
+											<tr>
+												<td style="text-align:center">
+												<table border="0" cellpadding="0" cellspacing="0" style="background-image:url(&#39;../img/math/summation.gif&#39;); height:24px; width:22px">
+													<tbody>
+														<tr>
+															<td>&nbsp;</td>
+														</tr>
+													</tbody>
+												</table>
+												</td>
+											</tr>
+											<tr>
+												<td style="text-align:center; vertical-align:top"><em><span style="font-size:10px">x</span></em></td>
+											</tr>
+										</tbody>
+									</table>
+									</td>
+									<td>
+									<table border="0" cellpadding="0" cellspacing="0">
+										<tbody>
+											<tr>
+												<td style="text-align:center; vertical-align:bottom"><em><span style="font-size:10px">W</span></em></td>
+											</tr>
+											<tr>
+												<td style="text-align:center">
+												<table border="0" cellpadding="0" cellspacing="0" style="background-image:url(&#39;../img/math/summation.gif&#39;); height:24px; width:22px">
+													<tbody>
+														<tr>
+															<td>&nbsp;</td>
+														</tr>
+													</tbody>
+												</table>
+												</td>
+											</tr>
+											<tr>
+												<td style="text-align:center; vertical-align:top"><em><span style="font-size:10px">y</span></em></td>
+											</tr>
+										</tbody>
+									</table>
+									</td>
+									<td><em>&nbsp;v</em> [<em>n</em>, <em>x</em>,<em> y</em>,<em> </em>1]</td>
+								</tr>
+							</tbody>
+						</table>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+<p style="margin-left:80px; text-align:left"><small>Where:<br>
+<em>W</em> : width of the image in pixels<br>
+<em>H</em> : height of the image in pixels<br>
+<em>v </em>[<em>n</em>, <em>x</em>,<em> y</em>,<em> </em>1] : light level of the red plane (index 1) at [<em>x</em>, <em>y</em>] coordinates of frame <em>n</em> in the video signal</small></p>
+
+<p>In Matlab code, the red brightness signal can be computed with the following code snippet:</p>
+
+<p><code>video = VideoReader('path to your video file here');<br>
+brightness = zeros(1, video.NumberOfFrames);<br>
+<span style="color:#0000FF">for</span> i = 1:video.NumberOfFrames,<br>
+&nbsp;&nbsp;&nbsp; frame = read(video, i);<br>
+&nbsp;&nbsp;&nbsp; redPlane = frame(:, :, 1);<br>
+&nbsp;&nbsp;&nbsp; brightness(i) = sum(sum(redPlane)) / (size(frame, 1) * size(frame, 2));<br>
+<span style="color:#0000FF">end</span></code></p>
+
+<p>As the image size is constant over time and we are only interested in the shape of the signal, not in its amplitude, we could even omit the division by the total number of pixels. I am leaving it like that because it will later help visualizing the different spectrum peaks.</p>
+
+<h3>3. Band-pass filtering</h3>
+
+<p>After the signal acquisition, a band-pass filter attenuates frequencies outside the interest band. This reduces the noise in later processing steps (peak fine-tuning) and makes the resulting heart rate signal smoother. For our case, a second-order Butterworth filter is designed. The cutoff frequencies have been set to contain our band of interest: 40-230 bpm (Fig. 3). The Matlab code to design and apply the filter is:</p>
+
+<p style="text-align:left"><code>BPM_L = 40;&nbsp;&nbsp;&nbsp; <span style="color:#008000">% Heart rate lower limit [bpm]</span><br>
+BPM_H = 230;&nbsp;&nbsp; <span style="color:#008000">% Heart rate higher limit [bpm]</span><br>
+FILTER_STABILIZATION_TIME = 1;&nbsp;&nbsp;&nbsp; <span style="color:#008000">% [seconds]</span><br>
+<span style="color:#008000">% Butterworth frequencies must be in [0, 1], where 1 corresponds to half the sampling rate</span><br>
+[b, a] = butter(2, [((BPM_L / 60) / v.FrameRate * 2), ((BPM_H / 60) / v.FrameRate * 2)]);<br>
+filtBrightness = filter(b, a, brightness);<br>
+<span style="color:#008000">% Cut the initial stabilization time</span><br>
+filtBrightness = filtBrightness((v.FrameRate * FILTER_STABILIZATION_TIME + 1):size(filtBrightness, 2));</code></p>
+
+<p>Notice how an initial piece of 1 seconds is cut off the filtered signal. It is an approximation of the time it takes for the filter to completely remove the constant signal offset (Fig. 3). If this initial piece is not removed, we might get bad readings of the heart beat during the signal stabilization time.</p>
+
+<p style="text-align:center"><img alt="" src="./Measuring heart rate with a smartphone camera - uavster_files/filter_bode.png" style="height:314px; margin-right:20px; width:400px"><img alt="" src="./Measuring heart rate with a smartphone camera - uavster_files/signal_vs_filtered_.png" style="height:314px; width:400px"><br>
+<small>Fig. 3: On the left, the filter frequency response. On the right, original signal (blue) vs filtered signal (green). Notice the transient during the first second.</small></p>
+
+<p>Other filter types can be tested. I chose Butterworth because:</p>
+
+<ul>
+	<li>It is an IIR filter and the order required for a given bandwidth is much lower than with a FIR filter. Lower order usually means less computations.</li>
+	<li>It has flat pass-band and stop-bands compared to other IIR structures that show ripples. This avoids favoring certain frequencies over others in the valid range.</li>
+</ul>
+
+<h3>4. Fast Fourier Transform</h3>
+
+<p>The <a href="http://en.wikipedia.org/wiki/Discrete_Fourier_transform" target="_blank">Discrete Fourier Transform</a> (DFT) is used to translate the signal from the time domain to the frequency domain. The <a href="http://en.wikipedia.org/wiki/Fast_Fourier_transform" target="_blank">Fast Fourier Transform</a> (FFT) algorithm was used to save processing time when computing the DFT. While the computational complexity of the DFT is O(<em>N</em><sup>2</sup>) for a set of <em>N</em> points, the FFT gets the same results with O(<em>N · </em>log<sub>2</sub>(<em>N</em>)), which means a huge speed-up when <em>N</em> is high.</p>
+
+<p>There is a special command to compute the FFT in Matlab. The FFT of a real signal is a complex signal in which each complex sample represents the magnitude and the phase of the corresponding frequency. In our case, the phase is not needed. The FFT magnitude is easily computed in Matlab:</p>
+
+<p><code>fftMagnitude = abs(fft(signal));</code><br>
+<span style="color:#808080"><em>Sliding window</em></span></p>
+
+<p>In order to give a continuous estimation of the heart rate, the FFT and the following two steps (peak detection and smoothing) are repeated every 0.5 seconds. This computation is always performed over a window containing the last 6 seconds of signal samples. Virtually, the window moves over the signal and this is why it is called "sliding" or "moving" window.</p>
+
+<p>The 6-second length is not arbitrary. The window length directly affects frequency resolution and, thus, the accuracy of our estimation. The FFT of a signal sampled <em>N</em> times at a sampling frequency <em>F<sub>s</sub></em> is <em>N</em> bins long. All the bins together cover a bandwidth of <em>F<sub>s</sub></em>. So, the frequency difference between two consecutive bins is <em>F<sub>s</sub></em> / <em>N</em>. This is the frequency resolution (<em>F<sub>r</sub></em>). As the sampling frequency can be written as the number of window samples divided by the total time it took to sample them (the window time duration), we can say that:</p>
+
+<table align="center" cellpadding="0" cellspacing="0" style="margin-bottom:-2em; margin-left:80px; margin-top:-1em">
+	<tbody>
+		<tr>
+			<td><em>F<sub>r</sub></em></td>
+			<td>&nbsp;=&nbsp;</td>
+			<td>
+			<table border="0" cellpadding="0" cellspacing="0" style="width:100%">
+				<tbody>
+					<tr>
+						<td style="text-align:center"><em>F<sub>s</sub></em></td>
+					</tr>
+					<tr>
+						<td>
+						<table align="center" border="0" cellpadding="0" cellspacing="0" style="border-top:1px solid rgb(68, 68, 68)">
+							<tbody>
+								<tr>
+									<td><em>N</em></td>
+								</tr>
+							</tbody>
+						</table>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			</td>
+			<td>&nbsp;=</td>
+			<td>
+			<table align="center" border="0" cellpadding="0" cellspacing="0" style="height:6em; margin-bottom:2em; padding-left:10%; padding-right:10%; width:100%">
+				<tbody>
+					<tr>
+						<td style="text-align:center; vertical-align:bottom">
+						<table border="0" cellpadding="0" cellspacing="0" style="border-bottom:1px solid rgb(68, 68, 68); padding-left:10%; padding-right:10%; width:100%">
+							<tbody>
+								<tr>
+									<td style="text-align:center"><em>N</em></td>
+								</tr>
+								<tr>
+									<td>
+									<table border="0" cellpadding="0" cellspacing="0" style="border-top:1px solid rgb(68, 68, 68); width:100%">
+										<tbody>
+											<tr>
+												<td style="text-align:center"><em>T<sub>w</sub></em></td>
+											</tr>
+										</tbody>
+									</table>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+						</td>
+					</tr>
+					<tr>
+						<td style="text-align:center; vertical-align:top"><em>N</em></td>
+					</tr>
+				</tbody>
+			</table>
+			</td>
+			<td>=&nbsp;</td>
+			<td>
+			<table border="0" cellpadding="0" cellspacing="0" style="width:100%">
+				<tbody>
+					<tr>
+						<td style="text-align:center">1</td>
+					</tr>
+					<tr>
+						<td>
+						<table align="center" border="0" cellpadding="0" cellspacing="0" style="border-top:1px solid rgb(68, 68, 68)">
+							<tbody>
+								<tr>
+									<td><em>T<sub>w</sub></em></td>
+								</tr>
+							</tbody>
+						</table>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+<p style="margin-left:80px; text-align:left"><small>Where:<br>
+<em>F<sub>r</sub></em> : frequency resolution<br>
+<em>F<sub>s</sub></em>: sampling frequency<br>
+<em>N</em> : number of window samples<br>
+<em>T<sub>w&nbsp; </sub></em>: window time duration</small></p>
+
+<p>Therefore, the higher the window duration, the better the frequency resolution. The accuracy will be better, too, as it is half the resolution in this case.</p>
+
+<p>However, increasing the window duration decreases the time accuracy. Think about the trivial case in which the whole signal length is picked as the window length. If a peak is detected in the FFT, it is impossible to tell when that tone started within the signal or how long it lasted. Whatever number we give will be a maximum of a window length away from the real value. Another problem of a long window is that it will force the user to wait for an equally long period to get a first reading after starting up the measurements.</p>
+
+<p>In summary, with a 6-second window, we get a tolerable 6-second startup delay that gives a fair time accuracy of 6 seconds and a fair frequency accuracy of 5 bpm (half the FFT resolution). All in all, it looks like a good trade-off.</p>
+
+<p>Why do we move the window in 0.5-second steps? Computing an estimate every 0.5 seconds does not improve the time accuracy of the output, but it increases the time resolution of the reading. It produces more heart rate output samples per second that will be later smoothed to provide a more continuous and frequent reading. With this, we are incrementing the time resolution of the reading but not its accuracy, which stays limited by the time resolution of the FFT.</p>
+
+<p><span style="color:#808080"><em>Leakage reduction</em></span></p>
+
+<table border="0" cellpadding="0" cellspacing="0" style="float:right; margin-left:30px; width:343px">
+	<tbody>
+		<tr>
+			<td><img alt="" src="./Measuring heart rate with a smartphone camera - uavster_files/hanning.png" style="float:right; height:272px; width:343px"></td>
+		</tr>
+		<tr>
+			<td><small>Fig. 4: Hann window for the 6-second sliding window</small></td>
+		</tr>
+	</tbody>
+</table>
+
+<p>The DFT works ideally with infinite-time signals. A time-limited signal of length N is equivalent to multiplying its infinite-time counterpart by a rectangular signal of length N and amplitude 1. Frequency-wise, this results in convolving the infinite-time signal spectrum by the rectangular signal spectrum, producing <a href="http://en.wikipedia.org/wiki/Spectral_leakage" target="_blank">leakage</a>.</p>
+
+<p>In order to reduce leakage, before computing the DFT, the input signal is multiplied by a function whose boundaries are zero. This forces the resulting boundary values to zero. The multiplying function is usually called "window". It must not be confused with the sliding window that we have talked about in the previous section. There are many window functions in the literature, each having their own virtues and disadvantages. I have particularly chosen the Hann window because it offers good resolution and good leakage rejection. Feel free to try others. There is a good comparative analysis of different window functions <a href="http://www.physik.uni-wuerzburg.de/~praktiku/Anleitung/Fremde/ANO14.pdf" target="_blank">here</a>.</p>
+
+<p>In Matlab, the FFT magnitude for the sliding window with the Hann window can be computed with the following code. The result generated by the <em>hann</em> function is transposed because it is a column vector, while our signal is a row vector:</p>
+
+<p><code>hannWindow = hann(size(slidingWindow, 2));<br>
+fftMagnitude = abs(fft(slidingWindow .* hannWindow'));</code></p>
+
+<h3>5. Peak detection</h3>
+
+<p>Once the FFT is computed for the current sliding window contents, magnitude peaks in the interest band are spotted thanks to the <em>findpeaks</em> function in Matlab. A sample is taken as a peak if it is either larger than its two neighbors or equal to infinity. Among the resulting peaks, the highest peak position is sought with the <em>max</em> function. Finally, it is translated to the corresponding frequency in the FFT vector:</p>
+
+<p><code><span style="color:#008000">% Translate the frequency range of interest to indices within the FFT vector</span><br>
+rangeOfInterest = ((BPM_L:BPM_H) / 60) * (size(fftMagnitude, 2) / samplingFrequency) + 1;<br>
+<span style="color:#008000">% Find peaks in the range of interest</span><br>
+[peaksValues, peakIndices] = findpeaks(fftMagnitude(rangeOfInterest));<br>
+<span style="color:#008000">% Find the highest peak</span><br>
+[maxPeakValue, maxPeakIndex] = max(peaksValues);<br>
+<span style="color:#008000">% Translate the peak index to an FFT vector index</span><br>
+bpmFreqIndex = rangeOfInterest(peakIndices(maxPeakIndex));<br>
+<span style="color:#008000">% Get the frequency in bpm that corresponds to the highest peak</span><br>
+bpmPeak = (bpmFreqIndex - 1) * (samplingFrequency / size(fftMagnitude, 2)) * 60;</code></p>
+
+<h3>6. Smoothing</h3>
+
+<p>At this stage, an approximate location for the most powerful tone in the frequency band has been found, but the possible outcomes are a discrete set in 10 bpm increments because of the frequency resolution produced by the 6-second window. We would like that the heart rate readings look more continuous, with 1 bpm frequency resolution instead. To achieve this, the signal window is correlated with a series of tones in phase and quadrature around the FFT peak in 1 bpm increments. The tones lie in the uncertainty interval around the peak caused by the FFT frequency resolution. The result of each signal-tone correlation is a complex number representing a phase-magnitude pair. The frequency that corresponds to the highest magnitude is taken as the smoothed heart rate:</p>
+
+<table border="0" cellpadding="0" cellspacing="0" style="height:8em; margin-left:80px; margin-top:-1em; min-width:35em">
+	<tbody>
+		<tr>
+			<td style="text-align:right"><em>c<sub>k</sub></em> =&nbsp;</td>
+			<td>
+			<table border="0" cellpadding="0" cellspacing="0" style="margin-top:10px; width:100%">
+				<tbody>
+					<tr>
+						<td style="text-align:center"><small><em>N</em>-1</small></td>
+					</tr>
+					<tr>
+						<td style="text-align:center; vertical-align:bottom"><img alt="" src="./Measuring heart rate with a smartphone camera - uavster_files/summation.gif" style="height:24px; width:22px"></td>
+					</tr>
+					<tr>
+						<td style="text-align:center; vertical-align:top"><small><em>n</em>=0</small></td>
+					</tr>
+				</tbody>
+			</table>
+			</td>
+			<td><em>&nbsp;b<sub>n</sub><sub> </sub>e</em><sup><em> j</em> 2<em>π n</em> ( <em>f<sub>p</sub></em> - 0.5<em> F<sub>r</sub></em> + <em>k</em> <em>F</em><sub><em>r</em></sub>') / <em>F<sub>s</sub></em></sup></td>
+			<td>
+			<table border="0" cellpadding="0" cellspacing="0" style="height:60px; margin-top:4px; width:100%">
+				<tbody>
+					<tr>
+						<td style="text-align:right"><em>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </em><strong>U</strong> = { 0, ...,&nbsp;</td>
+						<td style="vertical-align:middle">
+						<table border="0" cellpadding="0" cellspacing="0" style="border-bottom:1px solid rgb(68, 68, 68); border-left:1px solid rgb(68, 68, 68); border-top:1px solid rgb(68, 68, 68); height:3em">
+							<tbody>
+								<tr>
+									<td>&nbsp;</td>
+								</tr>
+							</tbody>
+						</table>
+						</td>
+						<td>
+						<table border="0" cellpadding="0" cellspacing="0" style="width:100%">
+							<tbody>
+								<tr>
+									<td style="text-align:center"><em>F<sub>r</sub></em></td>
+								</tr>
+								<tr>
+									<td style="text-align:center">
+									<table border="0" cellpadding="0" cellspacing="0" style="border-top:1px solid rgb(68, 68, 68); width:100%">
+										<tbody>
+											<tr>
+												<td style="text-align:center"><em>F<sub>r</sub></em>'</td>
+											</tr>
+										</tbody>
+									</table>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+						</td>
+						<td>
+						<table border="0" cellpadding="0" cellspacing="0" style="border-bottom:1px solid rgb(68, 68, 68); border-right:1px solid rgb(68, 68, 68); border-top:1px solid rgb(68, 68, 68); height:3em">
+							<tbody>
+								<tr>
+									<td>&nbsp;</td>
+								</tr>
+							</tbody>
+						</table>
+						</td>
+						<td>&nbsp;} , <em>k</em><span style="font-size:123%"><span style="font-family:mathjax_main; font-size:70.7%"> ∈ </span></span><strong>U</strong></td>
+					</tr>
+				</tbody>
+			</table>
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+<table border="0" cellpadding="0" cellspacing="0" style="margin-left:80px; margin-top:-2.5em; min-width:15em">
+	<tbody>
+		<tr>
+			<td>HR = <em>f<sub>p</sub></em> - 0.5<em> F<sub>r</sub></em> + <em>F</em><sub><em>r</em></sub>'&nbsp;</td>
+			<td>
+			<table border="0" cellpadding="0" cellspacing="0" style="width:100%">
+				<tbody>
+					<tr>
+						<td style="text-align:center">arg max</td>
+					</tr>
+					<tr>
+						<td style="text-align:center; vertical-align:top"><small><em>k</em><span style="font-size:123%"><span style="font-family:mathjax_main; font-size:70.7%"> ∈ </span></span><strong>U</strong></small></td>
+					</tr>
+				</tbody>
+			</table>
+			</td>
+			<td>&nbsp;|<em>c<sub>k</sub><sub> </sub></em>|</td>
+		</tr>
+	</tbody>
+</table>
+
+<p style="margin-left:80px; text-align:left"><small>Where:<br>
+HR : Smoothed heart rate<br>
+b<sub>k</sub>&nbsp;: <em>k</em>-th sample of brightness signal<br>
+<em>N</em> : Window length in samples<br>
+<em>f<sub>p</sub></em>&nbsp;: FFT peak frequency<br>
+<em>F<sub>r</sub></em> : FFT frequency resolution<br>
+<em>F<sub>r</sub></em>' : Smoothing frequency resolution</small></p>
+
+<p style="text-align:center"><img alt="" src="./Measuring heart rate with a smartphone camera - uavster_files/smoothing.png" style="height:247px; width:479px"><br>
+<small>Fig. 5: Smoothing of an FFT peak. The DFT is computed on a zero-padded version of the signal in the window, but only within a range of FFT frequencies around the highest peak. The resulting DFT amplitudes form the red curve above the FFT, in blue. The frequency with the highest DFT amplitude, which is marked with the black square,&nbsp; is chosen as the current smoothed heart rate.</small></p>
+
+<p>At first, I came up with this method intuitively, thinking of the correlation as a measure of similarity. My goal was to find the tone most similar to the signal in a frequency range around the FFT peak, regardless of the phase, by measuring the similarity (correlation) between the signal and a series of reference complex tones. In fact, it is what the FFT does, but using only orthonormal tones, whose period is an integer number of samples. Since the FFT frequencies are orthonormal, they constitute a base in which all signals can be expressed by linear combination. Correlating against other intermediate frequencies does not give more information because they themselves are formed by linearly combining the orthonormal ones. This is the reason why the result of this method is just smoothed FFT data, instead of higher accuracy extra information. Later, I realized that this method is equivalent to computing the FFT on a zero-padded version of the signal, which is a commonly used technique to smooth the FFT data, and picking only a frequency range. If the original 6-second signal in the window is zero-padded up to 60 seconds, the tone frequencies used in this method are found among the orthonormal frequencies of the 60-second FFT. Then, the method is equivalent to applying the DFT definition on the zero-padded window for certain frequencies only.</p>
+
+<p>The advantage of this "zero-padding partial DFT" over the "zero-padding FFT" is speed. The FFT computes the result as a whole and cannot be divided to get subresults in a continuous frequency range; therefore, its complexity stays at O(<em>N<sub>z</sub></em> · log<sub>2</sub>(<em>N<sub>z</sub></em>)), where <em>N<sub>z</sub></em> is the length of the zero-padded window. On the other hand, the complexity of the proposed method is O(<em>S</em> · <em>N</em>), where <em>N</em> is the window length and <em>S</em> is the number of test tones. So, the complexity reduction factor (<em>CRF</em>) is:</p>
+
+<table border="0" cellpadding="0" cellspacing="0" style="margin-left:80px">
+	<tbody>
+		<tr>
+			<td><em>S</em> = <em>F<sub>r</sub></em> / <em>F<sub>r</sub>'</em><br>
+			<em>F<sub>r</sub>'</em> = <em>F<sub>s</sub></em> / <em>N<sub>z</sub></em>&nbsp;&nbsp;<br>
+			<em>F<sub>r</sub></em> = <em>F<sub>s</sub></em> / <em>N</em></td>
+			<td>
+			<table border="0" cellpadding="0" cellspacing="0" style="-moz-border-bottom-colors:none; -moz-border-left-colors:none; -moz-border-right-colors:none; -moz-border-top-colors:none; border-color:rgb(68, 68, 68) rgb(68, 68, 68) rgb(68, 68, 68) -moz-use-text-color; border-image:none; border-style:solid solid solid none; border-width:1px 1px 1px medium; height:5em">
+				<tbody>
+					<tr>
+						<td>&nbsp;</td>
+					</tr>
+				</tbody>
+			</table>
+			</td>
+			<td><big>⇒</big> <em>S</em> = <em>N<sub>z</sub></em> / <em>N</em> <big>⇒</big> <em>S</em> · <em>N</em> = <em>N<sub>z</sub></em></td>
+		</tr>
+	</tbody>
+</table>
+
+<table border="0" cellpadding="0" cellspacing="0" style="margin-left:80px; min-width:28em">
+	<tbody>
+		<tr>
+			<td><em>CRF</em></td>
+			<td>&nbsp;=&nbsp;</td>
+			<td>
+			<table align="center" border="0" cellpadding="0" cellspacing="0">
+				<tbody>
+					<tr>
+						<td style="text-align:center"><em>N<sub>z</sub></em> · log<sub>2</sub>(<em>N<sub>z</sub></em>)</td>
+					</tr>
+					<tr>
+						<td style="text-align:center">
+						<table border="0" cellpadding="0" cellspacing="0" style="border-top:1px solid rgb(68, 68, 68); width:100%">
+							<tbody>
+								<tr>
+									<td style="text-align:center"><em>S</em> · <em>N</em></td>
+								</tr>
+							</tbody>
+						</table>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			</td>
+			<td>&nbsp;=&nbsp;</td>
+			<td>
+			<table border="0" cellpadding="0" cellspacing="0">
+				<tbody>
+					<tr>
+						<td style="text-align:center"><em>N<sub>z</sub></em> · log<sub>2</sub>(<em>N<sub>z</sub></em>)</td>
+					</tr>
+					<tr>
+						<td>
+						<table border="0" cellpadding="0" cellspacing="0" style="border-top:1px solid rgb(68, 68, 68); width:100%">
+							<tbody>
+								<tr>
+									<td style="text-align:center"><em>N<sub>z</sub></em></td>
+								</tr>
+							</tbody>
+						</table>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			</td>
+			<td>&nbsp;=&nbsp;</td>
+			<td>log<sub>2</sub>(<em>N<sub>z</sub></em>)</td>
+			<td>&nbsp;= log<sub>2</sub></td>
+			<td>&nbsp;</td>
+			<td>
+			<table border="0" cellpadding="0" cellspacing="0">
+				<tbody>
+					<tr>
+						<td style="text-align:center"><em>F<sub>s</sub></em></td>
+					</tr>
+					<tr>
+						<td style="text-align:center">
+						<table border="0" cellpadding="0" cellspacing="0" style="border-top:1px solid rgb(68, 68, 68); width:100%">
+							<tbody>
+								<tr>
+									<td><em>F<sub>r</sub>'</em></td>
+								</tr>
+							</tbody>
+						</table>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			</td>
+			<td>&nbsp;</td>
+		</tr>
+	</tbody>
+</table>
+
+<p style="margin-left:80px; text-align:left"><small>Where:<br>
+<em>CRF</em> : Complexity Reduction Factor of the partial DFT method over the FFT on the zero-padded signal<br>
+<em>F<sub>s</sub> </em>: Sampling frequency<br>
+<em>F<sub>r</sub> </em>: Frequency resolution before smoothing<br>
+<em>F<sub>r</sub>' </em>: Desired frequency resolution after smoothing<br>
+<em>N</em> : Window length<br>
+<em>N<sub>z</sub></em>&nbsp;: Zero-paded window length<br>
+<em>S</em>&nbsp;: Number of test tones</small></p>
+
+<p>For a given sampling frequency, the higher the new frequency resolution, the more beneficial will be using the "zero-padding partial DFT" instead of the "zero-padding FFT". In our case, <em>F<sub>r</sub>'</em> = 1/60 Hz and <em>F<sub>s</sub></em> = 24 Hz in the worst case. So, the <em>CRF</em> is approximately 10.5, which means that —roughly speaking— the time taken by the proposed method will be something in the order of a 10% of the time taken by the FFT on the zero-padded window.</p>
+
+<p>Here is the Matlab code to implement the signal smoothing:</p>
+
+<p><code>fftResolution = 1 / WINDOW_SECONDS;<br>
+lowFreq = bpmPeak / 60 - 0.5 * fftResolution;<br>
+smoothingResolution = SMOOTHING_RESOLUTION / 60;<br>
+testFreqs = round(fftResolution / smoothingResolution);<br>
+power = zeros(1, testFreqs);<br>
+freqs = (0:testFreqs - 1) * smoothingResolution + lowFreq;<br>
+<span style="color:#0000FF">for</span> k = 1:testFreqs,<br>
+&nbsp;&nbsp;&nbsp; re = 0; im = 0;<br>
+&nbsp;&nbsp;&nbsp; <span style="color:#0000FF">for</span> j = 0:(size(b, 2) - 1),<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; phi = 2 * pi * freqs(h) * (j / samplingFreq);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; re = re + b(j+1) * cos(phi);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; im = im + b(j+1) * sin(phi);<br>
+&nbsp;&nbsp;&nbsp; <span style="color:#0000FF">end</span><br>
+&nbsp;&nbsp;&nbsp; <span style="color:#008000">% Since we only need to find the maximum, we can use power instead of magnitude and skip sqrt()</span><br>
+&nbsp;&nbsp;&nbsp; power(k) = re * re + im * im;<br>
+<span style="color:#0000FF">end</span><br>
+[maxPeakValue, maxPeakIndex] = max(power);<br>
+smoothedBpm = 60 * freqs(maxPeakIndex);</code></p>
+
+<h2>Actively increasing the SNR</h2>
+
+<p>A good Signal-to-Noise Ratio (SNR) is essential to accurately detect the heart rate signal. It can be improved by either reducing the noise or increasing the signal power. In our case, the noise affecting the measurement comes from three sources basically:</p>
+
+<ul>
+	<li style="text-align:justify"><em><a href="http://en.wikipedia.org/wiki/Image_noise" target="_blank">Image noise</a></em> : It originates in the camera sensor. By averaging all the pixels for the brightness calculation, we are filtering out a big part of its spatial component. The band-pass filter that we are applying to the brightness signal is also rejecting much of its time component. However, there will always be some level of this noise in the band of interest.</li>
+	<li style="text-align:justify"><em>User behavior</em> : The pressure variations of the fingertip against the camera lens may show up in the signal. If the user has shaky hands, it is better that she uses a finger of the hand holding the phone.</li>
+	<li style="text-align:justify"><em>Lighting changes</em> : Since the finger is lit from behind, any change in the light sources or in the scene reflecting that light towards the camera may introduce noise in our pass band. For instance, moving the phone in the air while recording the video sequence may introduce artifacts if the scene parts in the field of view have very different light intensities.</li>
+</ul>
+
+<p>Whereas the noise sources are obviously difficult to control —especially if the system is operated by someone else—, we can increase the signal level by illuminating the finger with a stable light source. If the smartphone has a torch that can be touched with the finger being recorded, it will light the tissues and improve the signal levels. However, if the torch is too powerful, it will saturate the image sensor and nothing but a pure white image will be recorded. If this is the case, try dimming the torch with your phone controls or covering it with a piece of fabric.</p>
+
+<h2>Results</h2>
+
+<p>In order to check the system behavior, heart beat measurements with an iPhone 4S camera were performed on two individuals in two situations: at rest and after exercise (squats). Results are depicted in Fig. 6. Plots 6(a) and 6(c) correspond to a 34-year-old man who exercises regularly, whereas 6(b) and 6(d) belong to a woman of the same age who does not exercise. Besides having a lower resting rate, the active individual recovers faster than the sedentary one: &gt;40 bpm vs &lt;30 bpm decrements after the first minute, respectively.</p>
+
+<p>Heart rates at rest were also estimated manually, by counting heart beats for one minute while videos were being recorded. The manual count results were 58 bpm for plot 6(a) and 67 bpm for plot 6(b), whereas the means computed from the measurements were 57.45 bpm for 6(a) and 65.09 bpm for 6(b).</p>
+
+<div style="text-align:center; width:100%">
+<table border="0" cellpadding="0" cellspacing="0" style="padding-right:2em; text-align:center; width:100%">
+	<tbody>
+		<tr>
+			<td style="width:100%">
+			<table align="center" border="0" cellpadding="0" cellspacing="0" style="display:inline-table; width:463px">
+				<tbody>
+					<tr>
+						<td style="text-align:center"><small>(a)</small></td>
+					</tr>
+					<tr>
+						<td><img alt="" src="./Measuring heart rate with a smartphone camera - uavster_files/resting1.png" style="height:250px; width:463px"></td>
+					</tr>
+				</tbody>
+			</table>
+
+			<table border="0" cellpadding="0" cellspacing="0" style="display:inline-table; width:463px">
+				<tbody>
+					<tr>
+						<td style="text-align:center"><small>(b)</small></td>
+					</tr>
+					<tr>
+						<td><img alt="" src="./Measuring heart rate with a smartphone camera - uavster_files/resting2.png" style="float:right; height:250px; width:463px"></td>
+					</tr>
+				</tbody>
+			</table>
+			</td>
+		</tr>
+	</tbody>
+</table>
+</div>
+
+<div style="text-align:center; width:100%;margin-top:0px">
+<table border="0" cellpadding="0" cellspacing="0" style="padding-right:2em; text-align:center; width:100%">
+	<tbody>
+		<tr>
+			<td style="width:100%">
+			<table border="0" cellpadding="0" cellspacing="0" style="display:inline-table; width:463px">
+				<tbody>
+					<tr>
+						<td style="text-align:center"><small>(c)</small></td>
+					</tr>
+					<tr>
+						<td><img alt="" src="./Measuring heart rate with a smartphone camera - uavster_files/recovery1.png" style="height:250px; width:463px"></td>
+					</tr>
+				</tbody>
+			</table>
+
+			<table border="0" cellpadding="0" cellspacing="0" style="display:inline-table; width:463px">
+				<tbody>
+					<tr>
+						<td style="text-align:center"><small>(d)</small></td>
+					</tr>
+					<tr>
+						<td style="width:463px"><img alt="" src="./Measuring heart rate with a smartphone camera - uavster_files/recovery2.png" style="height:250px; width:463px"></td>
+					</tr>
+				</tbody>
+			</table>
+			</td>
+		</tr>
+	</tbody>
+</table>
+</div>
+
+<p style="text-align:center"><small><span style="font-size:1em">Fig. 6: Heart rate over time for two people at rest (a, b) and recovering after squats (c, d). The curves (a) and (c) belong to a person who exercises often, while (b) and (d) belong to a person who does not. Exercise in (c) was longer and more intense than in (d). Heart rates at rest were manually estimated by counting heart beats for 1 minute while the video was being recorded. The manual count results were 58 bpm for (a) and 67 bpm for (b).</span></small></p>
+
+<p>The following video shows an animation in 4x real-time of the case in Fig. 6(c) —active 34-year-old man recovering after intense squats—. Figure captions for Figs. 5 and 6 are applicable to the upper and lower plots in the video, respectively:</p>
+
+<p style="text-align:center"><iframe frameborder="0" height="360" src="./Measuring heart rate with a smartphone camera - uavster_files/szXGI7r6SV4.html" width="480"></iframe></p>
+
+</div>
+<div id="share-panel-bottom">
+<div class="share-buttons">
+<span>Share this page: </span>
+<a href="http://twitter.com/share?url=http://www.ignaciomellado.es/blog/Measuring-heart-rate-with-a-smartphone-camera&amp;text=Measuring+heart+rate+with+a+smartphone+camera" target="_blank"><img src="./Measuring heart rate with a smartphone camera - uavster_files/twitter(1).png" alt="Share on Twitter" title="Share on Twitter"></a>
+<a href="http://www.facebook.com/sharer.php?u=http://www.ignaciomellado.es/blog/Measuring-heart-rate-with-a-smartphone-camera&amp;t=Measuring+heart+rate+with+a+smartphone+camera" target="_blank"><img src="./Measuring heart rate with a smartphone camera - uavster_files/facebook.png" alt="Share on Facebook" title="Share on Facebook"></a>
+<a href="https://plus.google.com/share?url=http://www.ignaciomellado.es/blog/Measuring-heart-rate-with-a-smartphone-camera" target="_blank"><img src="./Measuring heart rate with a smartphone camera - uavster_files/google.png" alt="Share on Google+" title="Share on Google+"></a>
+<a href="http://www.linkedin.com/shareArticle?mini=true&amp;url=http://www.ignaciomellado.es/blog/Measuring-heart-rate-with-a-smartphone-camera&amp;title=Measuring+heart+rate+with+a+smartphone+camera&amp;summary=There+are+some+apps+out+there+that+can+read+your+heart+rate+with+a+smartphone+camera.+No+need+for+external+pulsometers.+The+procedure+is+simple%3A+you+press+the+smartphone+camera+lens+gently+with+your+finger+%5B...%5D%0AIt+is+time+to+open+your+photo+app+and+observe+what+happens+when+you+cover+the+camera+with+your+finger.+The+frame+is+not+black+but+slightly+red.+The+ambient+light+is+traveling+through+your+finger+tissues+%5B...%5D%0AThe+experiments+in+this+post+were+done+offline.+I+recorded+the+videos+with+an+iPhone+4S+and+copied+them+to+my+laptop.+Then%2C+I+processed+them+with+Matlab.+The+full+code+is+available+here+%5B...%5D%0A" target="_blank"><img src="./Measuring heart rate with a smartphone camera - uavster_files/linkedin(1).png" alt="Share on LinkedIn" title="Share on LinkedIn"></a>
+<a href="http://www.digg.com/submit?url=http://www.ignaciomellado.es/blog/Measuring-heart-rate-with-a-smartphone-camera" target="_blank"><img src="./Measuring heart rate with a smartphone camera - uavster_files/diggit.png" alt="Share on Digg" title="Share on Digg"></a>
+<a href="http://reddit.com/submit?url=http://www.ignaciomellado.es/blog/Measuring-heart-rate-with-a-smartphone-camera&amp;title=Measuring+heart+rate+with+a+smartphone+camera" target="_blank"><img src="./Measuring heart rate with a smartphone camera - uavster_files/reddit.png" alt="Share on Reddit" title="Share on Reddit"></a>
+<a href="http://www.stumbleupon.com/submit?url=http://www.ignaciomellado.es/blog/Measuring-heart-rate-with-a-smartphone-camera&amp;title=Measuring+heart+rate+with+a+smartphone+camera" target="_blank"><img src="./Measuring heart rate with a smartphone camera - uavster_files/stumbleupon.png" alt="Share on StumbleUpon" title="Share on StumbleUpon"></a>
+<a href="javascript:void((function()%7Bvar%20e=document.createElement(&#39;script&#39;);e.setAttribute(&#39;type&#39;,&#39;text/javascript&#39;);e.setAttribute(&#39;charset&#39;,&#39;UTF-8&#39;);e.setAttribute(&#39;src&#39;,&#39;http://assets.pinterest.com/js/pinmarklet.js?r=&#39;+Math.random()*99999999);document.body.appendChild(e)%7D)());"><img src="./Measuring heart rate with a smartphone camera - uavster_files/pinterest(1).png" alt="Share on Pinterest" title="Share on Pinterest"></a>
+<a href="mailto:?Subject=Measuring%20heart%20rate%20with%20a%20smartphone%20camera&amp;Body=I%20saw%20this%20and%20thought%20that%20it%20could%20be%20interesting%20to%20you:%20%20http://www.ignaciomellado.es/blog/Measuring-heart-rate-with-a-smartphone-camera"><img src="./Measuring heart rate with a smartphone camera - uavster_files/email.png" alt="Share on Twitter" title="Share by email"></a>
+</div>
+
+
+</div>
+<div class="post-footer">
+	
+	<div class="related-list" id="related-code">
+		<h2>Source code</h2>
+		<opensources><opensource><a href="https://github.com/uavster/Video2HeartRate">Heart rate estimation from a video of the fingertip</a></opensource></opensources>
+		
+	</div>
+	
+	
+	<div class="related-list" id="related-posts">
+		<h2>Related blog posts</h2>
+		<posts><post><a href="http://www.ignaciomellado.es/blog/Getting-started-with-Computer-Vision-on-iPhone">Getting started with Computer Vision on iPhone</a></post></posts>
+		
+	</div>
+	
+	
+	<div id="related-technologies">
+		<h2>Technologies</h2>
+		<technologies><a href="http://www.ignaciomellado.es/blog?tech=iPhone"><tech>iPhone</tech></a><a href="http://www.ignaciomellado.es/blog?tech=Matlab"><tech>Matlab</tech></a><a href="http://www.ignaciomellado.es/blog?tech=Fast+Fourier+Transform"><tech>Fast Fourier Transform</tech></a></technologies>
+		
+	</div>
+	
+	
+	<div id="related-topics">
+		<h2>Topics</h2>
+		<tags><a href="http://www.ignaciomellado.es/blog?topic=Computer+Vision"><tag>Computer Vision</tag></a><a href="http://www.ignaciomellado.es/blog?topic=Tutorials"><tag>Tutorials</tag></a><a href="http://www.ignaciomellado.es/blog?topic=Signal+processing"><tag>Signal processing</tag></a></tags>
+		
+	</div>
+	
+	
+	<div id="related-projects">
+		<h2>Related projects</h2>
+		<projects id="project-pool">
+
+	<project onmouseover="Project_hover(this, &#39;45&#39;)" onmouseout="Project_out(this, &#39;45&#39;)" elemid="45" style="background-image:url(&#39;http://www.ignaciomellado.es/!!cms/PPD-small.jpg&#39;);background-position:0px -4px;background-repeat:no-repeat"><a href="http://www.ignaciomellado.es/projects/The-Perceptive-Portable-Device"><div class="project-title-overlay" id="project-overlay-title-45">The Perceptive Portable Device</div><img src="./Measuring heart rate with a smartphone camera - uavster_files/snapshot-shadow.png"><div class="project-abstract-background" id="project-abstract-background-45" style="position: absolute; left: 0.4px; top: 152px; width: 208px; height: 138px; opacity: 0.6;"></div><div class="project-abstract-overlay" id="project-overlay-abstract-45" style="top: 152px; display: block;">Can a smartphone perceive the environment like a human does? Portable devices are full of sensors, but they are still very limited to understand what is happening from a human perspective: Where am I inside the building? Is my user healthy? Is the baby crying? This side project is my quest to give portable devices such capabilities.</div></a></project>
+
+</projects>
+
+
+		
+	</div>
+	
+	<div class="back-to-post-browser"><a href="http://www.ignaciomellado.es/blog">&lt;&lt; Back to all blog posts</a></div>
+</div>
+<div id="disqus_thread"><iframe id="dsq-app5456" name="dsq-app5456" allowtransparency="true" frameborder="0" scrolling="no" tabindex="0" title="Disqus" width="100%" src="./Measuring heart rate with a smartphone camera - uavster_files/saved_resource.html" style="width: 1px !important; min-width: 100% !important; border: none !important; overflow: hidden !important; height: 6517px !important;" horizontalscrolling="no" verticalscrolling="no"></iframe></div>
+<script type="text/javascript">
+var disqus_shortname = 'uavster';
+var disqus_identifier = 'blog/Measuring-heart-rate-with-a-smartphone-camera';
+var disqus_title = 'Measuring heart rate with a smartphone camera';
+
+(function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+<script type="text/javascript">
+var disqus_shortname = 'uavster';
+
+(function () {
+var s = document.createElement('script'); s.async = true;
+s.type = 'text/javascript';
+s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+(document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+}());
+</script>
+</div>
+	<div id="footer">
+		<div id="footer-content">
+			<div id="about-site">
+				<p>© 2013-2018 Ignacio Mellado Bataller. All rights reserved except where otherwise noted. For any issues, please <a href="http://www.ignaciomellado.es/contact">contact me</a>.</p>
+				<p>This website is powered by <span class="orange">Oowee CMS</span>, my engine for websites. It's open source, feel free to <a href="https://github.com/uavster/oowee">fork it</a>.</p>
+			</div>
+			<div id="third-party">Third-party resources used in this website:
+				<ul>
+				<li>Header background: <a href="http://www.stripegenerator.com/" target="_blank">www.stripegenerator.com</a></li>
+				<li>Footer background: <a href="http://subtlepatterns.com/" target="_blank">subtlepatterns.com</a></li>
+				<li>Loading icon: <a href="http://preloaders.net/" target="_blank">preloaders.net</a></li>
+				<li>Ubuntu Condensed font: <a href="http://font.ubuntu.com/" target="_blank">font.ubuntu.com</a></li>
+				<li>Roboto Slab font: <a href="http://www.google.com/fonts">www.google.com/fonts</a></li>
+				<li>Share buttons: <a href="http://www.simplesharebuttons.com/" target="_blank">www.simplesharebuttons.com</a></li>
+				</ul>
+			</div>
+			<div id="proverb">
+				<p>"If you want to walk fast, walk alone. If you want to walk far, walk together."</p><p id="source">African proverb</p>
+			</div>
+		</div>
+	</div>
+	</div>
+	<div id="sidebar">
+        <div id="imav-award"><a href="http://www.ignaciomellado.es/blog/We-got-two-awards-in-IMAV-2012"><img src="./Measuring heart rate with a smartphone camera - uavster_files/imav-award.png" width="238" height="158" alt="IMAV 2012 Award - Best Automatic Performance"></a></div>
+		<div id="twitter">
+<div class="twitter-panel" id="blog/Measuring-heart-rate-with-a-smartphone-camera/twitterPanel">
+<!--<div class="tp-cornerLU"></div><div class="tp-borderU"></div><div class="tp-cornerRU"></div>
+<div class="tp-borderL"></div>-->
+<div class="tp-content">
+	<div class="tp-title"></div>
+	
+		
+	
+	<tweet id="blog/Measuring-heart-rate-with-a-smartphone-camera/twitterPanel/tweet0">
+		<div class="tp-username"><a href="https://twitter.com/tim_cook" id="blog/Measuring-heart-rate-with-a-smartphone-camera/twitterPanel/tweet0/name">Tim Cook</a></div><div class="tp-when" id="blog/Measuring-heart-rate-with-a-smartphone-camera/twitterPanel/tweet0/when">Almost 9 days ago</div>
+		<div class="tp-tweettext" id="blog/Measuring-heart-rate-with-a-smartphone-camera/twitterPanel/tweet0/text">Rise and shine! We’re ready for a big day at Apple Park! <a href="https://t.co/6A1OD3wGxU">pic.twitter.com/6A1OD3wGxU</a></div>
+	</tweet>
+	
+	<tweet id="blog/Measuring-heart-rate-with-a-smartphone-camera/twitterPanel/tweet1">
+		<div class="tp-username"><a href="https://twitter.com/Apple" id="blog/Measuring-heart-rate-with-a-smartphone-camera/twitterPanel/tweet1/name">Apple</a></div><div class="tp-when" id="blog/Measuring-heart-rate-with-a-smartphone-camera/twitterPanel/tweet1/when">10 days ago</div>
+		<div class="tp-tweettext" id="blog/Measuring-heart-rate-with-a-smartphone-camera/twitterPanel/tweet1/text">Join us September 12 at 10 a.m. PDT to watch the <a href="http://twitter.com/search?q=%23AppleEvent">#AppleEvent</a> live on Twitter. Tap ❤️ below and we’ll send you updat… <a href="https://t.co/ISUlArR9qn">twitter.com/i/web/status/1…</a></div>
+	</tweet>
+	
+	<tweet id="blog/Measuring-heart-rate-with-a-smartphone-camera/twitterPanel/tweet2">
+		<div class="tp-username"><a href="https://twitter.com/uavster" id="blog/Measuring-heart-rate-with-a-smartphone-camera/twitterPanel/tweet2/name">Ignacio Mellado</a></div><div class="tp-when" id="blog/Measuring-heart-rate-with-a-smartphone-camera/twitterPanel/tweet2/when">15 days ago</div>
+		<div class="tp-tweettext" id="blog/Measuring-heart-rate-with-a-smartphone-camera/twitterPanel/tweet2/text">@<a href="http://twitter.com/t1meshift_rus" title="t1meshift">t1meshift_rus</a> @<a href="http://twitter.com/flibitijibibo" title="Ethan Lee">flibitijibibo</a> That would create a massive micro black hole that would suck the Earth in.</div>
+	</tweet>
+	
+	
+	<a href="https://twitter.com/uavster"><div class="tp-follow">Join the conversation</div></a>
+</div>
+<!--<div class="tp-borderR"></div>
+<div class="tp-cornerLB"></div><div class="tp-borderB"></div><div class="tp-cornerRB"></div>-->
+<div style="display:none" id="blog/Measuring-heart-rate-with-a-smartphone-camera/twitterPanel/refTime">60000</div>
+</div>
+</div>
+		<div id="blog-highlights">
+<div class="blog-highlights-panel">
+<div class="blog-highlights-title"></div>
+<ul>
+
+<li><a href="http://www.ignaciomellado.es/blog/Ultrafast-switching-between-OpenCV-versions">Ultrafast switching between OpenCV versions</a></li>
+
+<li><a href="http://www.ignaciomellado.es/blog/The-relative-pose-problem-A-chronology">The relative pose problem: A chronology</a></li>
+
+<li><a href="http://www.ignaciomellado.es/blog/Boosting-color-based-tracking">Boosting color-based tracking</a></li>
+
+</ul>
+<div class="see-all-posts"><a href="http://www.ignaciomellado.es/blog">Go to blog &gt;&gt;</a></div>
+</div>
+</div>		
+		<div id="project-highlights">
+<div class="project-highlights-panel">
+<div class="project-highlights-title"></div>
+<ul>
+
+<li><a href="http://www.ignaciomellado.es/projects/The-Perceptive-Portable-Device">The Perceptive Portable Device</a></li>
+
+<li><a href="http://www.ignaciomellado.es/projects/MAVwork-support-for-the-LinkQuad-quadcopter">Autonomous LinkQuad quadcopter with Computer Vision</a></li>
+
+<li><a href="http://www.ignaciomellado.es/projects/MAVwork-support-for-the-Pelican-quadcopter">Autonomous Pelican quadcopter with Computer Vision</a></li>
+
+</ul>
+<div class="see-all-projects"><a href="http://www.ignaciomellado.es/projects">See all projects &gt;&gt;</a></div>
+</div>
+</div>
+	</div>
+</div>
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-28097401-1']);
+  _gaq.push(['_setDomainName', 'ignaciomellado.es']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+
+<iframe style="display: none;" src="./Measuring heart rate with a smartphone camera - uavster_files/saved_resource(1).html"></iframe></body></html>

@@ -1,0 +1,60 @@
+.blog-highlights-panel {
+font-family:UbuntuC,Verdana,Arial,sans-serif;
+font-size:72%;
+color:#444;
+position:relative;
+left:0.0625em;
+right:0;
+background-color:#fff0e0;
+padding:1em 1.35em 0.75em 1.35em;
+border:1px solid #ddd;
+border-right:none;
+text-align:left;
+background:#eee repeat-x url('../img/w2c.png');
+background-size:contain;
+}
+
+.blog-highlights-title {
+/*width:6.0625em;
+height:0.8125em;*/
+width:117px;
+height:13px;
+background:transparent url('../img/latest-blog-posts.png') no-repeat left top;
+margin-bottom:1em;
+}
+
+.blog-highlights-panel ul {
+margin:0; padding:0;
+list-style:square outside none;
+margin-left:1em;
+}
+
+.blog-highlights-panel li {
+margin:0; padding:0;
+margin-bottom:0.3em;	
+}
+
+.blog-highlights-panel li a, .blog-highlights-panel li a:hover {
+font-family:UbuntuC,Arial,sans-serif;
+text-decoration:none;
+color:#444;
+}
+
+.blog-highlights-panel li a:hover {
+color:#ff8020;
+}
+
+.blog-highlights-panel .see-all-posts {
+text-align:right;
+}
+
+.blog-highlights-panel .see-all-posts a {
+font-family:UbuntuC,Arial,sans-serif;
+font-style:italic;
+text-decoration:none;
+color:#444;
+}
+
+.blog-highlights-panel .see-all-posts a:hover {
+color:#ff8020
+}

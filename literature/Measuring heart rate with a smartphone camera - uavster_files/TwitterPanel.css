@@ -1,0 +1,123 @@
+.twitter-panel {
+position:relative;
+height:100%;
+}
+
+.twitter-panel .tp-content {
+position:absolute;
+top:0.4375em;
+bottom:0.4375em;
+left:0.0625em;
+right:0; /*right:0.0625em;*/
+background: #d0f0ff url('../img/w2c.png') repeat-x left top;
+background-size:1px 100%;
+padding:0.75em 1em 0.75em 1em;
+
+border-radius:16px 0 0 0; /*border-radius:16px;*/
+border:1px solid #84e0fe;
+border-right:none; /* */
+/*box-shadow:0px 0px 5px #00d0ff;*/
+}
+
+.twitter-panel .tp-title {
+width:4.9375em;
+height:0.625em;
+background-image:url('../img/twitter-feed.png');
+margin-bottom:1em;
+}
+
+.twitter-panel tweet {
+display:block;
+margin-bottom:1em;
+max-height:7em;
+font-family: Verdana, Arial, Helvetica, sans-serif;
+font-size:0.555em;
+overflow:hidden;
+}
+
+.twitter-panel .tp-follow {
+position:absolute;
+right:0em;
+bottom:0.5em;
+width:10em; /* width:9.4375em; */
+height:1.4375em;
+/*background-image:url('../img/follow-button.png');*/
+
+border:1px solid #40d0ff; /* #84e0fe */
+border-right:none;
+border-radius:2px 0 0 2px;
+font-family:Arial,Verdana,sans-serif;
+text-align:right;
+padding:0.2em 1.5em 0em 0em;
+font-size:70%;
+color:#fff;
+text-shadow:-1px -1px 0 #666, -1px 1px 0 #666, 1px -1px 0 #666, 1px 1px 0 #666;
+background:#a0e0ff url('../img/tw-button-bg.png') repeat-x;
+}
+
+.twitter-panel .tp-follow:hover {
+box-shadow:0px 0px 2px #00d0ff;
+}
+
+.twitter-panel .tp-content a {
+text-decoration:none;
+}
+
+.twitter-panel tweet .tp-header {
+margin:0; padding:0;
+height:1.4em;
+overflow:hidden;
+}
+
+.twitter-panel tweet .tp-username {
+color:#009cff;
+font-weight:bold;
+height:1.4em;
+max-height:1.4em;
+width:45%;
+display:inline-block;
+overflow:hidden;
+}
+
+.twitter-panel tweet .tp-tweettext {
+font-family:Georgia,Times,"Times New Roman",serif;
+color:#3e3e3e;
+max-height:5.5em;
+overflow:hidden;
+}
+
+.twitter-panel tweet .tp-when {
+font-family:UbuntuC,sans-serif;
+font-size:110%;
+color:#818181;
+text-align:right;
+height:1.4em;
+max-height:1.4em;
+width:55%;
+max-width:55%;
+display:inline-block;
+overflow:hidden;
+}
+
+.twitter-panel tweet .tp-tweettext a, .twitter-panel tweet .tp-tweettext a:visited, .twitter-panel tweet .tp-tweettext a:active {
+font-family:"Times New Roman", Times, serif;
+font-size:1.2em;
+color:#000;
+font-style:italic;
+text-decoration:none;
+}
+
+.twitter-panel tweet .tp-tweettext a:hover {
+color:#404040;
+}
+
+.twitter-panel tweet .tp-username a, .twitter-panel tweet .tp-username a:visited, .twitter-panel tweet .tp-username a:active {
+font-family: Verdana, Arial, Helvetica, sans-serif;
+color:#009cff;
+text-decoration:none;
+}
+
+.twitter-panel tweet .tp-username a:hover {
+color:#ffa040;
+}
+

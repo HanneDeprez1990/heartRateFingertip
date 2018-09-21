@@ -1,0 +1,21 @@
+function tweetsAvailable(response, ajax) {
+	if (response == null || response.error != 0) return 5000;
+	for (var i = 0; i < response.data.numtweets; i++) {
+		var tweetId = response.data.id + '/tweet' + i;
+		var name = document.getElementById(tweetId + '/name');
+		var when = document.getElementById(tweetId + '/when');
+		var text = document.getElementById(tweetId + '/text');
+		ajax.setNodeInnerText(name, response.data.username[i]);
+		name.href = 'https://twitter.com/' + response.data.userlogin[i];
+		ajax.setNodeInnerText(when, response.data.when[i]);
+		text.innerHTML = response.data.text[i];
+	}	
+	var refreshTime = document.getElementById(response.data.id + '/refTime');
+	var refMs = 5000;
+	if (refreshTime != null) {
+		var tmp = parseInt(refreshTime.innerHTML);
+		if (!isNaN(tmp)) refMs = tmp;
+	}
+	return refMs;
+}
+

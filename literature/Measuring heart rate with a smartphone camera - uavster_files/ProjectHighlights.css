@@ -1,0 +1,61 @@
+.project-highlights-panel {
+font-family:UbuntuC,Verdana,Arial,sans-serif;
+font-size:72%;
+color:#444;
+position:relative;
+left:0.0625em;
+right:0;
+background-color:#fff0e0;
+padding:1em 1.35em 0.75em 1.35em;
+border-radius:0 0 0 16px;
+border:1px solid #ffd8b0;
+border-right:none;
+text-align:left;
+background:#fff0e0 repeat-x url('../img/w2c.png');
+background-size:contain;
+}
+
+.project-highlights-title {
+/*width:6.0625em;
+height:0.8125em;*/
+width:97px;
+height:13px;
+background-image:url('../img/latest-projects.png');
+margin-bottom:1em;
+}
+
+.project-highlights-panel ul {
+margin:0; padding:0;
+list-style:square outside none;
+margin-left:1em;
+}
+
+.project-highlights-panel li {
+margin:0; padding:0;
+margin-bottom:0.3em;	
+}
+
+.project-highlights-panel li a, .project-highlights-panel li a:hover {
+font-family:UbuntuC,Arial,sans-serif;
+text-decoration:none;
+color:#444;
+}
+
+.project-highlights-panel li a:hover {
+color:#ff8020;
+}
+
+.project-highlights-panel .see-all-projects {
+text-align:right;
+}
+
+.project-highlights-panel .see-all-projects a {
+font-family:UbuntuC,Arial,sans-serif;
+font-style:italic;
+text-decoration:none;
+color:#444;
+}
+
+.project-highlights-panel .see-all-projects a:hover {
+color:#ff8020
+}

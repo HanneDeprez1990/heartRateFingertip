@@ -1,0 +1,73 @@
+var Project_animator = new Animator();
+var Project_animatorStarted = false;
+var Project_graphics = new Graphics();
+
+addOnLoadHandler(function() {
+	var g = Project_graphics;
+	var pool = document.getElementById('project-pool');
+	if (pool != null) {
+		var projects = pool.getElementsByTagName('project');
+		for(var i = 0; i < projects.length; i++) {
+			var p = projects[i];
+			var id = p.getAttribute('elemid');
+			var a = document.getElementById('project-overlay-abstract-' + id);
+			a.style.top = p.offsetHeight + 'px';
+			a.style.display = 'block';
+			var c = document.getElementById('project-abstract-background-' + id);
+			c.style.position = 'absolute';
+			var ap = g.getOffsetPos(a, true);
+			c.style.left = ap.x + 'px';
+			c.style.top = ap.y + 'px';
+			c.style.width = p.offsetWidth + 'px';
+			var t = document.getElementById('project-overlay-title-' + id);
+			c.style.height = (p.offsetHeight - t.offsetHeight) + 'px';
+			g.setOpacity(c, 0.6);
+
+			var eb = document.getElementById('list-edit-button-' + id);
+			if (eb != null) g.setOpacity(eb, 0.6);
+			var db = document.getElementById('list-del-button-' + id);
+			if (db != null) g.setOpacity(db, 0.6);
+		}
+		Project_animatorStarted = true;
+	}
+	var eb = document.getElementById('project-edit-button');
+	if (eb != null) g.setOpacity(eb, 0.6);
+	var db = document.getElementById('project-del-button');
+	if (db != null) g.setOpacity(db, 0.6);
+	var ab = document.getElementById('project-add-button');
+	if (ab != null) g.setOpacity(ab, 0.6);
+});
+
+function Project_hover(ctrl, pid) {
+	if (!Project_animatorStarted) return;
+
+	var t = document.getElementById('project-overlay-title-' + pid);
+	var e = Project_animator.createElement(t, false);
+	var a = Project_animator.createElement(document.getElementById('project-overlay-abstract-' + pid), false);
+	var c = Project_animator.createElement(document.getElementById('project-abstract-background-' + pid), false);
+	var targetTop = 0.8 * (ctrl.offsetHeight - (t.offsetHeight + a.element.offsetHeight + 20));
+	e.setEndY(targetTop);
+	a.setEndY(targetTop + (a.getOriginalPos().y - e.getOriginalPos().y));
+	c.setEndY(targetTop + (a.getOriginalPos().y - e.getOriginalPos().y) - 5);
+	Project_animator.play();
+
+	var ep = document.getElementById('edit-panel-' + pid);
+	if (ep != null) ep.style.display = 'block';
+}
+
+function Project_out(ctrl, pid) {
+	if (!Project_animatorStarted) return;
+
+	var o = document.getElementById('project-overlay-title-' + pid);
+	var e = Project_animator.createElement(o, false);
+	e.setEndY(e.getOriginalPos().y);
+	var a = Project_animator.createElement(document.getElementById('project-overlay-abstract-' + pid), false);
+	a.setEndY(a.getOriginalPos().y);
+	var c = Project_animator.createElement(document.getElementById('project-abstract-background-' + pid), false);
+	c.setEndY(a.getOriginalPos().y);
+	Project_animator.play();
+
+	var ep = document.getElementById('edit-panel-' + pid);
+	if (ep != null) ep.style.display = 'none';
+}
+

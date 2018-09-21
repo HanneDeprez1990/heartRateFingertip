@@ -1,0 +1,5 @@
+var DISQUSWIDGETS;
+
+if (typeof DISQUSWIDGETS != 'undefined') {
+    DISQUSWIDGETS.displayCount({"text":{"and":"and","comments":{"zero":"","multiple":"{num} Comments","one":"1 Comment"}},"counts":[{"id":"blog\/Measuring-heart-rate-with-a-smartphone-camera","comments":44}]});
+}

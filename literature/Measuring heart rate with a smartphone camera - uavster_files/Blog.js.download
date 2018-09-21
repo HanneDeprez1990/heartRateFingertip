@@ -1,0 +1,41 @@
+var Blog_animator = new Animator();
+var Blog_animatorStarted = false;
+var Blog_graphics = new Graphics();
+
+addOnLoadHandler(function() {
+	var g = Blog_graphics;
+	var pool = document.getElementById('post-pool');
+	if (pool != null) {
+		var posts = pool.getElementsByTagName('post');
+		for(var i = 0; i < posts.length; i++) {
+			var p = posts[i];
+			var id = p.getAttribute('elemid');
+			var eb = document.getElementById('list-edit-button-' + id);
+			if (eb != null) g.setOpacity(eb, 0.6);
+			var db = document.getElementById('list-del-button-' + id);
+			if (db != null) g.setOpacity(db, 0.6);
+		}
+		Blog_animatorStarted = true;
+	}
+	var eb = document.getElementById('post-edit-button');
+	if (eb != null) g.setOpacity(eb, 0.6);
+	var db = document.getElementById('post-del-button');
+	if (db != null) g.setOpacity(db, 0.6);
+	var ab = document.getElementById('post-add-button');
+	if (ab != null) g.setOpacity(ab, 0.6);
+});
+
+function Blog_hover(ctrl, pid) {
+	if (!Blog_animatorStarted) return;
+
+	var ep = document.getElementById('edit-panel-' + pid);
+	if (ep != null) ep.style.display = 'block';
+}
+
+function Blog_out(ctrl, pid) {
+	if (!Blog_animatorStarted) return;
+
+	var ep = document.getElementById('edit-panel-' + pid);
+	if (ep != null) ep.style.display = 'none';
+}
+

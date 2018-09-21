@@ -1,0 +1,472 @@
+#welcome-to-blog {
+display:inline-block;
+margin-right:0;
+margin-left:0;
+}
+
+#feed-link {
+display:inline-block;
+width:24px;
+height:24px;
+margin-left:0.5em;
+background-image:url('../img/feed.png');
+}
+
+.post-header {
+margin:0 1em;
+text-align:right;
+}
+
+project {
+float:left;
+margin-right:1em;
+overflow:hidden;
+background-size:cover;
+width:13em;
+height:9.5em;
+border-radius:0.5em;
+}
+
+post.private {
+opacity:0.5;
+}
+
+.post-list post {
+margin:0 1em 1.5em 1em;
+padding-top:1.5em;
+display:block;
+border-top:1px solid #ddd;
+min-height:5.5em;
+}
+
+.post-list post h2 {
+font-size:1.4em;
+margin:0 0 0.1em 0;
+}
+
+.post-list post#first-post {
+border-top:none;
+padding-top:0;
+}
+
+.post-list post p {
+font-size:0.9em;
+margin:0.8em 0 0 0;
+}
+
+.post-list post div.post-date {
+font-family:UbuntuC,Arial,Verdana,sans-serif;
+color:#888;
+font-size:0.8em;
+display:inline-block;
+}
+
+.post-header .post-num-comments, .post-list .post-num-comments {
+display:inline-block;
+/*margin-left:1.25em;*/
+color:#ccc;
+font-family:UbuntuC,Arial,Verdana,sans-serif;
+font-size:0.8em;
+margin-left:1em;
+}
+
+.post-header .post-num-comments {
+font-size:1em;
+margin-left:1.5em;
+}
+
+.post-list .post-num-comments a, .post-list .post-num-comments a:active, .post-list .post-num-comments a:visited, .post-list .post-num-comments a:hover,
+.post-header .post-num-comments a, .post-header .post-num-comments a:active, .post-header .post-num-comments a:visited, .post-header .post-num-comments a:hover {
+text-decoration:none;
+color:#888;
+font-family:UbuntuC,Arial,Verdana,sans-serif;
+}
+
+.post-list .post-num-comments a:hover, .post-header .post-num-comments a:hover {
+color:#ff8020;
+}
+
+.post-list post a.title, .post-list post a.title:visited, .post-list post a.title:active, .post-list post a.title:hover {
+text-decoration:none;
+color:#808080;
+}
+
+.post-list post a.title:hover {
+color:#ff8020;
+}
+
+.post-list .post-lower-panel {
+margin:0.7em 0 -0.5em 0;
+padding-bottom:0.5em;
+}
+
+.post-list post div.read-full {
+font-size:1em;
+float:right;
+}
+
+.post-list post div.read-full-upper, .post-list post .go-to-blog {
+float:right;
+margin-top:1.28em;
+margin-left:0.5em;
+}
+
+.post-list post div.read-full a, .post-list post div.read-full a:visited, .post-list post div.read-full a:active, .post-list post div.read-full a:hover, 
+.post-list post div.read-full-upper a, .post-list post div.read-full-upper a:visited, .post-list post div.read-full-upper a:active, .post-list post div.read-full-upper a:hover {
+text-decoration:none;
+color:#fff;
+background-color:#aaa;
+font-family:UbuntuC,Arial,Verdana,sans-serif;
+border-radius:0.25em;
+padding:0.125em 1em;
+border:1px solid #888;
+}
+
+.post-list post div.read-full a:hover,
+.post-list post div.read-full-upper a:hover {
+color:#fff;
+background-color:#bbb;
+border:1px solid #a0a0a0;
+text-shadow:-1px -1px 0 #ffa020, -1px 1px 0 #ffa020, 1px -1px 0 #ffa020, 1px 1px 0 #ffa020;
+}
+
+.post-list post div.go-to-blog a, .post-list post div.go-to-blog a:active, .post-list post div.go-to-blog a:visited, .post-list post div.go-to-blog a:hover {
+text-decoration:none;
+color:#fff;
+background-color:#aaa;
+font-family:UbuntuC,Arial,Verdana,sans-serif;
+border-radius:0.25em;
+padding:0.125em 1em;
+border:1px solid #888;
+}
+
+.post-list post div.go-to-blog a:hover {
+color:#fff;
+background-color:#bbb;
+border:1px solid #a0a0a0;
+text-shadow:-1px -1px 0 #ffa020, -1px 1px 0 #ffa020, 1px -1px 0 #ffa020, 1px 1px 0 #ffa020;
+}
+
+.post-list post div.post-summary {
+}
+
+.post-list post div.post-image {
+float:right;
+margin:1em 0 0 1em;
+}
+
+.post-list post div.post-image img {
+border-radius:8px;
+}
+
+.post-list .page-nav {
+text-align:center;
+}
+
+.post-list a.next-page, .post-list a.next-page:active, .post-list a.next-page:visited, .post-list a.next-page:hover {
+color:#666;
+font-family:UbuntuC,Arial,Verdana,sans-serif;
+font-size:1.1em;
+text-decoration:none;
+}
+
+.post-list a.prev-page, .post-list a.prev-page:active, .post-list a.prev-page:visited, .post-list a.prev-page:hover {
+color:#666;
+font-family:UbuntuC,Arial,Verdana,sans-serif;
+font-size:1.1em;
+text-decoration:none;
+}
+
+.post-list a.next-page:hover, .post-list a.prev-page:hover {
+color:#ff8020;
+}
+
+.post-list .page-nav-sep {
+color:#aaa;
+}
+
+.post-header info {
+}
+
+.post-header info status, .post-header info .related {
+font-family:Verdana, Arial, sans-serif;
+font-size:80%;
+color:#202020;
+display:block;
+margin-bottom:0.4em;
+}
+
+.post-header info status {
+color:#707070;
+font-size:90%;
+/*font-style:italic;*/
+font-family:UbuntuC,Arial,Verdana,sans-serif;
+text-align:left;
+padding-top:0.250em;
+}
+
+.post-header info .related {
+color:#707070;
+font-size:80%;
+text-align:left;
+}
+
+.post-header info .related a, .post-header info .related a:active, .post-header info .related a:visited, .post-header info .related a:hover {
+font-family:Verdana, Arial, sans-serif;
+text-decoration:none;
+color:#606060;
+font-weight:bold;
+}
+
+.post-header info .related a:hover {
+color:#ff8020;
+}
+
+.post-footer {
+margin:0 1em 1em 1em;
+padding:0;
+border-top:2px solid #d8d8d8;
+padding-top:1.5em;
+}
+
+.post-footer h2 {
+margin:0em;
+font-size:1.3em;
+color:#0080ff;
+margin-bottom:0.5em;
+}
+
+.related-list {
+margin-bottom:1em;
+}
+
+.related-list ul, .related-list opensources, .related-list posts {
+display:block;
+margin:0em;
+padding:0em 0em 0em 0.8em;
+list-style-type:square;
+list-style-position:outside;
+color:#444;
+}
+
+.related-list li, .related-list opensource, .related-list post {
+margin:0em;
+display:list-item;
+font-size:0.8em;
+}
+
+.related-list opensource, .related-list post {
+list-style-position:inside;
+}
+
+.related-list li, .related-list opensource, .related-list post, .related-list a, .related-list a:hover, .related-list a:active, .related-list a:visited {
+text-decoration:none;
+font-family:Verdana, Arial, sans-serif;
+}
+
+.related-list li, .related-list a, .related-list a:hover, .related-list a:active, .related-list a:visited {
+color:#444;
+}
+
+.related-list a:hover {
+color:#ff8020;
+}
+
+tech, tag {
+font-size:0.8em;
+margin-bottom:1em;
+margin-left:0.8em;
+margin-right:0em;
+}
+
+.post-list tech, .post-list tag {
+margin-left:0.4em;
+margin-right:0.2em;
+font-size:0.7em;
+}
+
+.post-list tags {
+margin-right:1em;
+}
+
+.post-tags-label, .post-techs-label {
+font-family:UbuntuC,Arial,sans-serif;
+font-size:0.95em;
+color:#0080ff;
+}
+
+.post-list technologies, .post-list tags {
+color:#888;
+}
+
+.post-list post, .post-footer project {
+position:relative;
+}
+
+#post-description {
+padding-top:1em;
+}
+
+.post-footer project {
+margin:0em 0em 1em 0.8em;
+box-shadow:0px 0px 8px #888;
+}
+
+project a {
+text-decoration:none;
+}
+
+project img {
+width:13em;
+height:9.5em;
+}
+
+project .project-title-overlay, project .project-abstract-overlay {
+font-family:UbuntuC, Arial, sans-serif;
+color:#fff;
+position:absolute;
+left:0;
+right:0;
+text-align:center;
+}
+
+.post-footer project .project-title-overlay {
+margin:0.8125em 0.5em;
+margin-top:0;
+font-size:80%;
+}
+
+project .project-title-overlay {
+font-style:italic;
+bottom:0;
+text-shadow:-1px -1px 0 #000, -1px 1px 0 #000, 1px -1px 0 #000, 1px 1px 0 #000;
+}
+
+project .project-abstract-overlay {
+display:none;
+text-align:justify;
+color:#000;
+text-shadow:1px 1px 0px #fff;
+}
+
+.post-footer project .project-abstract-overlay {
+margin:0em 0.5em;
+margin-top:0;
+font-size:70%;
+}
+
+.project-abstract-background {
+background-color:#eee;
+border-top:1px solid #888;
+}
+
+a.techs-see-all, a.tags-see-all, a.techs-see-all:active, a.tags-see-all:active, a.techs-see-all:visited, a.tags-see-all:visited {
+font-family:Verdana, Arial, sans-serif;
+font-size:80%;
+margin-left:0.5em;
+text-decoration:none;
+font-style:italic;
+color:#888;
+}
+
+a.techs-see-all:hover, a.tags-see-all:hover {
+color:#ffa020;
+}
+
+#view-tools {
+position:absolute;
+right:1em;
+top:2em;
+}
+
+.back-to-post-browser {
+position:absolute;
+bottom:-1.5em;
+text-align:center;
+right:0; left:0;
+}
+
+.back-to-post-browser a, .back-to-post-browser a:active, .back-to-post-browser a:visited, .back-to-post-browser a:hover {
+text-decoration:none;
+color:#fff;
+background-color:#aaa;
+font-family:UbuntuC,Arial,Verdana,sans-serif;
+border-radius:0.25em;
+padding:0.125em 1em;
+border:1px solid #888;
+}
+
+.back-to-post-browser a:hover {
+color:#fff;
+background-color:#bbb;
+border:1px solid #a0a0a0;
+text-shadow:-1px -1px 0 #ffa020, -1px 1px 0 #ffa020, 1px -1px 0 #ffa020, 1px 1px 0 #ffa020;
+}
+
+post .edit-panel {
+position:absolute;
+right:0; top:1.9em; height:16px;
+text-align:right;
+}
+
+post#first-post .edit-panel {
+top:0.95em;
+}
+
+post .edit-panel img {
+width:16px;
+height:16px;
+margin-right:4px;
+}
+
+#view-tools div {
+display:inline;
+}
+
+#view-tools div:hover {
+cursor:pointer;
+}
+
+#list-edit-tools {
+position:relative;
+text-align:right;
+margin-right:2em;
+}
+
+#list-edit-tools img {
+position:absolute;
+top:-24px;
+}
+
+#share-panel-bottom {
+text-align:right;
+}
+
+/* Share panel */
+.share-buttons {
+text-align:right;
+margin:0 1em 0.5em 1em; padding:0;
+font-family:UbuntuC,sans-serif;
+font-size:90%;
+color:#444;
+font-style:italic;
+display:inline-block;
+}
+
+.share-buttons#sb_top {
+padding-top:2px;
+float:right;
+}
+
+.share-buttons span {
+padding-right:0.4em;
+padding-top:2px;
+vertical-align:middle;
+float:left;
+}
+
+.share-buttons img {
+width:24px;
+border:0;
+display:inline;
+}
