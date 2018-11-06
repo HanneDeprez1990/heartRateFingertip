@@ -1,0 +1,26 @@
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Example</title>
+        <meta name="robots" content="noindex, nofollow">
+        <noscript>
+            <meta http-equiv="refresh" content="3;URL='http://google.com'" /> 
+        </noscript>
+    </head>
+    <body>
+        <img src="//example.org/pixel1">
+        <script>
+            var image = document.images[0];
+            var downloadingImage = new Image();
+            downloadingImage.onload = function(){
+                console.log('downloadImage loaded');
+                image.onload = function(){
+                    console.log('image loaded');
+                    window.location = "http://google.com";
+                }
+                image.src = this.src;   
+            };
+            downloadingImage.src = "//example.com/pixel2";
+        </script>
+    </body>
+</html>
