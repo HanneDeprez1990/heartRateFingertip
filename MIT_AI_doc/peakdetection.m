@@ -1,7 +1,7 @@
 load('redValues.mat');
 
-redV2 = floor(movmean(redValues,4)).';
-% redV2 = redValues.';
+%redV2 = floor(movmean(redValues,4)).';
+redV2 = redValues.';
 idUnique = [1; 1 + find(redV2(1:end-1) ~= redV2(2:end))];
 redV = redV2(idUnique);
 

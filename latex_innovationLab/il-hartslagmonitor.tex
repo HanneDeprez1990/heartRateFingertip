@@ -1,0 +1,86 @@
+%%%%%% Verander de volgende lijnen niet %%%%%%%
+
+\documentclass[12pt,a4paper,svgnames,oneside]{book}
+\input{inputs/oplossingen-file-commandos.tex}
+\initialiseer{inputs/oplossingen-alle.tmp}{inputs/oplossingen-zonder-ster.tmp}
+\input{inputs/preamble-macro.tex}
+\usepackage{amsmath}
+\usepackage{hyperref}
+\usepackage{subcaption}
+\usepackage{tikz}
+\usepackage{pgfplots,mathrsfs}
+\usepackage{marginnote}
+\usepackage[bottom]{footmisc}
+\usepackage{schemabloc}
+\usetikzlibrary{circuits}
+\usepackage{verbatim}
+\usetikzlibrary{arrows, decorations.markings}
+
+\begin{document}
+\addtocounter{page}{-1}
+
+%% We beginnen met het logo te defini\"{e}ren: de syntax is
+%% \renewcommand{\filenaamlogo}{inputs/....}
+%% waarbij je .... vervangt door de filenaam van het logo. Alvast drie beschikbare mogelijkheden zijn:
+%% \renewcommand{\filenaamlogo}{inputs/kubus-wetenschappen.png}
+%% \renewcommand{\filenaamlogo}{inputs/esat-logo.pdf}
+
+
+\renewcommand{\filenaamlogo}{inputs/logo-innovationlab.png}
+
+%% In de volgende lijn importeer je (in pdf) de frontpagina. Die maken we apart aan in een uniforme stijl. Er worden andere kleuren gebruikt voor de leerlingenbundels en voor de lerarenbundels.
+%% Je kan de volgende regel veranderen in
+%% \includepdf{inputs/voorbeeld-cover-vooraan-lkr.pdf}
+
+\includepdf{inputs/frontcover.pdf}
+
+%% Verander de volgende lijn niet.
+
+\tableofcontents
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{module1}
+\input{module2}
+\input{module3}
+\input{module4}
+\input{module5}
+\input{module6}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%% Hier eindigt je eigenlijke LaTeX-file.
+
+%% Van de volgende regel moet je afblijven.
+
+\sluitfiles
+
+%% Vervolgens kies je \'{e}\'{e}n van de onderstaande blokken, zonder iets aan deze blokken te veranderen:
+%% ofwel produceer je achteraan de oplossingen van de oefeningen zonder ster; ofwel produceer je achteraan alle oplossingen.
+
+%% Begin van het blok voor de oplossingen zonder ster %%
+
+\deelzonderoef{}{Oplossingen van de oefeningen zonder $\ast$}{Oplossingen van de oefeningen zonder $\ast$}
+
+\renewcommand{\sectionmark}[1]{\markright{\mijnoplosmark}}
+\setcounter{secnumdepth}{0}
+\titleformat{\section}[block]{}{}{0pt}{\zondernummer{#1}}
+
+\input{inputs/oplossingen-zonder-ster.tmp}
+%% Einde van het blok voor de oplossingen zonder ster %%
+
+%% Begin van het blok voor alle oplossingen%%
+
+\deelzonderoef{}{Oplossingen van alle oefeningen}{Oplossingen van alle oefeningen}
+
+\renewcommand{\sectionmark}[1]{\markright{\mijnoplosmark}}
+\setcounter{secnumdepth}{0}
+\titleformat{\section}[block]{}{}{0pt}{\zondernummer{#1}}
+
+\input{inputs/oplossingen-alle.tmp}
+%% Einde van het blok voor alle oplossingen%%
+
+%% In de volgende en laatste regel importeer je de achterflap. Je maakt een keuze tussen:
+%% \includepdf{inputs/achterflap-leerling.pdf}
+%% \includepdf{input/achterflap-leraar.pdf}
+\includepdf{inputs/backcover.pdf}
+
+\end{document} 

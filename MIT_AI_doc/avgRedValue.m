@@ -1,8 +1,10 @@
-fotoNames = dir('fotos/*.jpg');
+fotoDir = 'C:\Users\u0092745\Google Drive\testfotos\';
+
+fotoNames = dir([fotoDir '*.jpg']);
 
 for fotoNb = 1:numel(fotoNames)
     fotoname = fotoNames(fotoNb).name;
-    A = imread(sprintf('fotos/%s',fotoNames(fotoNb).name));
+    A = imread(sprintf('%s%s',fotoDir,fotoNames(fotoNb).name));
     l = size(A,1);
     b = size(A,2);
     

@@ -1,0 +1,9 @@
+\renewcommand {\mijnoplosmark }{Oplossingen module 1}\section [Module 1. Inleiding]{Oplossingen module 1}\markright {Oplossingen module 1}
+\begin {opgelost}{1} \begin {itemize} \item $MH_{18}=202$ en hartslagbereik tussen 111,1 en 171,7 \item $MH_{30}=190$ en hartslagbereik tussen 104,5 en 161,5 \item $MH_{65}=155$ en hartslagbereik tussen 85,25 en 131,75 \end {itemize}  \end {opgelost}
+\begin {opgelost}{2}  \begin {tikzpicture}[domain=0:100] \begin {axis}[axis lines=middle,xmax=110,ymin=-1,ymax=240, x label style={at={(axis description cs:0.5,-0.1)},anchor=north}, y label style={at={(axis description cs:-0.1,.5)},rotate=90,anchor=south}, xlabel={LT (Jaar)},ylabel={MH (bpm)}] \addplot [domain=0:100] {220-x} node[left]{$MH=220-LT$}; \end {axis} \end {tikzpicture}  \end {opgelost}
+\begin {opgelost}{3} \begin {itemize} \item $10~s$: factor $6$ \item $20~s$: factor $3$ \item Hoe korter de telperiode, hoe nauwkeuriger je moet tellen. Eventuele telfouten worden immers vermenigvuldigd met de factor. De factor is groter, naarmate de telperiode korter is. Telfouten worden dus groter als de telperiode korter is. \end {itemize}  \end {opgelost}
+\renewcommand {\mijnoplosmark }{Oplossingen module 2}\section [Module 2. Apps maken met MIT App Inventor 2]{Oplossingen module 2}\markright {Oplossingen module 2}
+\renewcommand {\mijnoplosmark }{Oplossingen module 3}\section [Module 3. Digitale afbeeldingen en video]{Oplossingen module 3}\markright {Oplossingen module 3}
+\renewcommand {\mijnoplosmark }{Oplossingen module 4}\section [Module 4. Automatische piekdetectie]{Oplossingen module 4}\markright {Oplossingen module 4}
+\renewcommand {\mijnoplosmark }{Oplossingen module 5}\section [Module 5. Bouwen van de complete app]{Oplossingen module 5}\markright {Oplossingen module 5}
+\renewcommand {\mijnoplosmark }{Oplossingen module 6}\section [Module 6. Experimenteren met de app]{Oplossingen module 6}\markright {Oplossingen module 6}
