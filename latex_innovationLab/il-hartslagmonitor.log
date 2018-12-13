@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6800 64-bit) (preloaded format=pdflatex 2018.9.18)  7 DEC 2018 16:51
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6800 64-bit) (preloaded format=pdflatex 2018.9.18)  13 DEC 2018 17:26
 entering extended mode
 **./il-hartslagmonitor.tex
 (il-hartslagmonitor.tex
@@ -787,6 +787,18 @@ File: pppdftex.def 2017/10/31 v0.5l Pdfpages driver for pdfTeX (AM)
 (C:\Users\u0092745\AppData\Roaming\MiKTeX\2.9\tex\latex\titlesec\block.tss
 File: block.tss 2016/03/15
 )
+
+Package amsthm Warning: Unknown theoremstyle `mijnopmerking' on input line 160.
+
+
+
+Package amsthm Warning: Unknown theoremstyle `mijnopmerking' on input line 163.
+
+
+
+Package amsthm Warning: Unknown theoremstyle `mijnopmerking' on input line 166.
+
+
 \c@eigenschap=\count142
 \c@voorbeeld=\count143
 \breedtesamenvatting=\skip66
@@ -1083,17 +1095,7 @@ Package: verbatim 2014/10/28 v1.5q LaTeX2e package for verbatim enhancements
 \verbatim@line=\toks48
 \verbatim@in@stream=\read2
 )
-(il-hartslagmonitor.aux
-
-LaTeX Warning: Label `sec:Mod3_Sec1' multiply defined.
-
-
-LaTeX Warning: Label `sec:Mod3_Sec2' multiply defined.
-
-
-LaTeX Warning: Label `sec:Mod3_Sec3' multiply defined.
-
-)
+(il-hartslagmonitor.aux)
 \openout1 = `il-hartslagmonitor.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 19.
@@ -1112,7 +1114,8 @@ LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 19.
 LaTeX Font Info:    ... okay on input line 19.
 \AtBeginShipoutBox=\box73
 Package hyperref Info: Link coloring OFF on input line 19.
- ("C:\Program Files\MiKTeX 2.9\tex\latex\hyperref\nameref.sty"
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\hyperref\nameref.sty"
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
 
 ("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\gettitlestring.sty"
@@ -1222,7 +1225,7 @@ File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 <inputs/logo-innovationlab.png, id=58, 401.5pt x 377.41pt>
 File: inputs/logo-innovationlab.png Graphic file (type png)
 <use inputs/logo-innovationlab.png>
-Package pdftex.def Info: inputs/logo-innovationlab.png  used on input line 32.
+Package pdftex.def Info: inputs/logo-innovationlab.png  used on input line 31.
 (pdftex.def)             Requested size: 24.18501pt x 22.73pt.
  [1{C:/Users/u0092745/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}
 
@@ -1237,12 +1240,12 @@ Package pdftex.def Info: inputs/logo-innovationlab.png  used on input line 3.
 (pdftex.def)             Requested size: 24.18501pt x 22.73pt.
  [2]
 Hoofdstuk .
-<inputs/module1/patient.png, id=127, 3784.0572pt x 3450.1698pt>
+<inputs/module1/patient.png, id=140, 3784.0572pt x 3450.1698pt>
 File: inputs/module1/patient.png Graphic file (type png)
 <use inputs/module1/patient.png>
 Package pdftex.def Info: inputs/module1/patient.png  used on input line 22.
 (pdftex.def)             Requested size: 242.5pt x 221.05754pt.
-<inputs/module1/hartslagmonitor.png, id=129, 1133.9163pt x 1041.4107pt>
+<inputs/module1/hartslagmonitor.png, id=142, 1133.9163pt x 1041.4107pt>
 File: inputs/module1/hartslagmonitor.png Graphic file (type png)
 <use inputs/module1/hartslagmonitor.png>
 Package pdftex.def Info: inputs/module1/hartslagmonitor.png  used on input line
@@ -1253,7 +1256,7 @@ Overfull \hbox (2.61108pt too wide) in paragraph at lines 21--27
 []$[]$ $[]$ 
  []
 
-<inputs/module1/lopermethartslagmeter.png, id=130, 3040.3989pt x 1990.3158pt>
+<inputs/module1/lopermethartslagmeter.png, id=143, 3040.3989pt x 1990.3158pt>
 File: inputs/module1/lopermethartslagmeter.png Graphic file (type png)
 <use inputs/module1/lopermethartslagmeter.png>
 Package pdftex.def Info: inputs/module1/lopermethartslagmeter.png  used on inpu
@@ -1266,12 +1269,12 @@ Package pdftex.def Info: inputs/logo-innovationlab.png  used on input line 30.
 [3
 
  <./inputs/module1/patient.png> <./inputs/module1/hartslagmonitor.png>]
-<inputs/hartslagmeter.jpg, id=137, 2842.62pt x 1742.51pt>
+<inputs/hartslagmeter.jpg, id=150, 2842.62pt x 1742.51pt>
 File: inputs/hartslagmeter.jpg Graphic file (type jpg)
 <use inputs/hartslagmeter.jpg>
 Package pdftex.def Info: inputs/hartslagmeter.jpg  used on input line 35.
 (pdftex.def)             Requested size: 242.5pt x 148.62987pt.
-<inputs/module1/loper-met-dure-loopband.png, id=138, 903.375pt x 1062.369pt>
+<inputs/module1/loper-met-dure-loopband.png, id=151, 903.375pt x 1062.369pt>
 File: inputs/module1/loper-met-dure-loopband.png Graphic file (type png)
 <use inputs/module1/loper-met-dure-loopband.png>
 Package pdftex.def Info: inputs/module1/loper-met-dure-loopband.png  used on in
@@ -1282,7 +1285,7 @@ Overfull \hbox (2.61108pt too wide) in paragraph at lines 34--40
 []$[]$ $[]$ 
  []
 
-<inputs/module1/loper.png, id=139, 1228.59pt x 1689.6726pt>
+<inputs/module1/loper.png, id=152, 1228.59pt x 1689.6726pt>
 File: inputs/module1/loper.png Graphic file (type png)
 <use inputs/module1/loper.png>
 Package pdftex.def Info: inputs/module1/loper.png  used on input line 45.
@@ -1293,43 +1296,69 @@ Package pdftex.def Info: inputs/logo-innovationlab.png  used on input line 45.
 (pdftex.def)             Requested size: 24.18501pt x 22.73pt.
 [4 <./inputs/module1/lopermethartslagmeter.png> <./inputs/hartslagmeter.jpg> <.
 /inputs/module1/loper-met-dure-loopband.png>]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 65.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 60.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\base\omscmr.fd"
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 65.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 60.
 File: inputs/logo-innovationlab.png Graphic file (type png)
 <use inputs/logo-innovationlab.png>
-Package pdftex.def Info: inputs/logo-innovationlab.png  used on input line 66.
+Package pdftex.def Info: inputs/logo-innovationlab.png  used on input line 82.
 (pdftex.def)             Requested size: 24.18501pt x 22.73pt.
  [5 <./inputs/module1/loper.png>]
-<inputs/module1/loperStilstaand.png, id=154, 505.89pt x 1059.4782pt>
+<inputs/module1/illustratieScienceJournal.png, id=166, 304.88907pt x 579.66562p
+t>
+File: inputs/module1/illustratieScienceJournal.png Graphic file (type png)
+<use inputs/module1/illustratieScienceJournal.png>
+Package pdftex.def Info: inputs/module1/illustratieScienceJournal.png  used on 
+input line 123.
+(pdftex.def)             Requested size: 199.16928pt x 378.67986pt.
+<inputs/module1/metingScienceJournal.png, id=167, 303.38344pt x 581.17125pt>
+File: inputs/module1/metingScienceJournal.png Graphic file (type png)
+<use inputs/module1/metingScienceJournal.png>
+Package pdftex.def Info: inputs/module1/metingScienceJournal.png  used on input
+ line 126.
+(pdftex.def)             Requested size: 199.16928pt x 381.54344pt.
+
+Overfull \hbox (2.61108pt too wide) in paragraph at lines 122--128
+[]$[]$ $[]$ 
+ []
+
+File: inputs/logo-innovationlab.png Graphic file (type png)
+<use inputs/logo-innovationlab.png>
+Package pdftex.def Info: inputs/logo-innovationlab.png  used on input line 129.
+
+(pdftex.def)             Requested size: 24.18501pt x 22.73pt.
+[6]
+File: inputs/logo-innovationlab.png Graphic file (type png)
+<use inputs/logo-innovationlab.png>
+Package pdftex.def Info: inputs/logo-innovationlab.png  used on input line 153.
+
+(pdftex.def)             Requested size: 24.18501pt x 22.73pt.
+ [7 <./inputs/module1/illustratieScienceJournal.png> <./inputs/module1/metingSc
+ienceJournal.png>]
+<inputs/module1/loperStilstaand.png, id=189, 505.89pt x 1059.4782pt>
 File: inputs/module1/loperStilstaand.png Graphic file (type png)
 <use inputs/module1/loperStilstaand.png>
 Package pdftex.def Info: inputs/module1/loperStilstaand.png  used on input line
- 127.
+ 154.
 (pdftex.def)             Requested size: 135.85878pt x 284.52756pt.
-File: inputs/logo-innovationlab.png Graphic file (type png)
-<use inputs/logo-innovationlab.png>
-Package pdftex.def Info: inputs/logo-innovationlab.png  used on input line 127.
-
-(pdftex.def)             Requested size: 24.18501pt x 22.73pt.
- [6]) (module2.tex
+) (module2.tex
 File: inputs/logo-innovationlab.png Graphic file (type png)
 <use inputs/logo-innovationlab.png>
 Package pdftex.def Info: inputs/logo-innovationlab.png  used on input line 3.
 (pdftex.def)             Requested size: 24.18501pt x 22.73pt.
- [7 <./inputs/module1/loperStilstaand.png>]
+ [8 <./inputs/module1/loperStilstaand.png>]
 File: inputs/logo-innovationlab.png Graphic file (type png)
 <use inputs/logo-innovationlab.png>
 Package pdftex.def Info: inputs/logo-innovationlab.png  used on input line 3.
 (pdftex.def)             Requested size: 24.18501pt x 22.73pt.
 
-[8]
+[9]
 Hoofdstuk .
-<inputs/module2/overviewAI.png, id=177, 1132.98282pt x 529.98pt>
+<inputs/module2/overviewAI.png, id=201, 1132.98282pt x 529.98pt>
 File: inputs/module2/overviewAI.png Graphic file (type png)
 <use inputs/module2/overviewAI.png>
 Package pdftex.def Info: inputs/module2/overviewAI.png  used on input line 27.
@@ -1338,10 +1367,10 @@ File: inputs/logo-innovationlab.png Graphic file (type png)
 <use inputs/logo-innovationlab.png>
 Package pdftex.def Info: inputs/logo-innovationlab.png  used on input line 27.
 (pdftex.def)             Requested size: 24.18501pt x 22.73pt.
-[9
+[10
 
  <./inputs/module2/overviewAI.png>]
-<inputs/module2/uitlegAI_blocks.png, id=186, 1141.26375pt x 521.69907pt>
+<inputs/module2/uitlegAI_blocks.png, id=210, 1141.26375pt x 521.69907pt>
 File: inputs/module2/uitlegAI_blocks.png Graphic file (type png)
 <use inputs/module2/uitlegAI_blocks.png>
 Package pdftex.def Info: inputs/module2/uitlegAI_blocks.png  used on input line
@@ -1351,8 +1380,8 @@ File: inputs/logo-innovationlab.png Graphic file (type png)
 <use inputs/logo-innovationlab.png>
 Package pdftex.def Info: inputs/logo-innovationlab.png  used on input line 47.
 (pdftex.def)             Requested size: 24.18501pt x 22.73pt.
- [10 <./inputs/module2/uitlegAI_blocks.png>]
-<inputs/module2/goedemorgenApp.png, id=194, 255.354pt x 387.849pt>
+ [11 <./inputs/module2/uitlegAI_blocks.png>]
+<inputs/module2/goedemorgenApp.png, id=218, 255.354pt x 387.849pt>
 File: inputs/module2/goedemorgenApp.png Graphic file (type png)
 <use inputs/module2/goedemorgenApp.png>
 Package pdftex.def Info: inputs/module2/goedemorgenApp.png  used on input line 
@@ -1363,12 +1392,12 @@ Overfull \hbox (2.61108pt too wide) in paragraph at lines 51--72
 []$[]$ $[]$ 
  []
 
-<inputs/module2/if.jpg, id=195, 1003.75pt x 1003.75pt>
+<inputs/module2/if.jpg, id=219, 1003.75pt x 1003.75pt>
 File: inputs/module2/if.jpg Graphic file (type jpg)
 <use inputs/module2/if.jpg>
 Package pdftex.def Info: inputs/module2/if.jpg  used on input line 92.
 (pdftex.def)             Requested size: 199.16928pt x 199.1689pt.
-<inputs/module2/ifStructures.png, id=196, 233.07076pt x 193.32225pt>
+<inputs/module2/ifStructures.png, id=220, 233.07076pt x 193.32225pt>
 File: inputs/module2/ifStructures.png Graphic file (type png)
 <use inputs/module2/ifStructures.png>
 Package pdftex.def Info: inputs/module2/ifStructures.png  used on input line 95
@@ -1383,8 +1412,8 @@ File: inputs/logo-innovationlab.png Graphic file (type png)
 <use inputs/logo-innovationlab.png>
 Package pdftex.def Info: inputs/logo-innovationlab.png  used on input line 98.
 (pdftex.def)             Requested size: 24.18501pt x 22.73pt.
-[11 <./inputs/module2/goedemorgenApp.png>]
-<inputs/module2/repititionStructures2.png, id=205, 547.2947pt x 191.9672pt>
+[12 <./inputs/module2/goedemorgenApp.png>]
+<inputs/module2/repititionStructures2.png, id=230, 547.2947pt x 191.9672pt>
 File: inputs/module2/repititionStructures2.png Graphic file (type png)
 <use inputs/module2/repititionStructures2.png>
 Package pdftex.def Info: inputs/module2/repititionStructures2.png  used on inpu
@@ -1395,9 +1424,9 @@ File: inputs/logo-innovationlab.png Graphic file (type png)
 Package pdftex.def Info: inputs/logo-innovationlab.png  used on input line 111.
 
 (pdftex.def)             Requested size: 24.18501pt x 22.73pt.
- [12 <./inputs/module2/if.jpg> <./inputs/module2/ifStructures.png> <./inputs/mo
+ [13 <./inputs/module2/if.jpg> <./inputs/module2/ifStructures.png> <./inputs/mo
 dule2/repititionStructures2.png>]
-<inputs/module2/variabelen.png, id=215, 290.88675pt x 127.677pt>
+<inputs/module2/variabelen.png, id=239, 290.88675pt x 127.677pt>
 File: inputs/module2/variabelen.png Graphic file (type png)
 <use inputs/module2/variabelen.png>
 Package pdftex.def Info: inputs/module2/variabelen.png  used on input line 130.
@@ -1409,8 +1438,8 @@ Package pdftex.def Info: inputs/logo-innovationlab.png  used on input line 133.
 
 (pdftex.def)             Requested size: 24.18501pt x 22.73pt.
 
-[13 <./inputs/module2/variabelen.png>]
-<inputs/module2/lijst.png, id=223, 316.18124pt x 147.55125pt>
+[14 <./inputs/module2/variabelen.png>]
+<inputs/module2/lijst.png, id=247, 316.18124pt x 147.55125pt>
 File: inputs/module2/lijst.png Graphic file (type png)
 <use inputs/module2/lijst.png>
 Package pdftex.def Info: inputs/module2/lijst.png  used on input line 139.
@@ -1420,40 +1449,73 @@ File: inputs/logo-innovationlab.png Graphic file (type png)
 <use inputs/logo-innovationlab.png>
 Package pdftex.def Info: inputs/logo-innovationlab.png  used on input line 3.
 (pdftex.def)             Requested size: 24.18501pt x 22.73pt.
- [14 <./inputs/module2/lijst.png>]
+ [15 <./inputs/module2/lijst.png>]
 Hoofdstuk .
-<inputs/module3/qrcode_youtubespreadsheets.jpeg, id=230, 401.5pt x 401.5pt>
+<inputs/module3/qrcode_youtubespreadsheets.jpeg, id=254, 401.5pt x 401.5pt>
 File: inputs/module3/qrcode_youtubespreadsheets.jpeg Graphic file (type jpg)
 <use inputs/module3/qrcode_youtubespreadsheets.jpeg>
 Package pdftex.def Info: inputs/module3/qrcode_youtubespreadsheets.jpeg  used o
-n input line 18.
-(pdftex.def)             Requested size: 113.81102pt x 113.80992pt.
-<inputs/module3/qrcode_youtubeDigitalVideo.jpeg, id=232, 401.5pt x 401.5pt>
-File: inputs/module3/qrcode_youtubeDigitalVideo.jpeg Graphic file (type jpg)
-<use inputs/module3/qrcode_youtubeDigitalVideo.jpeg>
-Package pdftex.def Info: inputs/module3/qrcode_youtubeDigitalVideo.jpeg  used o
-n input line 32.
+n input line 22.
 (pdftex.def)             Requested size: 113.81102pt x 113.80992pt.
 File: inputs/logo-innovationlab.png Graphic file (type png)
 <use inputs/logo-innovationlab.png>
-Package pdftex.def Info: inputs/logo-innovationlab.png  used on input line 37.
+Package pdftex.def Info: inputs/logo-innovationlab.png  used on input line 34.
 (pdftex.def)             Requested size: 24.18501pt x 22.73pt.
-[15
+[16
 
- <./inputs/module3/qrcode_youtubespreadsheets.jpeg> <./inputs/module3/qrcode_yo
-utubeDigitalVideo.jpeg>]) (module4.tex
+ <./inputs/module3/qrcode_youtubespreadsheets.jpeg>]
+<inputs/module3/qrcode_spreadsheetmaker.jpeg, id=261, 401.5pt x 401.5pt>
+File: inputs/module3/qrcode_spreadsheetmaker.jpeg Graphic file (type jpg)
+<use inputs/module3/qrcode_spreadsheetmaker.jpeg>
+Package pdftex.def Info: inputs/module3/qrcode_spreadsheetmaker.jpeg  used on i
+nput line 34.
+(pdftex.def)             Requested size: 113.81102pt x 113.80992pt.
+<inputs/module3/spreadsheetVb.png, id=262, 824.32968pt x 568.37344pt>
+File: inputs/module3/spreadsheetVb.png Graphic file (type png)
+<use inputs/module3/spreadsheetVb.png>
+Package pdftex.def Info: inputs/module3/spreadsheetVb.png  used on input line 3
+6.
+(pdftex.def)             Requested size: 485.0pt x 334.40945pt.
+File: inputs/logo-innovationlab.png Graphic file (type png)
+<use inputs/logo-innovationlab.png>
+Package pdftex.def Info: inputs/logo-innovationlab.png  used on input line 48.
+(pdftex.def)             Requested size: 24.18501pt x 22.73pt.
+ [17 <./inputs/module3/qrcode_spreadsheetmaker.jpeg> <./inputs/module3/spreadsh
+eetVb.png>]
+Overfull \hbox (16.68376pt too wide) in paragraph at lines 53--53
+|[]| 
+ []
+
+File: inputs/logo-innovationlab.png Graphic file (type png)
+<use inputs/logo-innovationlab.png>
+Package pdftex.def Info: inputs/logo-innovationlab.png  used on input line 80.
+(pdftex.def)             Requested size: 24.18501pt x 22.73pt.
+[18]
+<inputs/module3/qrcode_youtubeDigitalVideo.jpeg, id=283, 401.5pt x 401.5pt>
+File: inputs/module3/qrcode_youtubeDigitalVideo.jpeg Graphic file (type jpg)
+<use inputs/module3/qrcode_youtubeDigitalVideo.jpeg>
+Package pdftex.def Info: inputs/module3/qrcode_youtubeDigitalVideo.jpeg  used o
+n input line 101.
+(pdftex.def)             Requested size: 113.81102pt x 113.80992pt.
+File: inputs/logo-innovationlab.png Graphic file (type png)
+<use inputs/logo-innovationlab.png>
+Package pdftex.def Info: inputs/logo-innovationlab.png  used on input line 123.
+
+(pdftex.def)             Requested size: 24.18501pt x 22.73pt.
+ [19 <./inputs/module3/qrcode_youtubeDigitalVideo.jpeg>]) (module4.tex
 File: inputs/logo-innovationlab.png Graphic file (type png)
 <use inputs/logo-innovationlab.png>
 Package pdftex.def Info: inputs/logo-innovationlab.png  used on input line 3.
 (pdftex.def)             Requested size: 24.18501pt x 22.73pt.
- [16]
+
+[20]
 Hoofdstuk .
 ) (module5.tex
 File: inputs/logo-innovationlab.png Graphic file (type png)
 <use inputs/logo-innovationlab.png>
 Package pdftex.def Info: inputs/logo-innovationlab.png  used on input line 3.
 (pdftex.def)             Requested size: 24.18501pt x 22.73pt.
- [17
+ [21
 
 ]
 Hoofdstuk .
@@ -1462,7 +1524,7 @@ File: inputs/logo-innovationlab.png Graphic file (type png)
 <use inputs/logo-innovationlab.png>
 Package pdftex.def Info: inputs/logo-innovationlab.png  used on input line 3.
 (pdftex.def)             Requested size: 24.18501pt x 22.73pt.
- [18
+ [22
 
 ]
 Hoofdstuk .
@@ -1476,7 +1538,7 @@ File: inputs/logo-innovationlab.png Graphic file (type png)
 <use inputs/logo-innovationlab.png>
 Package pdftex.def Info: inputs/logo-innovationlab.png  used on input line 61.
 (pdftex.def)             Requested size: 24.18501pt x 22.73pt.
- [19
+ [23
 
 ]
 Hoofdstuk .
@@ -1485,17 +1547,17 @@ File: inputs/logo-innovationlab.png Graphic file (type png)
 <use inputs/logo-innovationlab.png>
 Package pdftex.def Info: inputs/logo-innovationlab.png  used on input line 72.
 (pdftex.def)             Requested size: 24.18501pt x 22.73pt.
- [20
+ [24
 
 ]
 File: inputs/logo-innovationlab.png Graphic file (type png)
 <use inputs/logo-innovationlab.png>
 Package pdftex.def Info: inputs/logo-innovationlab.png  used on input line 72.
 (pdftex.def)             Requested size: 24.18501pt x 22.73pt.
- [21]
+ [25]
 Hoofdstuk .
 (inputs/oplossingen-alle.tmp)
-<inputs/backcover.pdf, id=267, 554.79266pt x 782.925pt>
+<inputs/backcover.pdf, id=318, 554.79266pt x 782.925pt>
 File: inputs/backcover.pdf Graphic file (type pdf)
 <use inputs/backcover.pdf>
 Package pdftex.def Info: inputs/backcover.pdf  used on input line 84.
@@ -1504,7 +1566,7 @@ File: inputs/backcover.pdf Graphic file (type pdf)
 <use inputs/backcover.pdf>
 Package pdftex.def Info: inputs/backcover.pdf  used on input line 84.
 (pdftex.def)             Requested size: 554.7913pt x 782.9231pt.
-<inputs/backcover.pdf, id=270, page=1, 554.79266pt x 782.925pt>
+<inputs/backcover.pdf, id=321, page=1, 554.79266pt x 782.925pt>
 File: inputs/backcover.pdf Graphic file (type pdf)
 <use inputs/backcover.pdf, page 1>
 Package pdftex.def Info: inputs/backcover.pdf , page1 used on input line 84.
@@ -1517,14 +1579,14 @@ File: inputs/logo-innovationlab.png Graphic file (type png)
 <use inputs/logo-innovationlab.png>
 Package pdftex.def Info: inputs/logo-innovationlab.png  used on input line 84.
 (pdftex.def)             Requested size: 24.18501pt x 22.73pt.
- [22
+ [26
 
 ]
 File: inputs/logo-innovationlab.png Graphic file (type png)
 <use inputs/logo-innovationlab.png>
 Package pdftex.def Info: inputs/logo-innovationlab.png  used on input line 84.
 (pdftex.def)             Requested size: 24.18501pt x 22.73pt.
- [23]
+ [27]
 File: inputs/backcover.pdf Graphic file (type pdf)
 <use inputs/backcover.pdf, page 1>
 Package pdftex.def Info: inputs/backcover.pdf , page1 used on input line 84.
@@ -1537,24 +1599,20 @@ File: inputs/backcover.pdf Graphic file (type pdf)
 <use inputs/backcover.pdf, page 1>
 Package pdftex.def Info: inputs/backcover.pdf , page1 used on input line 84.
 (pdftex.def)             Requested size: 598.35448pt x 844.39957pt.
- [24 <./inputs/backcover.pdf>]
+ [28 <./inputs/backcover.pdf>]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 86.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 86.
 
 (il-hartslagmonitor.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 86.
 Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 86.
-
-
-LaTeX Warning: There were multiply-defined labels.
-
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 86.
  ) 
 Here is how much of TeX's memory you used:
- 32924 strings out of 492973
- 791596 string characters out of 3135923
- 996841 words of memory out of 3000000
- 36081 multiletter control sequences out of 15000+200000
+ 32975 strings out of 492973
+ 792742 string characters out of 3135923
+ 997764 words of memory out of 3000000
+ 36109 multiletter control sequences out of 15000+200000
  18819 words of font info for 76 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  71i,20n,96p,1037b,1991s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -1565,16 +1623,18 @@ st, replaced by a fixed one
 gram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Program Fil
 es/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Files/MiKTe
 X 2.9/fonts/type1/public/amsfonts/cm/cmbxti10.pfb><C:/Program Files/MiKTeX 2.9/
-fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Program Files/MiKTeX 2.9/fonts/ty
-pe1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/publi
-c/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfont
-s/cm/cmr7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.
-pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/
-Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Program 
-Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on il-hartslagmonitor.pdf (25 pages, 4697960 bytes).
+fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Files/MiKTeX 2.9/fonts/ty
+pe1/public/amsfonts/cm/cmmi12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/publ
+ic/amsfonts/cm/cmmi8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfon
+ts/cm/cmr10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr
+12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:
+/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program F
+iles/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiK
+TeX 2.9/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Program Files/MiKTeX 2.9/
+fonts/type1/public/amsfonts/cm/cmtt12.pfb>
+Output written on il-hartslagmonitor.pdf (29 pages, 5605524 bytes).
 PDF statistics:
- 353 PDF objects out of 1000 (max. 8388607)
- 77 named destinations out of 1000 (max. 500000)
- 143 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 412 PDF objects out of 1000 (max. 8388607)
+ 96 named destinations out of 1000 (max. 500000)
+ 163 words of extra memory for PDF output out of 10000 (max. 10000000)
 

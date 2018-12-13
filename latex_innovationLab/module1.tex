@@ -49,15 +49,32 @@ Daarom bouwen wij in dit project onze eigen smartphone app, waarmee we snel, een
 
 Je hart is een spier, die samentrekt om je bloed in je lichaam rond te pompen. De hartslag is de pompbeweging van je hart. In de volksmond is de hartslag ook het aantal samentrekkingen van je hart per minuut, of anders gezegd het aantal keer dat je hart klopt per minuut.
 
-De hartslag van een volwassene varieert tussen 60 en 100 slagen per minuut. De maximale hartslag is de hoogste hartslag die je lichaam aankan gedurende fysische activiteit. De maximale hartslag varieert naargelang je leeftijd en kan berekend worden met de volgende vuistregel:
+De hartslag van een volwassene varieert tussen 60 en 100 slagen per minuut. De maximale hartslag is de hoogste hartslag die je lichaam aan kan gedurende fysische activiteit. De maximale hartslag varieert naargelang je leeftijd en kan berekend worden met de volgende vuistregel
 
 \begin{equation*}
 MH = 220-LT
 \end{equation*}
 
-waarbij MH staat voor maximale hartslag (in slagen per minuut of \textquotedblleft beats per minute \textquotedblright (kortweg: \emph{bpm})) en LT voor je leeftijd (in \emph{jaar}).
+met volgende notatie:
+\begin{itemize}
+	\item MH: maximale hartslag met als eenheid slagen per minuut of \textquotedblleft beats per minute \textquotedblright (kortweg: \emph{bpm}). 
+	Dit noteren we als MH [bpm].
+	\item LT [jaar]: leeftijd
+\end{itemize}
 
-Het wordt aangeraden tijdens het sporten je hartslag tussen 55 en 85\% van je maximale hartslag te houden. Voor een volwassene van 20 jaar oud is de maximale hartslag 200 bpm. Het aangeraden hartslagbereik tijdens het sporten is dus tussen $0,55*200$ en $0,85*200$ of nog tussen 110 en 170 bpm.
+Het wordt aangeraden tijdens het sporten je hartslag tussen 55 en 85\% van je maximale hartslag te houden. 
+
+Voor een volwassene van 20 jaar oud is het aangeraden hartslagbereik tijdens het sporten dus tussen 110 en 170 bpm.
+
+\begin{table}
+	\centering
+	\begin{tabular}{c|ccc}
+		LT & MH & 0,55*MH & 0,85*MH \\
+		\hline
+		20 & 200 & 110 & 170 \\
+		50 & 170 & 94 & 145 
+	\end{tabular}
+\end{table}
 
 \begin{oef}
 Bereken de maximale hartslag en het ideale hartslagbereik tijdens het sporten van een volwassene van 
@@ -93,14 +110,24 @@ Welke grootheid komt op de $y$-as? Wat is de eenheid?
 
 De hartslag, of het rondpompen van je bloed, voel je als je je hand op je hart legt. Maar ook in je hals of aan je pols kan je je hartslag voelen. De hartslag wordt dan ook vaak handmatig gemeten door twee gestrekte vingers op de pols (van jezelf of van een ander persoon) of in de hals (tegen de halsslagader) te plaatsen. Hier voel je de hartslag heel goed. Door gedurende 15 seconden het aantal hartslagen te tellen en te vermenigvuldigen met 4 kan je de hartslag, dit is het aantal keer dat je hart pompt per minuut, bepalen.
 
-\begin{opdracht}{Je eigen hartslag meten}
+\begin{opdracht}{Opdracht: Je eigen hartslag meten}
 	Meet je eigen hartslag door twee gestrekte vingers in je hals te plaatsen, het aantal keer dat je hart pompt gedurende 15 seconden te tellen en dit te getal te vermenigvuldigen met vier.
 	
-	Als je moeite hebt om het aantal hartslagen te tellen, kan je ook gebruik maken van de smartphone app \textquoteleft Science journal\textquoteright. Start een nieuw experiment en meet het omgevingsgeluid, zoals in de figuur hieronder. Plaats twee gestrekte vingers in je hals en zeg 'ja' elke keer als je een hartslag voelt. Doe dit gedurende 15 seconden. Tel nadien het aantal pieken die geregistreerd werden en vermenigvuldig dit aantal met vier om de hartslag te bekomen.\footnote{Tip voor leerkachten:
+	Als je moeite hebt om het aantal hartslagen te tellen, kan je ook gebruik maken van de smartphone app \textquoteleft Science journal\textquoteright. De app kan je downloaden in de Google Play Store.\footnote{Tip voor leerkachten:
 	Het gebruik van de app Science Journal kan je demonstreren door je smartphone scherm te projecteren op je computer. Hiervoor kan je het programma (op je pc) en de app (op je smartphone) Vysor gebruiken wanneer je smartphone met een USB kabel met de pc verbonden is.}
 	
-	%TODO hier grafiek van maken en invoegen als figuur
+	Start een nieuw experiment en meet het omgevingsgeluid, zoals in de figuur hieronder. Plaats twee gestrekte vingers in je hals en zeg 'ja' elke keer als je een hartslag voelt. Doe dit gedurende 15 seconden. Tel nadien het aantal pieken dat geregistreerd werd en vermenigvuldig dit aantal met vier om de hartslag te bekomen.
 	
+	%TODO hier grafiek van maken en invoegen als figuur
+	\begin{minipage}{.5\linewidth}
+		\figuurmetlabel[\label{fig:app_scienceJournal}]{width=7cm}{module1/illustratieScienceJournal}{De app Science journal. Gebruik de luidspreker om je stem en het omgevingsgeluid op te nemen.}
+	\end{minipage}
+	\begin{minipage}{.5\linewidth}
+		\figuurmetlabel[\label{fig:meting_scienceJournal}]{width=7cm}{module1/metingScienceJournal}{Voorbeeld van een geluidsmeting in Science Journal.}
+	\end{minipage}
+
+	Zo tellen we voor bovenstaande meting 15 pieken op 15 seconden. De hartslag bekomen we door dit aantal te vermenigvuldigen met vier: de hartslag is 60 bpm.
+
 \end{opdracht}
 
 \begin{oef}

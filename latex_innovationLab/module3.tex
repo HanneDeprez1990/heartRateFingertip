@@ -15,13 +15,82 @@ Het meten van je hartslag met de smartphone is gebaseerd op kleurveranderingen i
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
 
+\subsection{Hoe zijn digitale afbeeldingen opgebouwd?}
+
+Om jullie te laten kennis maken met de basisprincipes achter digitale afbeeldingen, raden we jullie aan onderstaand filmpje te bekijken.
+
 \gewonefiguur{width=4cm}{module3/qrcode_youtubespreadsheets}
 
-\begin{itemize}
-	\item Matrices RGB - afbeelding Dimitri
-	\item Filmpje spreadsheets \url{https://www.youtube.com/watch?v=UBX2QQHlQ_I&t=213s}
-	\item Roodwaarde berekenen in App Inventor
-\end{itemize}
+In het filmpje wordt uitgelegd dat digitale afbeeldingen opgebouwd zijn als een rooster. De vakjes uit het rooster noemen we \textquotedblleft pixels\textquotedblright. 
+
+Elk pixel heeft een roodwaarde, een groenwaarde en een blauwwaarde. Met de combinatie van drie kleuren, nl. rood, groen en blauw, kan je quasi elke bestaande kleur genereren. De rood-, groen- en blauwwaarde van een pixel is steeds een getal tussen 0 en 255. Hoe kleiner het getal, hoe donkerder de kleur. Een roodwaarde van 0 komt dus overeen met een rood dat bijna zwart is. Omgekeerd, hoe groter het getal, hoe lichter de kleur. Een roodwaarde van 255 komt dus overeen met een rood dat bijna helemaal wit is. De drie getalwaarden voor rood, groen en zwart samen bepalen volledig de kleur die je zal zien. Dit drietal noemen we de RGB-waarde (R van rood/red, G van groen/green en B van blauw/blue) van de pixel.
+
+In Figuur XXX zie je hoe een digitale afbeelding in een computer voorgesteld wordt.
+
+%TODO invoegen figuur Dimitri
+
+Je kan ook zelf experimenteren met de RGB-waarden van een foto. Via \url{http://makeanddo4d.com/spreadsheet/} of onderstaande QR-code kan je een foto omzetten in een Excel-werkblad. Inzoomen in het werkblad toont je de RBG-waarden van de inviduele pixels. Uitzoomen in het werkblad toont je de volledige foto, weliswaar met een beperkte resolutie.
+
+\gewonefiguur{width=4cm}{module3/qrcode_spreadsheetmaker}
+
+\gewonefiguur{width=\linewidth}{module3/spreadsheetVb}
+
+
+\subsection{Toepassing op de hartslagmonitor: roodwaarde berekenen in MIT App Inventor 2}
+
+Voor de hartslagmonitor gaan we de roodwaarde van je vingertop analyseren. 
+
+Gedurende 1 hartslag verandert je vingertop heel subtiel van kleur. 
+Wanneer het bloed door je aders gepompt wordt, zetten je aders een heel klein beetje uit. Daardoor komt het bloed net iets dichter bij de oppervlakte van je huid en kleurt je vingertop net iets meer rood dan daarvoor.
+Die verandering in roodwaarde van je vinger kan je met het blote oog niet detecteren, maar als je een filmpje maakt van je vinger, kan een computer, of zelfs je smartphone, die subtiele kleurverschillen wel waarnemen.
+
+We maken een filmpje van onze vingertop. In dit filmpje worden de kleurveranderingen van je vingertop ten gevolge van je hartslag geregistreerd. Een filmpje dat afspeelt is in feite niet meer dan een aantal foto's die heel snel na elkaar getoond worden. Hier gaan we zo dadelijk, in Sectie \ref{sec:Mod3_Sec2} verder op in. Als we het opgenomen filmpje splitsen in de achterliggende foto's en van elke foto bepalen \textquotedblleft hoe rood\textquotedblright die is, kennen de roodwaarde van je vingertop in functie van de tijd. Dit is een grafiek, die net zoals de grafiek in Figuur \ref{fig:meting_scienceJournal} een piek heeft voor elke hartslag. Door het aantal pieken in een beperkt tijdsinterval (bv $15~s$) te tellen en dit aantal te herleiden naar het aantal pieken per minuut (bv door het aantal pieken in $15~s$ te vermenigvuldigen met vier), kan je de hartslag berekenen.
+
+Om het project tot een goed einde te brengen, moeten we dus \textquotedblleft de roodwaarde\textquotedblright van een foto kunnen berekenen. 
+De roodwaarde van een foto zullen we bepalen als het gemiddelde van de roodwaarde van elke pixel van de foto.
+
+
+\begin{opdracht}{Opdracht: roodwaarde van een foto bepalen in sApp Inventor 2}
+Bepaal de roodwaarde van een foto in App Inventor 2.s
+
+Volg daarvoor de volgende stappen:
+\begin{enumerate}
+	\item Voeg een canvas component toe aan je scherm. 
+	\item Upload een foto naar keuze en stel de foto in als achtergrond van het canvas.
+	Pas de afmetingen van het canvas aan zodat de verhoudingen van de foto goed zijn. 
+	
+	\emph{Tip:} Voor de meeste rechtopstaande foto's is de verhouding tussen de hoogte en de breedte 16:9 (voor liggende foto's 9:16). Als de hoogte van een rechtopstaande foto vastgelegd wordt op 200 pixels, moet de breedte dus ongeveer $\frac{9}{16}200$ pixels zijn om de oorspronkelijke verhouding te respecteren.
+	 
+	\item Voeg een knop en een label component toe.
+	
+	\item Ga nu naar de Designer view. Voeg de nodige blokken toe zodat de roodwaarde van de foto berekend wordt als de knop ingedrukt wordt. De berekende roodwaarde verschijnt in de label component.
+	
+	\item \emph{Tip:} De canvas component heeft een methode/blok waarmee je de RGB-waarde van een pixel op breedte $x$ en hoogte $y$ in het rooster van de foto mee kan berekenen. De RGB-waarde wordt opgeslaan als een lijst met drie elementen.
+	\item \emph{Tip:} Om de roodwaarde te bekomen, selecteer je het eerste element uit de lijst met de drie kleurwaarden.
+	\item \emph{Tip:} Om de gemiddelde roodwaarde van een foto te berekenen, gebruik je twee for-lussen: 1 lus loopt over alle pixels in de breedte van een foto ($x$ varieert), de andere lus loopt over alle pixels in de hoogte van de foto ($y$ varieert). De grenzen waarbinnen $x$ en $y$ vari\"eren, kan je bepalen a.d.h.v. de breedte en de hoogte van je canvas component.
+	\item \emph{Tip:} om een gemiddelde van een rij getallen te berekenen, maak je eerst de som van alle getallen, en die som deel je vervolgens door het aantal getallen dat je opgeteld hebt:
+	
+	\begin{equation*}
+	\text{Gemiddelde van 2, 7 en 10} = \frac{2+7+10}{3} = 6,33
+	\end{equation*}
+
+	Iets algemener, voor het gemiddelde van 5 willekeurige getallen:
+	\begin{equation*}
+	\overline{a} = \text{Gemiddelde van $a_1$, $a_2$, ..., $a_5$} = \frac{a_1+a_2+\ldots+a_5}{n} = \frac{\sum_{i=1}^{5} a_i}{5}
+	\end{equation*}
+	
+	Nog algemener, voor het gemiddelde van $n$ willekeurige getallen:
+	\begin{equation*}
+	\overline{a} = \text{Gemiddelde van $a_1$, $a_2$, ..., $a_n$} = \frac{a_1+a_2+\ldots+a_n}{n} = \frac{\sum_{i=1}^{n} a_i}{n}
+	\end{equation*}
+	
+	\begin{opmerking}
+		De gemiddelde roodwaarde van een foto berekenen kan even duren!
+		
+		Daarom gaan we in de toekomst niet werken via deze omslachtige manier, maar gebruiken we een apart blok dat een foto als input neemt en meteen de gemiddelde roodwaarde van de foto als output teruggeeft.
+	\end{opmerking}
+\end{enumerate}
+\end{opdracht}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Digitale video}
@@ -32,10 +101,32 @@ Het meten van je hartslag met de smartphone is gebaseerd op kleurveranderingen i
 \gewonefiguur{width=4cm}{module3/qrcode_youtubeDigitalVideo}
 
 \begin{itemize}
-	\item Uitleg video - afbeelding Dimitri
+	\item Uitleg video - afbeelding Dimitri, frame rate!
 	\item Filmpje digital video \url{https://www.youtube.com/watch?v=-1s-SuUQYs4}
 	\item App video to frames
 \end{itemize}
+
+\subsection{Toepassing: een filmpje splitsen in foto's}
+
+\begin{opdracht}{Opdracht: een filmpje splitsen in foto's}
+Pluk een filmpje van het internet of maak zelf een filmpje. Gebruik de app \textquotedblleft Video naar afbeeldingen \textquotedblleft om het filmpje te splitsen in opeenvolgende foto's. 
+
+\begin{opmerking}
+Het splitsen van video in afbeeldingen kan even duren!
+\end{opmerking}
+
+De foto's worden na het splitsen getoond. Deze foto's worden ook apart op de smartphone opgeslaan. De map waar de foto's worden opgeslaan wordt ook weergegeven. Je kan deze foto's dus ook achteraf nog raadplegen of gebruiken.
+
+\end{opdracht}
+
+Als je een willekeurig filmpje in foto's splitst, zie je hoe de foto's veranderen doorheen de tijd. Als de foto's snel genoeg na elkaar getoond worden, kan je oog de individuele foto's niet meer onderscheiden, waardoor je een continue beweging ziet.
+
+\subsection{Toepassing: een filmpje van je vingertop splitsen in foto's}
+
+\begin{opdracht}{Opdracht: een filmpje splitsen in foto's}
+	Maak een filmpje van $15~s$ van je vingertop en splits het filmpje in foto's. Zie jij de kleurverschillen ten gevolge van je hartslag?
+\end{opdracht}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Toepassing: de hartslagmonitor}

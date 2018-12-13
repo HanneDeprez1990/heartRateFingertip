@@ -157,12 +157,25 @@
 {\theoremstyle{mijndefinitie}
 \newtheorem*{definitie}{Definitie}}
 
+{\theoremstyle{mijnopmerking}
+	\newtheorem*{opmerking}{Opmerking}}
+
+{\theoremstyle{mijnopmerking}
+	\newtheorem*{notatie}{Notatie}}
+
+{\theoremstyle{mijnopmerking}
+	\newtheorem*{onthoud}{Onthoud}}
+
+\newenvironment{ftonthoud}
+{\begin{mdframed}\begin{onthoud}}
+		{\end{onthoud}\end{mdframed}}
+
 {\theoremstyle{mijnstelling}
 \newtheorem{eigenschap}{Eigenschap}[chapter]}
 \renewcommand{\theeigenschap}{\arabic{eigenschap}}
 
 {\theoremstyle{mijnvoorbeeld}
-\newtheorem{voorbeeld}{Voorbeeld}[chapter]}
+	\newtheorem{voorbeeld}{Voorbeeld}[subsection]}
 \renewcommand{\thevoorbeeld}{\arabic{voorbeeld}}
 
 \newenvironment{bewijs eig}{\begin{proof}[Bewijs]}{\end{proof}}
@@ -221,8 +234,8 @@
 \newcounter{figuur}[chapter]
 \renewcommand{\thefiguur}{\arabic{figuur}}
 \newcommand{\figuurmetlabel}[4][]{\ifthenelse{\equal{#4}{}}%
-{\begin{center}\includegraphics[#2]{inputs/#3}\nopagebreak\par\refstepcounter{figuur}Figuur \thefiguur#1\end{center}}%
-{\begin{center}\includegraphics[#2]{inputs/#3}\nopagebreak\par\refstepcounter{figuur}Figuur \thefiguur.\ #4#1\end{center}}%
+	{\begin{center}\includegraphics[#2]{inputs/#3}\nopagebreak\par\refstepcounter{figuur}Figuur \thefiguur#1\end{center}}%
+	{\begin{center}\includegraphics[#2]{inputs/#3}\nopagebreak\par\refstepcounter{figuur}Figuur \thefiguur.\ #4#1\end{center}}%
 }
 
 
