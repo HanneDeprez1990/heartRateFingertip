@@ -18,9 +18,9 @@ Met behulp van MIT App Inventor 2 kan je zelf apps maken. Alles wat je nodig heb
 
 \subsection{Maken van de app}
 
-Surf naar de website \url{http://appinventor.mit.edu/explore/} en klik rechtsboven op create apps! Je zal moeten inloggen met je google account. Na succesvol aanmelden kom je op de pagina met je projecten terecht. 
+Surf naar de website \url{http://appinventor.mit.edu/explore/} en klik rechtsboven op create apps! Je zal moeten inloggen met een google account. Als je nog geen google account hebt, kan je die aanmaken via \url{https://accounts.google.com/signup}. Na succesvol aanmelden kom je op de pagina met je projecten terecht. 
 
-Cre\"eer een nieuw project, bv HelloWorld, en klik erop om het project te openen. 
+Cre\"eer een nieuw project, noem het bv \textquotedblleft HelloWorld\textquotedblright, en klik erop om het project te openen. 
 
 Je komt op het startscherm terecht. Er zijn twee \textquoteleft views\textquoteright. De eerste view is de \emph{designer view}, weergegeven in Figuur \ref{fig:view_designer}.
 
@@ -42,8 +42,8 @@ Probeer een eerste app te maken. De app bevat een knop met de tekst \textquotedb
 
 \subsection{Testen en uitvoeren van de app}
 Om de app te testen moet je de MIT App Inventor 2 Companion App (te vinden in de Google Play Store) installeren op je smartphone. 
-Zorg ervoor dat je computer en GSM met hetzelfde wifi-netwerk verbonden zijn. 
-Klik op connect, rechtsboven in Figuur \ref{fig:view_designer}, en kies de eerste optie \textquotedblleft AI companion\textquotedblright. Er verschijnt een QR-code die je kan scannen met je GSM. De app opent op je GSM, zodat je de functionaliteit kan testen.
+Zorg ervoor dat je computer en smartphone met hetzelfde wifi-netwerk verbonden zijn. 
+Klik op connect, rechtsboven in Figuur \ref{fig:view_designer}, en kies de eerste optie \textquotedblleft AI companion\textquotedblright. Er verschijnt een QR-code die je kan scannen met je smartphone met de MIT App Inventor 2 Companion App. De app opent op je smartphone, zodat je de werking van de app kan testen.
 
 \begin{opdracht}{Good morning app}
 	Toon \textquotedblleft Good morning!\textquotedblright \ in drie verschillende talen op het scherm, nl. Italiaans, Spaans en Duits.
@@ -70,7 +70,7 @@ Klik op connect, rechtsboven in Figuur \ref{fig:view_designer}, en kies de eerst
 		\end{enumerate}
 	\end{minipage}
 
-Test de werking van je app grondig uit.
+Test de werking van je app grondig. Doet de app op elk moment wat je ervan verwacht? Indien niet: ga op zoek naar de onderliggende oorzaak. Dit proces, waarin je ongewenste fouten in de werking van de app opspoort en wegwerkt, heet \textquotedblleft debuggen \textquotedblright. Zelfs de beste programmeurs moeten hun apps debuggen. Dit is soms een frustrerend proces, maar het is helaas wel een wezenlijk onderdeel van programmeren.
 
 \end{opdracht}
 
@@ -84,9 +84,9 @@ Met MIT App Inventor 2 kan je heel gemakkelijk zelf aan de slag. De betekenis va
 Hieronder bespreken we enkele belangrijke blokken uit de blocks view, waarvan de bedoeling misschien iets minder vanzelfsprekend is.
 
 \subsection{Controle (control)}
-Elke programmeertaal is opgebouwd rond drie belangrijke controlestructuren: \textquoteleft if\textquoteright-loops, \textquoteleft for\textquoteright-loops en \textquoteleft while\textquoteright-loops.
+Elke programmeertaal is opgebouwd rond drie belangrijke controlestructuren: \textquoteleft if\textquoteright-loops om beslissingen te nemen, en \textquoteleft for\textquoteright-loops en \textquoteleft while\textquoteright-loops om herhaling in te bouwen.
 
-\subsection{Beslissingen nemen: \emph{If then} blok}
+\subsubsection{Beslissingen nemen: \emph{If then} blok}
 
 \begin{minipage}{.5\linewidth}
 \gewonefiguur{width=7cm}{module2/if.jpg}
@@ -95,37 +95,46 @@ Elke programmeertaal is opgebouwd rond drie belangrijke controlestructuren: \tex
 \gewonefiguur{width=7cm}{module2/ifStructures}
 \end{minipage}
 
-\textquoteleft If\textquoteright-lussen laten toe een programma dynamisch te maken. Een $if$-lus kan je vergelijken met het kiezen van een weg op een kruispunt: als de voorwaarde voldaan is (YES), ga je naar links; anders ga je rechts. 
+\textquoteleft If\textquoteright-lussen laten toe een programma dynamisch te maken. Een \textquoteleft If\textquoteright-lus kan je vergelijken met het kiezen van een weg op een kruispunt: als een voorwaarde voldaan is (YES), ga je naar links; anders ga je rechts. 
 
-Net zo kan je kiezen een bewerking enkel uit te voeren als een voorwaarde voldaan is (\emph{If then} blok) of de ene bewerking uit te voeren als de voorwaarde voldaan is, en een andere als de voorwaarde niet voldaan is (\emph{If then else} blok). Als je echt complexe dingen wil doen, kan je extra voorwaarden toevoegen (\emph{If then, else if then, else then} blok).
+Het testen of een voorwaarde voldaan is, gebeurt met een \texttt{Boolean} expressie.
+Een \texttt{Boolean} expressie is een uitdrukking die ofwel waar of ofwel vals is.
+Het resultaat van \texttt{Boolean} expressie is een \texttt{Boolean}, een variabele die maar twee waarden kan aannemen: \texttt{true} als de voorwaarde voldaan is, en \texttt{false} als de voorwaarde niet voldaan is.
 
-\subsection{Herhaling: \emph{While test} lus of \emph{for each} lus}
+Je kan kiezen om een bewerking enkel uit te voeren als een voorwaarde voldaan is (\emph{If then} blok) of de ene bewerking uit te voeren als de voorwaarde voldaan is, en een andere als de voorwaarde niet voldaan is (\emph{If then else} blok). Als je echt complexe dingen wil doen, kan je extra voorwaarden toevoegen (\emph{If then, else if then, else then} blok).
+
+\subsubsection{Herhaling: \emph{While test} lus of \emph{for each} lus}
 
 Voor zaken die vaak uitgevoerd moeten worden, bv. de tekst op een label laten optellen van 1 tot 100, kan je gebruik maken van een repetitie-blok, zoals een \emph{While test} lus of \emph{for each} lus.
 
 \gewonefiguur{width=\linewidth}{module2/repititionStructures2}
 
-Een \emph{While test} lus heeft twee delen: (1) een \emph{test}-socket: \texttt{Boolean} expressie (waar of niet waar?) die getest wordt, en (2) een \emph{do}-socket: een verzameling instructies die uitgevoerd wordt zolang de \texttt{Boolean} expressie \texttt{true} is. Pas op dat je geen oneindige lussen maakt: ooit moet de \texttt{Boolean} expressie \texttt{false} worden, anders blijf je vastzitten in de \emph{while}-lus.
-
 Bij een \emph{for each}-lus wordt een teller (in ons voorbeeld \texttt{number}) steeds verhoogd (in ons voorbeeld met $Z$) binnen een bereik van waarden (in ons voorbeeld tussen $X$ en $Y$). Een \emph{for}-lus is ideaal om een probleem op te lossen waarbij een lus een vast aantal keer herhaald moet worden.
+
+Een \emph{While test} lus heeft twee delen: (1) een \emph{test}-socket: \texttt{Boolean} expressie (waar of niet waar?) die getest wordt, en (2) een \emph{do}-socket: een verzameling instructies die uitgevoerd wordt zolang de \texttt{Boolean} expressie \texttt{true} is. Pas op dat je geen oneindige lussen maakt: ooit moet de \texttt{Boolean} expressie \texttt{false} worden, anders blijf je vastzitten in de \emph{while}-lus.
 
 \subsection{Logica (Logic)}
 
 Zoals eerder gezegd is een \texttt{Boolean} expressie een expressie die ofwel waar of ofwel vals is.
-Logische operatoren (zoals \texttt{AND} en \texttt{OR}) kunnen gebruikt worden om meerdere boolean expressies samen te stellen en zo meer complexe voorwaarden te testen. De logische operator \texttt{AND} geeft als output waar als beide inputs waar zijn, en onwaar als een of meerdere inputs onwaar zijn. De logische operator \texttt{OR} geeft als output waar als minstens een van beide inputs waar is, en onwaar als beide inputs onwaar zijn.
+Logische operatoren (zoals \texttt{AND} en \texttt{OR}) kunnen gebruikt worden om meerdere boolean expressies samen te stellen en zo meer complexe voorwaarden te testen. 
+
+De logische operator \texttt{AND} geeft als output waar als beide inputs waar zijn, en onwaar als een of meerdere inputs onwaar zijn. 
+
+De logische operator \texttt{OR} geeft als output waar als minstens een van beide inputs waar is, en onwaar als beide inputs onwaar zijn.
+
 De logische operator \texttt{NOT} geeft als output onwaar als de input waar is en geeft als output waar als de input onwaar is.
 
 \subsection{Wiskunde (Math)}
 Uiteraard kunnen bewerkingen op getallen uitgevoerd worden. Je vindt het volledige overzicht van mogelijke bewerkingen onder \emph{Blocks - Math}.
 
 \subsection{Tekst (Text)}
-Naast wiskundige bewerkingen kan je ook tekst input van de gebruiker verwerken. De mogelijke bewerkingen die je op tekst kan uitvoeren vindt je onder \emph{Blocks - Text}.
+Naast wiskundige bewerkingen kan je ook tekst input van de gebruiker verwerken. De mogelijke bewerkingen die je op tekst kan uitvoeren vind je onder \emph{Blocks - Text}.
 
 \subsection{Variabelen (Variables)}
 Variabelen worden gebruikt om waarden bij te houden. Een bij te houden waarde kan bv. het resultaat van een wiskunde bewerking zijn, of een tekst input van de gebruiker die je later nog wilt aanpassen. 
 
 Belangrijk is dat er een onderscheid gemaakt wordt tussen lokale en globale variabelen, zie Figuur \ref{fig:variabele}. Globale variabelen worden aangemaakt bij de opstart van het programma en kunnen doorheen het hele programma gebruikt worden. We zouden kunnen zeggen dat je vanuit elk blok \textquotedblleft aan de globale variabele kan\textquotedblright.
-Lokale variabelen worden aangemaakt binnen een blok en kunnen enkel door blokken binnen de grenzen van de lokale variabele gebruikt worden.
+Lokale variabelen worden aangemaakt binnen een blok en kunnen enkel door blokken binnen de grenzen van de lokale variabele gebruikt worden. Je \textquotedblleft kan er dus enkel aan\textquotedblright \ binnen het oranje blok zelf. Vandaar dat het blok voor een lokale variabele onderaan nog een oranje staartje heeft. Dit staartje duidt aan binnen welke grenzen \textquotedblleft je aan de variabele kan\textquotedblright.
 
 \figuurmetlabel[\label{fig:variabele}]{width=8cm}{module2/variabelen}{Het bovenste blok toont hoe je een globale variabele kan aanmaken, die doorheen het hele programma gebruikt kan worden. Het onderste blok toont hoe je een lokale variabele kan aanmaken, die enkel toegankelijk is binnen het blok van de variabele.}
 

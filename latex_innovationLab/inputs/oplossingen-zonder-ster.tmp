@@ -4,6 +4,8 @@
 \begin {opgelost}{3} \begin {itemize} \item $10~s$: factor $6$ \item $20~s$: factor $3$ \item Hoe korter de telperiode, hoe nauwkeuriger je moet tellen. Eventuele telfouten worden immers vermenigvuldigd met de factor. De factor is groter, naarmate de telperiode korter is. Telfouten worden dus groter als de telperiode korter is. \end {itemize}  \end {opgelost}
 \renewcommand {\mijnoplosmark }{Oplossingen module 2}\section [Module 2. Apps maken met MIT App Inventor 2]{Oplossingen module 2}\markright {Oplossingen module 2}
 \renewcommand {\mijnoplosmark }{Oplossingen module 3}\section [Module 3. Digitale afbeeldingen en video]{Oplossingen module 3}\markright {Oplossingen module 3}
+\begin {opgelost}{1} Voor een frame rate van 24 $fps$ wordt elke afbeelding gedurende 0.042 $s$ (of 42 $ms$) getoond. Voor een frame rate van 30 $fps$ wordt elke afbeelding gedurende 0.033 $s$ (of 33 $ms$) getoond. \end {opgelost}
 \renewcommand {\mijnoplosmark }{Oplossingen module 4}\section [Module 4. Automatische piekdetectie]{Oplossingen module 4}\markright {Oplossingen module 4}
 \renewcommand {\mijnoplosmark }{Oplossingen module 5}\section [Module 5. Bouwen van de complete app]{Oplossingen module 5}\markright {Oplossingen module 5}
 \renewcommand {\mijnoplosmark }{Oplossingen module 6}\section [Module 6. Experimenteren met de app]{Oplossingen module 6}\markright {Oplossingen module 6}
+\begin {opgelost}{3} \begin {itemize} \item Budget \item Tijd \item Wiskundige achtergrond \item Beperkingen hardware: snelle vs trage smartphone, geheugen, wel of geen flash, \ldots \end {itemize} \end {opgelost}

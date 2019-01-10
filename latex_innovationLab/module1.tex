@@ -1,6 +1,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \deelmetoef{Module 1}{Inleiding}{Module 1. Inleiding}{Oplossingen module 1}{Oplossingen module 1}
+\label{sec:inl}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -38,7 +39,7 @@ Naast een bloeddrukmeter kan ook een hartslagmeter gebruikt worden om de hartsla
 	\gewonefiguur{width=\linewidth}{module1/loper-met-dure-loopband}
 \end{minipage} 
 
-In tegenstelling tot een bloeddrukmeter kan je een hartslagmeter wel makkelijk meenemen bij het sporten en geeft ook real time feedback. Maar wellicht ligt de aanschaf van een hartslagmeter niet binnen het budget van elke leerling of student?
+In tegenstelling tot een bloeddrukmeter kan je een hartslagmeter wel makkelijk meenemen bij het sporten. Bovendien geeft de hartslagmeter ook real time feedback; dat wil zeggen dat je op elk moment quasi onmiddellijk je hartslag zien. Maar wellicht ligt de aanschaf van een hartslagmeter niet binnen het budget van elke leerling of student?
 
 Daarom bouwen wij in dit project onze eigen smartphone app, waarmee we snel, eenvoudig en redelijk accuraat onze hartslag kunnen meten, zonder nood aan gespecialiseerde toestellen.
 
@@ -49,7 +50,7 @@ Daarom bouwen wij in dit project onze eigen smartphone app, waarmee we snel, een
 
 Je hart is een spier, die samentrekt om je bloed in je lichaam rond te pompen. De hartslag is de pompbeweging van je hart. In de volksmond is de hartslag ook het aantal samentrekkingen van je hart per minuut, of anders gezegd het aantal keer dat je hart klopt per minuut.
 
-De hartslag van een volwassene varieert tussen 60 en 100 slagen per minuut. De maximale hartslag is de hoogste hartslag die je lichaam aan kan gedurende fysische activiteit. De maximale hartslag varieert naargelang je leeftijd en kan berekend worden met de volgende vuistregel
+De hartslag van een volwassene varieert tussen 60 en 100 slagen per minuut. De maximale hartslag (aangeduid als $MH$) is de hoogste hartslag die je lichaam aan kan gedurende fysische activiteit. De maximale hartslag varieert naargelang je leeftijd en kan berekend worden met de volgende vuistregel
 
 \begin{equation*}
 MH = 220-LT
@@ -65,6 +66,7 @@ met volgende notatie:
 Het wordt aangeraden tijdens het sporten je hartslag tussen 55 en 85\% van je maximale hartslag te houden. 
 
 Voor een volwassene van 20 jaar oud is het aangeraden hartslagbereik tijdens het sporten dus tussen 110 en 170 bpm.
+Voor een volwassene van 50 jaar oud is het aangeraden hartslagbereik tijdens het sporten lager, nl. tussen 97 en 145 bpm.
 
 \begin{table}
 	\centering
@@ -77,7 +79,7 @@ Voor een volwassene van 20 jaar oud is het aangeraden hartslagbereik tijdens het
 \end{table}
 
 \begin{oef}
-Bereken de maximale hartslag en het ideale hartslagbereik tijdens het sporten van een volwassene van 
+Bereken de maximale hartslag $MH$ en het ideale hartslagbereik tijdens het sporten van een volwassene van 
 \begin{itemize}
 	\item 18 jaar
 	\item 30 jaar
@@ -91,7 +93,7 @@ Bereken de maximale hartslag en het ideale hartslagbereik tijdens het sporten va
 	\end{itemize}
 }
 
-\begin{oef}Maak ook een grafiek die de maximale hartslag uitzet in functie van de leeftijd. 
+\begin{oef}Maak ook een grafiek die de maximale hartslag $MH$ uitzet in functie van de leeftijd $LT$. 
 
 Welke grootheid komt op de $x$-as? Wat is de eenheid? 
 
@@ -108,7 +110,7 @@ Welke grootheid komt op de $y$-as? Wat is de eenheid?
 	\end{tikzpicture}
 }
 
-De hartslag, of het rondpompen van je bloed, voel je als je je hand op je hart legt. Maar ook in je hals of aan je pols kan je je hartslag voelen. De hartslag wordt dan ook vaak handmatig gemeten door twee gestrekte vingers op de pols (van jezelf of van een ander persoon) of in de hals (tegen de halsslagader) te plaatsen. Hier voel je de hartslag heel goed. Door gedurende 15 seconden het aantal hartslagen te tellen en te vermenigvuldigen met 4 kan je de hartslag, dit is het aantal keer dat je hart pompt per minuut, bepalen.
+De hartslag, of het rondpompen van je bloed, voel je als je je hand op je hart legt. Maar ook in je hals of aan je pols kan je je hartslag voelen. De hartslag wordt dan ook vaak handmatig gemeten door twee gestrekte vingers op de pols (van jezelf of van een ander persoon) of in de hals (tegen de halsslagader) te plaatsen. Hier voel je de hartslag heel goed. Door gedurende 15 seconden het aantal hartslagen te tellen en te vermenigvuldigen met vier kan je de hartslag, dit is het aantal keer dat je hart pompt per minuut of per 60 seconden, bepalen.
 
 \begin{opdracht}{Opdracht: Je eigen hartslag meten}
 	Meet je eigen hartslag door twee gestrekte vingers in je hals te plaatsen, het aantal keer dat je hart pompt gedurende 15 seconden te tellen en dit te getal te vermenigvuldigen met vier.
@@ -116,14 +118,13 @@ De hartslag, of het rondpompen van je bloed, voel je als je je hand op je hart l
 	Als je moeite hebt om het aantal hartslagen te tellen, kan je ook gebruik maken van de smartphone app \textquoteleft Science journal\textquoteright. De app kan je downloaden in de Google Play Store.\footnote{Tip voor leerkachten:
 	Het gebruik van de app Science Journal kan je demonstreren door je smartphone scherm te projecteren op je computer. Hiervoor kan je het programma (op je pc) en de app (op je smartphone) Vysor gebruiken wanneer je smartphone met een USB kabel met de pc verbonden is.}
 	
-	Start een nieuw experiment en meet het omgevingsgeluid, zoals in de figuur hieronder. Plaats twee gestrekte vingers in je hals en zeg 'ja' elke keer als je een hartslag voelt. Doe dit gedurende 15 seconden. Tel nadien het aantal pieken dat geregistreerd werd en vermenigvuldig dit aantal met vier om de hartslag te bekomen.
+	Start een nieuw experiment en meet het omgevingsgeluid, zoals in de figuur hieronder. Plaats twee gestrekte vingers in je hals en zeg \textquoteleft ja\textquoteright \ elke keer als je een hartslag voelt. Doe dit gedurende 15 seconden. Tel nadien het aantal pieken dat geregistreerd werd en vermenigvuldig dit aantal met vier om de hartslag te bekomen.
 	
-	%TODO hier grafiek van maken en invoegen als figuur
 	\begin{minipage}{.5\linewidth}
-		\figuurmetlabel[\label{fig:app_scienceJournal}]{width=7cm}{module1/illustratieScienceJournal}{De app Science journal. Gebruik de luidspreker om je stem en het omgevingsgeluid op te nemen.}
+		\figuurmetlabel[\label{fig:app_scienceJournal}]{height=12cm}{module1/illustratieScienceJournal}{De app Science journal. Gebruik de luidspreker om je stem en het omgevingsgeluid op te nemen.}
 	\end{minipage}
 	\begin{minipage}{.5\linewidth}
-		\figuurmetlabel[\label{fig:meting_scienceJournal}]{width=7cm}{module1/metingScienceJournal}{Voorbeeld van een geluidsmeting in Science Journal.}
+		\figuurmetlabel[\label{fig:meting_scienceJournal}]{height=12cm}{module1/metingScienceJournal}{Voorbeeld van een geluidsmeting in Science Journal. \newline}
 	\end{minipage}
 
 	Zo tellen we voor bovenstaande meting 15 pieken op 15 seconden. De hartslag bekomen we door dit aantal te vermenigvuldigen met vier: de hartslag is 60 bpm.
@@ -157,9 +158,20 @@ We zullen gebruik maken van de camera die in je smartphone ingebouwd is. We zull
 
 %TODO figuur maken en invoegen (Excel?)
 
-De opeenvolging van uit te voeren stappen kunnen we voorstellen in een blokdiagram, zoals hieronder. Dit blokdiagram toont welke stappen we moeten doorlopen om de hartslag te bepalen, zonder in detail uit te werken wat precies moet gebeuren in elk blok.
+De opeenvolging van uit te voeren stappen kunnen we voorstellen in een blokdiagram, zoals hieronder. Dit blokdiagram toont welke stappen we moeten doorlopen om de hartslag te bepalen, zonder in detail uit te werken wat precies moet gebeuren in elk blok. Dit laat ons toe een bondig overzicht te geven van het project, zonder dat we nu al precies moeten weten wat in elke stap moet gebeuren.
 
-%TODO blok schema verder uitleggen
+We willen de kleurwaarde van je vingertop in functie van de tijd analyseren. 
+De kleurwaarde van je vingertop wordt geregistreerd met de camera van je smartphone en opgeslaan als een filmpje.
+Een video of een filmpje is in feite niet meer dan een aantal foto's die heel snel na elkaar getoond worden op een scherm.
+Die foto's laten ons toe om te bepalen wat de kleurwaarde van je vingertop was op het moment dat de foto werd genomen.
+We hebben drie verschillende manieren om vanuit die kleurwaarden de hartslag te bepalen.
+Ten eerste, als we de kleurwaarde van alle foto's op die verschillende tijdstippen achter elkaar zetten in een grafiek, zien we een aantal pieken zoals hieronder. 
+Daaruit kunnen we zelf berekenen wat onze hartslag was op het moment dat het filmpje werd opgenomen, door zoals voordien het aantal pieken te tellen en te vermenigvuldigen met een factor om het aantal pieken per minuut te bekomen.
+Ten tweede kunnen we de smartphone ook automatisch die pieken laten herkennen, het aantal pieken laten tellen en dit aantal herleiden naar het aantal pieken per minuut.
+Dit bespaart ons heel wat rekenwerk.
+Ten derde bestaat er nog een andere methode, met een Fouriertransformatie die op complexere wiskunde gebaseerd is, die ons toelaat de hartslag te bepalen. 
+Vooral wanneer de meting een beetje ruizig is, wanneer als we de pieken moeilijk kunnen herkennen, zal deze methode nauwkeuriger zijn.
+Hoe deze methode concreet werkt, wordt uitgelegd in Sectie \ref{sec:piekdetectie}.
 
 \begin{tikzpicture}[thick]
 \node[draw,rectangle] at (0,0) (a) {Video opnemen};
