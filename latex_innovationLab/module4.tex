@@ -169,7 +169,7 @@ Geluid is een kleine verandering in luchtdruk, die zich door de lucht voortplant
 De trilling hierboven is een harmonische trilling, die als een sinusvormig signaal voorgesteld wordt en met als functievoorschrift 
 
 \begin{equation*}
-y(t) = Asin(2\pi f t)
+y(t) = A \sin(2\pi f t)
 \end{equation*}. 
 
 Links is de trilling voorgesteld in het tijdsdomein: de uitwijking in functie van de tijd is een sinusoidaal verloop. Rechts is de trilling voorgesteld in het frequentiedomein. Deze voorstelling noemen we dan ook het \emph{frequentiespectrum}. De frequentie van een trilling is gedefineerd als het aantal trillingen per seconde. De eenheid is $1/s$ of Hertz ($Hz$). Hoe het frequentiespectrum gevonden wordt, bespreken we later.
@@ -193,7 +193,7 @@ Naast zuivere tonen bestaan ook samengestelde tonen. De meeste geluiden die je k
 Het functievoorschrift van de afgebeelde trilling is 
 
 \begin{equation*}
-y(t) = 0.5 sin(2 \pi 10 t) + 1 sin(2 \pi 20 t) + 1 sin(2 \pi 30 t).
+y(t) = 0.5 \sin(2 \pi 10 t) + 1 \sin(2 \pi 20 t) + 1 \sin(2 \pi 30 t).
 \end{equation*}
 
 De amplitude en frequentie van de samengestelde toon kan je uit het functievoorschrift afleiden: $A_1 = 0.5$, $f_1 = 10$ Hz, $A_2 = 1$, $f_2 = 20$ Hz, $A_3 = 1$ en $f_3 = 30$ Hz. Uit de linkergrafiek in het tijdsdomein kunnen die grootheden echter niet zo eenvoudig afgeleid worden. Gelukkig toont het frequentiespectrum ons wel de nodige informatie: er zijn drie zuivere trillingen, \'e\'en op 10 Hz met amplitude 0.5, \'e\'en op 20 Hz met amplitude 1 en \'e\'en op 30 Hz met amplitude 1.
@@ -201,7 +201,7 @@ De amplitude en frequentie van de samengestelde toon kan je uit het functievoors
 In het algemeen kan een samengestelde toon geschreven worden als een som van $N$ zuivere tonen, elk met amplitude $A_n$ en frequentie $f_n$:
 
 \begin{equation*}
-y(t) = \sum_{n=1}^{N} A_n sin(2 \pi f_n t).
+y(t) = \sum_{n=1}^{N} A_n \sin(2 \pi f_n t).
 \end{equation*}
 
 \subsection{Frequentieanalyse: het idee van Fourier}
@@ -211,7 +211,7 @@ Meer algemeen kan je om het even welk periodiek signaal opbouwen door sinussen m
 Je kan elk periodiek signaal dus schrijven als een reeks
 
 \begin{equation*}
-y(t) = a_0 + \sum_{k=1}^{\inf} (a_k cos(2 \pi k f_0 t) + b_k sin(2 \pi k f_0 t)).
+y(t) = a_0 + \sum_{k=1}^{\inf} (a_k \cos(2 \pi k f_0 t) + b_k \sin(2 \pi k f_0 t)).
 \end{equation*}
 
 Frequentieanalyse of fourieranalyse is het ontleden van een oneindig lang periodiek signaal in de verschillende frequentiecomponenten waaruit het bestaat. 
@@ -254,12 +254,22 @@ Gebruik Fourieranalyse om de hartslag in een roodwaarde signaal te bepalen.
 	\item Wanneer op de knop \emph{plotFFT} gedrukt wordt, moet het frequentiespectrum getoond worden. Gebruik hiervoor het blok \emph{Chartmaker - DrawLineGraph}. Voeg opnieuw een \emph{Webviewer} toe aan je app. De titel van de grafiek en van de assen en het label kies je zelf. Maak de grafiek eerst met \emph{scalingFactor} gelijk aan 1.
 	
 	\item Op de $x$-as staan de mogelijke hartslagfrequenties. De sprong tussen twee opeenvolgende hartslagfrequenties is $\frac{60 \cdot fs}{\text{aantal roodwaarden}}$. Pas de \emph{scalingFactor} hieraan aan.
+
 	
 	\item Welke hartslag meten we nu op? De grootste piek in de grafiek toont welke frequentie \textquotedblleft het meeste in het signaal aanwezig is \textquotedblright. De $x$-waarde van de grootste piek toont dus de meest waarschijnlijke hartslag. Je kan de $x$- en $y$- waarde van een punt op de grafiek zien door erop te klikken. Komt de hoogste piek overeen met de hartslag die je zelf berekende? En met de hartslag die je app berekende via automatische piekdetectie?
+
 	
 	\begin{opmerking}
 		Het is mogelijk dat de grootste piek zichtbaar is voor een heel kleine $x$-waarde. In dat geval is de piek wellicht veroorzaakt door ruis in het signaal. Komt de 2e grootste piek wel in de buurt bij een meer waarschijnlijke hartslag?
 	\end{opmerking}
+
+	Voor de roodwaarden in het voorbeeld CSV-bestand zou je een grafiek moeten zien zoals hieronder: 
+	
+	\gewonefiguur{width=\linewidth}{module4/redValuesFFT}
+	
+	In dit geval is de meest waarschijnlijke hartslag ongeveer 75 bpm.
+	
+	\item Wat is de stapgrootte waarmee de frequenties op de $x$-as verspringen? Wat zegt dit over de nauwkeurigheid van de hartslagmeting? Heeft de stapgrootte verband met een variabele die we eerder al gebruikten? Welke? Hoe kan je de nauwkeurigheid van de hartslagmeting verbeteren?
 \end{itemize}
 \end{opdracht}
 

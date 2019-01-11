@@ -1,0 +1,17 @@
+fs = 30;
+y = csvread('module3_MSExcel_redValues2.csv');
+N = length(y);
+
+Y = fft(y,N);
+Y([1 end]) = Y([1 end])/2;
+f = (0:length(Y)-1)*fs/length(Y)*60;
+
+figure(1);
+clf;
+ylabel('Amplitude ()');
+plot(f(3:end),abs(Y(2:end-1)));
+
+xlim([0 250])
+xlabel('Frequentie (Hz)');
+
+saveas(gcf,'redValuesFFT.png')
