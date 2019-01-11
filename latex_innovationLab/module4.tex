@@ -15,22 +15,256 @@
 \label{sec:Mod4_Sec1}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
+I.p.v. zelf pieken te tellen op een grafiek willen we dit automatisch doen in de app. Dit houdt in dat we de code moeten schrijven om pieken te detecteren. Door onze ervaringen in het dagelijkse leven kunnen wij mensen redelijk intu\"itief pieken herkennen. De smartphone daarentegen moet door ons gezegd worden wanneer hij een extra piek moet tellen. Daarom moeten we zelf ook even stilstaan bij wat een piek nu eigenlijk is.
+
+\begin{steroef}
+	Omschrijf in eigen woorden wat een piek is.
+\end{steroef}
+\oplos{Wellicht komen hier heel diverse antwoorden, afhankelijk van de achtergrond van de leerlingen. Leerlingen uit de 3e graad zullen wellicht over maxima spreken, terwijl leerlingen uit de 2e graad misschien meer woordelijke/minder wiskundige omschrijvingen zullen geven.}
+
+Een woordelijke omschrijving van een piek hebben we gevonden, maar je smartphone redeneert wiskundiger. 
+
+\begin{oef}
+	Stel een wiskundige uitdrukking op die je in de code kan gebruiken om pieken te detecteren. 
+	
+	Hou er rekening mee dat je smartphone enkel een lijst met roodwaarden als input heeft. Die lijst kunnen we voorstellen als een verzameling $\{ u_1, u_2, u_3, \ldots, u_n \}$ met $n$ elementen, waarbij $u_i$ de $i$-de berekende gemiddelde roodwaarde voorstelt.
+	
+	Als je dit niet meteen ziet, kan je zelf een aantal voorbeeldlijsten maken en a.d.h.v. de vooorbeelden nagaan wanneer het signaal een piek bereikt.
+\end{oef}
+\oplos{Er is een maximum voor element $u_i$ als en slechts als: $u_i > u_{i-1}$ en $u_{i} < u_{i+1}$.}
+
+\begin{opdracht}{Automatische piekdetectie in App Inventor 2}
+Schrijf een app die automatisch pieken detecteert in een lijst. Hou bij (1) op welk volgnummer $i$ een piek $u_i$ gedetecteerd wordt, (2) hoeveel pieken in totaal gedetecteerd worden. Gebruik labels om die resultaten op je scherm weer te geven ter controle.
+
+\begin{enumerate}
+	\item Gebruik eerst een lijst die je zelf ingeeft met \emph{Lists - make a list}. Worden de pieken gedetecteerd op de plek die je verwacht? Pas je code aan tot je het verwachte resultaat bekomt.
+	
+	\item Gebruik nu een lijst met berekende roodwaarden, die we in de vorige module hebben opgeslaan in een CSV-bestand. Voeg daarom een \emph{File}-component toe je aan je app. Wanneer een knop \emph{Read CSV} ingedrukt wordt, moet het CSV-bestand die je opgeslaan hebt in de vorige module ingelezen worden. Kijk indien nodig even terug in je vorige project waar en onder welke naam je het CSV-bestand hebt opgeslaan. Als het CSV-bestand is ingelezen, moet de inhoud omgezet worden in een lijst en in een lijst geplaatst worden. Geef die lijst weer in een label en vergelijk de tekst met het CSV-bestand op een computer om te controleren dat dit correct gebeurde. 
+	
+	\item Gebruik de code uit stap 1 om automatisch pieken te detecteren in de lijst met roodwaarden. Komt dit overeen met het aantal pieken dat jij telt. Waarom (niet)?
+	
+	\begin{opmerking}
+		Afhankelijk van het CSV-bestand dat je inleest, kan het zijn dat de lijst met roodwaarden in plaats van getallen als elementen lijsten met 1 element als elementen bevat. Om aan de roodwaarde te raken, moet je dan het eerste element halen uit elke lijst (die ook weer een element van de oorspronkelijke lijst is).
+		
+	%TODO indien onduidelijk tekening van Dimitri invoegen
+	\end{opmerking}
+	
+	\begin{opmerking}
+		Vaak is de lijst met roodwaarden een beetje \textquotedblleft ruizig \textquotedblright. Dit zorgt ervoor dat de app meer pieken detecteert dan wij zouden doen. Soms zien we een klein piekje in het signaal, dat we negeren, omdat het maar een kleine piek is, of omdat de piek te snel na een grote hartslagpiek komt. 
+	\end{opmerking}
+
+	\item We moeten de app dus leren dat sommige pieken moeten genegeerd worden, wanneer de piek niet echt hoog is, of heel snel komt. Hoe zou jij dit implementeren? Je hoeft dit niet meteen te doen, maar zorg wel dat je een plan hebt.
+	
+	\item De makkelijkste manier om de kleine piekjes te negeren is door de lijst met roodwaarden een beetje op te kuisen. De lijst met roodwaarden noemen we het signaal. De ruis die aanwezig is, is ongewenst. De ruis verandert vaak sneller dan het signaal zelf. Daardoor kunnen we de ruis verminderen door die snelle veranderingen weg te werken. Een eenvoudige manier om snelle veranderingen weg te werken is door opeenvolgende roodwaarden uit te middelen. Dit wordt ook wel laagdoorlaatfiltering genoemd: de snelle veranderingen, vaak ook hoge frequenties genoemd, worden weggefilterd uit het signaal.
+	
+	Schrijf code om opeenvolgende roodwaarden uit te middelen. Maak een nieuwe lijst, bv \emph{smoothRedValuesList}, waarin elk element een gemiddelde is van vier opeenvolgende elementen uit de originele lijst. Herinner je dat we een gemiddelde berekenen als een som van elementen, gedeeld door het aantal elementen dat opgeteld wordt.
+	Voor het gemiddelde van 4 willekeurige getallen:
+	\begin{equation*}
+	\overline{a_4} = \text{Gemiddelde van $a_1$, $a_2$, $a_3$, $a_4$} = \frac{a_1+a_2+a_3+a_4}{n} = \frac{\sum_{i=1}^{4} a_i}{4}
+	\end{equation*}
+	
+	\begin{opmerking}
+		Tip: gebruik een \emph{for}-loop om de elementen van de nieuwe lijst \emph{smoothRedValuesList} te berekenen.
+	\end{opmerking}
+
+	\item Gebruik de code uit stap 1 om de pieken in de nieuwe lijst \emph{smoothRedValuesList} te berekenen. Bekom je een aanvaardbaar resultaat? Is het nodig meer of minder elementen van de originele lijst uit te middelen om tot een aanvaardbaar?
+	
+	\begin{opmerking}
+	We spreken hier over een aanvaardbaar resultaat en niet over een correct resultaat. Het is goed mogelijk dat het aantal pieken dat je code detecteert licht afwijkt van het aantal pieken dat jij telt. Hoe sterk de afwijking is, hangt af van de kwaliteit van de opgenomen video. In Module \ref{sec:digafbvid} gingen jullie al na welke factoren invloed hebben op de kwaliteit van de video.
+	\end{opmerking}
+
+	\item Als je tevreden bent over de automatische piekdetectie, kan je het aantal pieken gedetecteerd tijdens de duur van de video herleiden naar een waarde voor de hartslag, het aantal pieken per minuut.
+	
+	Gebruik de frame rate en het aantal elementen in de lijst met roodwaarden om de duur van de video te berekenen. Gebruik de regel van drie om het aantal pieken gedurende de videoduur te herleiden naar het aantal pieken per seconde. Dit is de gemeten hartslag. Geef die waarde weer in een label op het scherm. Bekom je een realistische waarde voor de gemeten hartslag?
+\end{enumerate}
+\end{opdracht}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Intermezzo: differentiequoti\"ent en afgeleide}
+\section{Intermezzo: differentiequoti\"ent}
 \label{sec:Mod4_Sec2}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
+Bedoeld voor leerlingen uit de 3e graad.
 
+Voor de bepaling of een piek in het signaal bereikt wordt, maakte je gebruik van een wiskundige uitdrukking gerelateerd aan het differentiequoti\"ent.
+
+Stel dat $\{ u_1, u_2, \ldots, u_n\}$ een signaal is, bv. een lijst met roodwaarden. 
+
+\begin{opmerking}
+	We noemen dit een \emph{discreet} signaal (in de figuur hieronder in rood aangeduid): de meetwaarden (bv roodwaarden) zijn slechts op bepaalde tijdstippen bepaald. 
+	
+	Naast \emph{discrete} signalen bestaan ook \emph{continue} signalen (in de figuur hieronder in zwart aangeduid), waarvoor op elk moment een meetwaarde beschikbaar is. Het signaal loopt dus - zoals de naam het zegt - continu door.
+	
+	\gewonefiguur{width=.5\linewidth}{module4/discreetvscontinu}
+	
+	Vaak spreekt men ook over \emph{digitale} en \emph{analoge} signalen. \emph{Digitale} signalen zijn vergelijkbaar met \emph{discrete} signalen, terwijl \emph{analoge} signalen te vergelijken zijn met \emph{continue} signalen, hoewel niet exact dezelfde zaken bedoeld worden met de termen \emph{digitaal/discreet} en \emph{analoog/continu}.
+
+\end{opmerking}
+
+\begin{oef}
+	In de lessen wiskunde leerde je al over functies. Een grafiek van de functie met functievoorschrift $y=f(x)$ toont hoe de grootheid $y$ verandert i.f.v. de grootheid $x$. Vaak kan de grootheid $x$ een continu bereik van waarden aannemen. In dat geval spreken we over een discreet/continu signaal. \emph{(Schrap wat niet past.)}
+\end{oef}
+\oplos{Als de grootheid $x$ een continu bereik van waarden kan aannemen, spreken we over een continu signaal.}
+
+De signalen waar we hier mee werken, kan je dus enigszins vergelijken met functies die je kent uit de wiskundelessen. 
+Het verschil is dat we hier slechts op discrete momenten een functiewaarde kunnen bepalen, terwijl in de wiskundeles meestal met continue signalen gewerkt wordt.
+
+We gaan terug naar ons discreet signaal $\{ u_1, u_2, \ldots, u_n\}$. De uitdrukking die je kan om na te gaan of een piek bereikt was is:
+
+\begin{equation*}
+u_i-u_{i-1}
+\end{equation*}
+
+Immers, als $u_{i}-u_{i-1}>0$ en $u_{i+1}-u_{i}<0$ wordt een lokaal maximum, of een piek, bereikt op het tijdstip $i$.
+
+Deze uitdrukking is sterk gerelateerd aan het differentiequoti\"ent $D$ voor een functie $f$:
+
+\begin{equation}
+D = \frac{f(a+\Delta h) - f(a)}{\Delta h}
+\end{equation}
+
+Voor zeer kleine waarden van $\Delta h$ benadert het differentiequoti\"ent de richtingsco\"effici\"ent van de raaklijn in het punt $(a,f(a))$. We zeggen ook weleens dat de afgeleide van de functie $f$ in het punt $(a,f(a))$ gelijk is aan 
+
+\begin{eqnarray*}
+f'(a) &=& \lim\limits_{\Delta h \to 0} D \\
+&=& \lim\limits_{\Delta h \to 0} \frac{f(a+\Delta h)-f(a)}{\Delta h}
+\end{eqnarray*}
+
+Uit de wiskundelessen weet je dat een functie een extremum (= een maximum of een minimum) bereikt waar de afgeleide nul wordt. Om een \emph{minimum} te vinden zoeken we voor welke waarde van $x$ de functie overgaat van dalend (afgeleide $f'(x)< 0$) naar dalend (afgeleide $f'(x)> 0$). Om een \emph{minimum} te vinden zoeken we voor welke waarde van $x$ de functie overgaat van stijgend (afgeleide $f'(x)>0$) naar dalend (afgeleide $f'(x)<0$).
+
+Wat we in dit project doen, is zeer gelijkaardig: we kijken voor welke waarde van $i$ $u_{i}-u_{i-1}$ overgaat van een positieve naar een negatieve waarde om een piek, dit is een maximum, te detecteren. 
+
+\begin{oef}
+	Nu we achterhaald hebben hoe onze aanpak in dit project vergelijkbaar is met afgeleiden en extrema-vraagstukken, kunnen we ons ook afvragen welke verschillen bestaan. Som op welke verschillen je ziet.
+\end{oef}
+\oplos{\begin{itemize}
+		\item Bij afgeleiden gebruiken we continue signalen, en hier discrete.
+		\item Bij afgeleiden is er nog een deling door $\Delta h$. Dit laten we hier achterwege. 
+		 \begin{opmerking}
+		 	Merk op dat je ook de uitdrukking $u_{i}-u_{i-1}$ zou kunnen delen door de tijdsduur tussen 2 foto's. Die tijdsduur is $\Delta i=1/fs$, het omgekeerde van de frame rate. 
+		 	
+		 	Die deling heeft geen invloed op het resultaat (de gedetecteerde pieken), omdat we zoeken voor welke waarde van $i$ de uitdrukking $u_{i}-u_{i-1}$ of $\frac{u_{i}-u_{i-1}}{\Delta i} = [ u_{i}-u_{i-1} ] fs$  overgaat van een positieve naar een negatieve waarde. Die extra (positieve) factor $fs$ be\"invloedt het teken, en dus ook de uitkomst, niet.
+		 \end{opmerking}
+	\end{itemize}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Programmeren in MIT App Inventor 2: automatische piekdetectie}
+\section{Intermezzo: Frequentieanalyse}
 \label{sec:Mod4_Sec3}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
+Bedoeld voor leerlingen uit de 3e graad.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Intermezzo: Frequentieanalyse m.b.v. Fouriertransformaties}
-\label{sec:Mod4_Sec4}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
+Je zal al ondervonden hebben dat de nauwkeurigheid van de hartslagmeting afhangt van de kwaliteit van het opgenomen filmpje. Als je vingertop of de smartphone bewoog tijdens de opname, is de grafiek van de roodwaarde in functie van de tijd ruiziger. Hoe ruiziger het signaal, hoe moeilijker de detectie van pieken wordt. En hoe moeilijker de piekdetectie, hoe meer kans op fouten en hoe onnauwkeuriger de meting.
+
+Er bestaat een andere manier om de hartslag te bepalen, die niet gebaseerd in op piekdetectie en daardoor iets nauwkeuriger is. Deze alternatieve manier is gebaseerd op frequentieanalyse.
+
+\subsection{Geluid: zuivere en samengestelde tonen}
+
+We nemen even afstand van onze hartslagmonitor. Om goed te kunnen uitleggen wat we met frequentieanalyse bedoelen, kijken we even naar geluid.
+
+Geluid is een kleine verandering in luchtdruk, die zich door de lucht voortplant. Elk luchtdeeltje ondervindt een trilling en geeft die trilling door aan de luchtdeeltjes in zijn buurt. De trilling van een luchtdeeltje in functie van de tijd kan er uitzien als volgt:
+
+\gewonefiguur{width=\linewidth}{module4/sinusTrilling}
+
+De trilling hierboven is een harmonische trilling, die als een sinusvormig signaal voorgesteld wordt en met als functievoorschrift 
+
+\begin{equation*}
+y(t) = Asin(2\pi f t)
+\end{equation*}. 
+
+Links is de trilling voorgesteld in het tijdsdomein: de uitwijking in functie van de tijd is een sinusoidaal verloop. Rechts is de trilling voorgesteld in het frequentiedomein. Deze voorstelling noemen we dan ook het \emph{frequentiespectrum}. De frequentie van een trilling is gedefineerd als het aantal trillingen per seconde. De eenheid is $1/s$ of Hertz ($Hz$). Hoe het frequentiespectrum gevonden wordt, bespreken we later.
+
+Deze trilling is een \emph{zuivere toon}: er is slechts 1 frequentie aanwezig. In het frequentiespectrum zien we maar 1 lijn. Het is het geluid dat je hoort als je een stemvork aanslaat.
+
+\begin{oef}
+\begin{itemize}
+	\item Wat is de uitwijking, of amplitude $A$ van de trilling? 
+	\item Hoe verandert het geluid als de amplitude verhoogt?
+	\item Wat is de frequentie $f$ van de trilling? Vergeet de eenheid niet!
+	\item Hoe verandert het geluid als de frequentie verhoogt?
+	\item De periode is $T=1/f$ is het tijdsverschil tussen 2 opeenvolgende maximale (of minimale) uitwijkingen. Het is dus de tijd die 1 volledige trilling inneemt.
+\end{itemize}
+\end{oef}
+
+Naast zuivere tonen bestaan ook samengestelde tonen. De meeste geluiden die je kent, zijn samengestelde tonen, waarin meerdere frequenties voorkomen. Hieronder zie je een voorbeeld.
+
+\gewonefiguur{width=\linewidth}{module4/samengesteldeToon}
+
+Het functievoorschrift van de afgebeelde trilling is 
+
+\begin{equation*}
+y(t) = 0.5 sin(2 \pi 10 t) + 1 sin(2 \pi 20 t) + 1 sin(2 \pi 30 t).
+\end{equation*}
+
+De amplitude en frequentie van de samengestelde toon kan je uit het functievoorschrift afleiden: $A_1 = 0.5$, $f_1 = 10$ Hz, $A_2 = 1$, $f_2 = 20$ Hz, $A_3 = 1$ en $f_3 = 30$ Hz. Uit de linkergrafiek in het tijdsdomein kunnen die grootheden echter niet zo eenvoudig afgeleid worden. Gelukkig toont het frequentiespectrum ons wel de nodige informatie: er zijn drie zuivere trillingen, \'e\'en op 10 Hz met amplitude 0.5, \'e\'en op 20 Hz met amplitude 1 en \'e\'en op 30 Hz met amplitude 1.
+
+In het algemeen kan een samengestelde toon geschreven worden als een som van $N$ zuivere tonen, elk met amplitude $A_n$ en frequentie $f_n$:
+
+\begin{equation*}
+y(t) = \sum_{n=1}^{N} A_n sin(2 \pi f_n t).
+\end{equation*}
+
+\subsection{Frequentieanalyse: het idee van Fourier}
+
+Meer algemeen kan je om het even welk periodiek signaal opbouwen door sinussen met veelvouden van een bepaalde grondfrequentie $f_0$ en verschillende amplituden op te tellen. Naarmate je meer termen optelt, krijgt het signaal een strakkere vorm.
+
+Je kan elk periodiek signaal dus schrijven als een reeks
+
+\begin{equation*}
+y(t) = a_0 + \sum_{k=1}^{\inf} (a_k cos(2 \pi k f_0 t) + b_k sin(2 \pi k f_0 t)).
+\end{equation*}
+
+Frequentieanalyse of fourieranalyse is het ontleden van een oneindig lang periodiek signaal in de verschillende frequentiecomponenten waaruit het bestaat. 
+
+Fourieranalyse bestaat er dus in de co\"effici\"enten $a_0$, $a_k$ en $b_k$ te zoeken, die bij elke frequentie $k f_0$ horen.
+
+%TODO uitleg hoe dit te berekenen. Halen uit JC CI.
+
+Fourieranalyse op geluidsignalen toont ons welke frequenties in een geluid voorkomen.
+
+\subsection{Toepassing: fourieranalyse voor onze hartslagmonitor}
+
+Terug naar onze hartslagmonitor. Wij zijn op zoek naar onze hartslag: het aantal keer dat ons hart klopt per minuuut. Dit is eigenlijk ook een soort van frequentie: het kloppen van ons hart kunnen we vergelijken met een geluidstrilling. Elke keer ons hart samentrekt, bevindt het bloed in onze vingertop zich iets verder van de huid en is de roodwaarde in onze video minimaal. En elke keer ons hart maximaal uitgezet is, bevindt het bloed in onze vingertop zich iets dichter bij huid en is de roodwaarde in onze video maximaal. Onze hartslag is dus de frequentie waarmee ons hart klopt en is meteen ook de frequentie waarmee de roodwaarde in de opgenomen video fluctueert. Als we dus het frequentiespectrum van ons roodwaarde-signaal kunnen opstellen, kunnen we uit de pieken hierin de hartslag afleiden.
+
+\begin{opdracht}{Fourieranalyse in App Inventor 2}
+Gebruik Fourieranalyse om de hartslag in een roodwaarde signaal te bepalen.
+	
+\begin{itemize}
+	
+	\item Maak een nieuw project \texttt{IL\_hartslagmonitor\_fourieranalyse}.
+	
+	\item Voorzie een aantal knoppen: \emph{readCSV}, \emph{calculateFFT} en \emph{plotFFT}. Voorzie ook een textbox waarin de gebruiker de frame rate ($fs$) kan aanpassen en een knop \emph{fsChanged} waarmee de gebruiker kan aangeven dat hij de frame rate aangepast heeft. Als de knop \emph{fsChanged} aangeklikt wordt, moet een globale variabele aangepast worden aan de inhoud van de textbox.
+	
+	\item Gebruik nu een lijst met berekende roodwaarden, die we in de vorige module hebben opgeslaan in een CSV-bestand. Gebruik zoveel mogelijk code uit vorige opdrachten. Voeg daarom een \emph{File}-component toe je aan je app. Wanneer een knop \emph{Read CSV} ingedrukt wordt, moet het CSV-bestand die je opgeslaan hebt in de vorige module ingelezen worden. Kijk indien nodig even terug in je vorige project waar en onder welke naam je het CSV-bestand hebt opgeslaan. Als het CSV-bestand is ingelezen, moet de inhoud omgezet worden in een lijst en in een lijst geplaatst worden. Geef die lijst weer in een label en vergelijk de tekst met het CSV-bestand op een computer om te controleren dat dit correct gebeurde. 
+	
+	\item Kopieer de code uit een van de vorige opdrachten om opeenvolgende roodwaarden uit te middelen. Maak een nieuwe lijst, bv \emph{smoothRedValuesList}, waarin elk element een gemiddelde is van vier opeenvolgende elementen uit de originele lijst. 
+	
+	\begin{opmerking}
+		Afhankelijk van het CSV-bestand dat je inleest, kan het zijn dat de lijst met roodwaarden in plaats van getallen als elementen lijsten met 1 element als elementen bevat. Om aan de roodwaarde te raken, moet je dan het eerste element halen uit elke lijst (die ook weer een element van de oorspronkelijke lijst is).
+		
+		%TODO indien onduidelijk tekening van Dimitri invoegen
+	\end{opmerking}
+	
+ 	\item De implementatie van de Fourieranalyse hebben we al voor jullie gedaan. Voeg daarom de extensie \emph{FFTCalculator1} toe aan je app.
+ 	
+	\item Gebruik het blok \emph{FFTCalculator - CalculateFft} om een Fourieranalyse uit te voeren wanneer de knop \emph{calculateCSV} aangeklikt wordt. Het resultaat is een lijst \emph{redValuesFFT}. 
+	
+	\item Verwijder het eerste element uit de lijst. Dit is nodig om een correct frequentiespectrum te kunnen maken.
+	
+	\item Wanneer op de knop \emph{plotFFT} gedrukt wordt, moet het frequentiespectrum getoond worden. Gebruik hiervoor het blok \emph{Chartmaker - DrawLineGraph}. Voeg opnieuw een \emph{Webviewer} toe aan je app. De titel van de grafiek en van de assen en het label kies je zelf. Maak de grafiek eerst met \emph{scalingFactor} gelijk aan 1.
+	
+	\item Op de $x$-as staan de mogelijke hartslagfrequenties. De sprong tussen twee opeenvolgende hartslagfrequenties is $\frac{60 \cdot fs}{\text{aantal roodwaarden}}$. Pas de \emph{scalingFactor} hieraan aan.
+	
+	\item Welke hartslag meten we nu op? De grootste piek in de grafiek toont welke frequentie \textquotedblleft het meeste in het signaal aanwezig is \textquotedblright. De $x$-waarde van de grootste piek toont dus de meest waarschijnlijke hartslag. Je kan de $x$- en $y$- waarde van een punt op de grafiek zien door erop te klikken. Komt de hoogste piek overeen met de hartslag die je zelf berekende? En met de hartslag die je app berekende via automatische piekdetectie?
+	
+	\begin{opmerking}
+		Het is mogelijk dat de grootste piek zichtbaar is voor een heel kleine $x$-waarde. In dat geval is de piek wellicht veroorzaakt door ruis in het signaal. Komt de 2e grootste piek wel in de buurt bij een meer waarschijnlijke hartslag?
+	\end{opmerking}
+\end{itemize}
+\end{opdracht}
+
+
+
+
+
+

@@ -26,31 +26,33 @@
 \contentsline {section}{\numberline {3}Toepassing: de hartslagmonitor}{22}{section.3.3}
 \contentsline {chapter}{\numberline {}Module 4. Automatische piekdetectie}{26}{chapter.4}
 \contentsline {section}{\numberline {1}Wat is een piek in een signaal?}{26}{section.4.1}
-\contentsline {section}{\numberline {2}Intermezzo: differentiequoti\"ent en afgeleide}{26}{section.4.2}
-\contentsline {section}{\numberline {3}Programmeren in MIT App Inventor 2: automatische piekdetectie}{26}{section.4.3}
-\contentsline {section}{\numberline {4}Intermezzo: Frequentieanalyse m.b.v. Fouriertransformaties}{26}{section.4.4}
-\contentsline {chapter}{\numberline {}Module 5. Bouwen van de complete app}{27}{chapter.5}
-\contentsline {section}{\numberline {1}Video opnemen}{27}{section.5.1}
-\contentsline {section}{\numberline {2}Video naar afbeeldingen m.b.v. app VideoNaarAfbeeldingen}{27}{section.5.2}
-\contentsline {section}{\numberline {3}Gemiddelde roodwaarde voor elke afbeelding berekenen}{27}{section.5.3}
-\contentsline {section}{\numberline {4}Grafiek van de gemiddelde roodwaarde i.f.v. de tijd}{27}{section.5.4}
-\contentsline {section}{\numberline {5}Automatische piekdetectie en berekening van de hartslag}{27}{section.5.5}
-\contentsline {section}{\numberline {6}Extra: frequentie-analyse m.b.v. Fouriertransformatie}{27}{section.5.6}
-\contentsline {chapter}{\numberline {}Module 6. Experimenteren met de app}{28}{chapter.6}
-\contentsline {section}{\numberline {1}Invloed van sport en rust}{28}{section.6.1}
-\contentsline {section}{\numberline {2}Vergelijking met bloeddrukmeter/hartslagmeter/smartwatch}{28}{section.6.2}
-\contentsline {section}{\numberline {3}Evaluatie: wat kan beter?}{29}{section.6.3}
-\contentsline {chapter}{\numberline {}Oplossingen van de oefeningen zonder $\ast $}{30}{chapter.7}
-\contentsline {section}{Module 1. Inleiding}{30}{chapter.7}
-\contentsline {section}{Module 2. Apps maken met MIT App Inventor 2}{30}{chapter.7}
-\contentsline {section}{Module 3. Digitale afbeeldingen en video}{30}{chapter.7}
-\contentsline {section}{Module 4. Automatische piekdetectie}{31}{chapter.7}
-\contentsline {section}{Module 5. Bouwen van de complete app}{31}{chapter.7}
-\contentsline {section}{Module 6. Experimenteren met de app}{31}{chapter.7}
-\contentsline {chapter}{\numberline {}Oplossingen van alle oefeningen}{32}{chapter.8}
-\contentsline {section}{Module 1. Inleiding}{32}{chapter.8}
-\contentsline {section}{Module 2. Apps maken met MIT App Inventor 2}{32}{chapter.8}
-\contentsline {section}{Module 3. Digitale afbeeldingen en video}{32}{chapter.8}
-\contentsline {section}{Module 4. Automatische piekdetectie}{33}{chapter.8}
-\contentsline {section}{Module 5. Bouwen van de complete app}{33}{chapter.8}
-\contentsline {section}{Module 6. Experimenteren met de app}{33}{chapter.8}
+\contentsline {section}{\numberline {2}Intermezzo: differentiequoti\"ent}{28}{section.4.2}
+\contentsline {section}{\numberline {3}Intermezzo: Frequentieanalyse}{30}{section.4.3}
+\contentsline {subsection}{\numberline {3.1}Geluid: zuivere en samengestelde tonen}{30}{subsection.4.3.1}
+\contentsline {subsection}{\numberline {3.2}Frequentieanalyse: het idee van Fourier}{32}{subsection.4.3.2}
+\contentsline {subsection}{\numberline {3.3}Toepassing: fourieranalyse voor onze hartslagmonitor}{33}{subsection.4.3.3}
+\contentsline {chapter}{\numberline {}Module 5. Bouwen van de complete app}{35}{chapter.5}
+\contentsline {section}{\numberline {1}Video opnemen}{36}{section.5.1}
+\contentsline {section}{\numberline {2}Video naar afbeeldingen m.b.v. app VideoNaarAfbeeldingen}{36}{section.5.2}
+\contentsline {section}{\numberline {3}Gemiddelde roodwaarde voor elke afbeelding berekenen}{36}{section.5.3}
+\contentsline {section}{\numberline {4}Grafiek van de gemiddelde roodwaarde i.f.v. de tijd}{36}{section.5.4}
+\contentsline {section}{\numberline {5}Automatische piekdetectie en berekening van de hartslag}{36}{section.5.5}
+\contentsline {section}{\numberline {6}Extra: frequentie-analyse m.b.v. Fouriertransformatie}{36}{section.5.6}
+\contentsline {chapter}{\numberline {}Module 6. Experimenteren met de app}{37}{chapter.6}
+\contentsline {section}{\numberline {1}Invloed van sport en rust}{37}{section.6.1}
+\contentsline {section}{\numberline {2}Vergelijking met bloeddrukmeter/hartslagmeter/smartwatch}{37}{section.6.2}
+\contentsline {section}{\numberline {3}Evaluatie: wat kan beter?}{38}{section.6.3}
+\contentsline {chapter}{\numberline {}Oplossingen van de oefeningen zonder $\ast $}{39}{chapter.7}
+\contentsline {section}{Module 1. Inleiding}{39}{chapter.7}
+\contentsline {section}{Module 2. Apps maken met MIT App Inventor 2}{39}{chapter.7}
+\contentsline {section}{Module 3. Digitale afbeeldingen en video}{39}{chapter.7}
+\contentsline {section}{Module 4. Automatische piekdetectie}{40}{chapter.7}
+\contentsline {section}{Module 5. Bouwen van de complete app}{40}{chapter.7}
+\contentsline {section}{Module 6. Experimenteren met de app}{40}{chapter.7}
+\contentsline {chapter}{\numberline {}Oplossingen van alle oefeningen}{41}{chapter.8}
+\contentsline {section}{Module 1. Inleiding}{41}{chapter.8}
+\contentsline {section}{Module 2. Apps maken met MIT App Inventor 2}{41}{chapter.8}
+\contentsline {section}{Module 3. Digitale afbeeldingen en video}{41}{chapter.8}
+\contentsline {section}{Module 4. Automatische piekdetectie}{42}{chapter.8}
+\contentsline {section}{Module 5. Bouwen van de complete app}{42}{chapter.8}
+\contentsline {section}{Module 6. Experimenteren met de app}{42}{chapter.8}
