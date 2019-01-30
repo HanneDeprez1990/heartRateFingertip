@@ -50,7 +50,7 @@ Schrijf een app die automatisch pieken detecteert in een lijst. Hou bij (1) op w
 	\end{opmerking}
 	
 	\begin{opmerking}
-		Vaak is de lijst met roodwaarden een beetje \textquotedblleft ruizig \textquotedblright. Dit zorgt ervoor dat de app meer pieken detecteert dan wij zouden doen. Soms zien we een klein piekje in het signaal, dat we negeren, omdat het maar een kleine piek is, of omdat de piek te snel na een grote hartslagpiek komt. 
+		Vaak is de lijst met roodwaarden een beetje \textquotedblleft ruizig\textquotedblright. Dit zorgt ervoor dat de app meer pieken detecteert dan wij zouden doen. Soms zien we een klein piekje in het signaal, dat we negeren, omdat het maar een kleine piek is, of omdat de piek te snel na een grote hartslagpiek komt. 
 	\end{opmerking}
 
 	\item We moeten de app dus leren dat sommige pieken moeten genegeerd worden, wanneer de piek niet echt hoog is, of heel snel komt. Hoe zou jij dit implementeren? Je hoeft dit niet meteen te doen, maar zorg wel dat je een plan hebt.
@@ -60,17 +60,17 @@ Schrijf een app die automatisch pieken detecteert in een lijst. Hou bij (1) op w
 	Schrijf code om opeenvolgende roodwaarden uit te middelen. Maak een nieuwe lijst, bv \emph{smoothRedValuesList}, waarin elk element een gemiddelde is van vier opeenvolgende elementen uit de originele lijst. Herinner je dat we een gemiddelde berekenen als een som van elementen, gedeeld door het aantal elementen dat opgeteld wordt.
 	Voor het gemiddelde van 4 willekeurige getallen:
 	\begin{equation*}
-	\overline{a_4} = \text{Gemiddelde van $a_1$, $a_2$, $a_3$, $a_4$} = \frac{a_1+a_2+a_3+a_4}{n} = \frac{\sum_{i=1}^{4} a_i}{4}
+	\overline{a_4} = \text{Gemiddelde van $a_1$, $a_2$, $a_3$, $a_4$} = \frac{a_1+a_2+a_3+a_4}{4} = \frac{\sum_{i=1}^{4} a_i}{4}
 	\end{equation*}
 	
 	\begin{opmerking}
-		Tip: gebruik een \emph{for}-loop om de elementen van de nieuwe lijst \emph{smoothRedValuesList} te berekenen.
+		Tip: gebruik een \emph{for}-lus om de elementen van de nieuwe lijst \emph{smoothRedValuesList} te berekenen.
 	\end{opmerking}
 
-	\item Gebruik de code uit stap 1 om de pieken in de nieuwe lijst \emph{smoothRedValuesList} te berekenen. Bekom je een aanvaardbaar resultaat? Is het nodig meer of minder elementen van de originele lijst uit te middelen om tot een aanvaardbaar?
+	\item Gebruik de code uit stap 1 om de pieken in de nieuwe lijst \emph{smoothRedValuesList} te berekenen. Bekom je een aanvaardbaar resultaat? Is het nodig meer of minder elementen van de originele lijst uit te middelen om tot een aanvaardbaar resultaat?
 	
 	\begin{opmerking}
-	We spreken hier over een aanvaardbaar resultaat en niet over een correct resultaat. Het is goed mogelijk dat het aantal pieken dat je code detecteert licht afwijkt van het aantal pieken dat jij telt. Hoe sterk de afwijking is, hangt af van de kwaliteit van de opgenomen video. In Module \ref{sec:digafbvid} gingen jullie al na welke factoren invloed hebben op de kwaliteit van de video.
+	We spreken hier over een \emph{aanvaardbaar} resultaat en niet over een \emph{correct} resultaat. Het is goed mogelijk dat het aantal pieken dat je code detecteert licht afwijkt van het aantal pieken dat jij telt. Hoe sterk de afwijking is, hangt af van de kwaliteit van de opgenomen video. In Module 3 Sectie \ref{sec:Mod3_Sec3} gingen jullie al na welke factoren invloed hebben op de kwaliteit van de video.
 	\end{opmerking}
 
 	\item Als je tevreden bent over de automatische piekdetectie, kan je het aantal pieken gedetecteerd tijdens de duur van de video herleiden naar een waarde voor de hartslag, het aantal pieken per minuut.
@@ -84,7 +84,7 @@ Schrijf een app die automatisch pieken detecteert in een lijst. Hou bij (1) op w
 \label{sec:Mod4_Sec2}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
-Bedoeld voor leerlingen uit de 3e graad.
+\emph{Bedoeld voor leerlingen uit de 3e graad.}
 
 Voor de bepaling of een piek in het signaal bereikt wordt, maakte je gebruik van een wiskundige uitdrukking gerelateerd aan het differentiequoti\"ent.
 
@@ -109,7 +109,7 @@ Stel dat $\{ u_1, u_2, \ldots, u_n\}$ een signaal is, bv. een lijst met roodwaar
 De signalen waar we hier mee werken, kan je dus enigszins vergelijken met functies die je kent uit de wiskundelessen. 
 Het verschil is dat we hier slechts op discrete momenten een functiewaarde kunnen bepalen, terwijl in de wiskundeles meestal met continue signalen gewerkt wordt.
 
-We gaan terug naar ons discreet signaal $\{ u_1, u_2, \ldots, u_n\}$. De uitdrukking die je kan om na te gaan of een piek bereikt was is:
+We gaan terug naar ons discreet signaal $\{ u_1, u_2, \ldots, u_n\}$. De uitdrukking die je kan gebruiken om na te gaan of een piek bereikt was is:
 
 \begin{equation*}
 u_i-u_{i-1}
@@ -130,9 +130,9 @@ f'(a) &=& \lim\limits_{\Delta h \to 0} D \\
 &=& \lim\limits_{\Delta h \to 0} \frac{f(a+\Delta h)-f(a)}{\Delta h}
 \end{eqnarray*}
 
-Uit de wiskundelessen weet je dat een functie een extremum (= een maximum of een minimum) bereikt waar de afgeleide nul wordt. Om een \emph{minimum} te vinden zoeken we voor welke waarde van $x$ de functie overgaat van dalend (afgeleide $f'(x)< 0$) naar dalend (afgeleide $f'(x)> 0$). Om een \emph{minimum} te vinden zoeken we voor welke waarde van $x$ de functie overgaat van stijgend (afgeleide $f'(x)>0$) naar dalend (afgeleide $f'(x)<0$).
+Uit de wiskundelessen weet je dat een functie een extremum (= een maximum of een minimum) bereikt waar de afgeleide nul wordt. Om een \emph{minimum} te vinden zoeken we voor welke waarde(n) van $x$ de functie overgaat van dalend (afgeleide $f'(x)< 0$) naar dalend (afgeleide $f'(x)> 0$). Om een \emph{minimum} te vinden zoeken we voor welke waarde van $x$ de functie overgaat van stijgend (afgeleide $f'(x)>0$) naar dalend (afgeleide $f'(x)<0$).
 
-Wat we in dit project doen, is zeer gelijkaardig: we kijken voor welke waarde van $i$ $u_{i}-u_{i-1}$ overgaat van een positieve naar een negatieve waarde om een piek, dit is een maximum, te detecteren. 
+Wat we in dit project doen, is zeer gelijkaardig: we kijken voor welke waarde van $i$ de waarde van $u_{i}-u_{i-1}$ overgaat van een positieve naar een negatieve waarde om een piek (= een maximum) te detecteren. 
 
 \begin{oef}
 	Nu we achterhaald hebben hoe onze aanpak in dit project vergelijkbaar is met afgeleiden en extrema-vraagstukken, kunnen we ons ook afvragen welke verschillen bestaan. Som op welke verschillen je ziet.
@@ -152,25 +152,25 @@ Wat we in dit project doen, is zeer gelijkaardig: we kijken voor welke waarde va
 \label{sec:Mod4_Sec3}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
-Bedoeld voor leerlingen uit de 3e graad.
+\emph{Bedoeld voor leerlingen uit de 3e graad.}
 
 Je zal al ondervonden hebben dat de nauwkeurigheid van de hartslagmeting afhangt van de kwaliteit van het opgenomen filmpje. Als je vingertop of de smartphone bewoog tijdens de opname, is de grafiek van de roodwaarde in functie van de tijd ruiziger. Hoe ruiziger het signaal, hoe moeilijker de detectie van pieken wordt. En hoe moeilijker de piekdetectie, hoe meer kans op fouten en hoe onnauwkeuriger de meting.
 
-Er bestaat een andere manier om de hartslag te bepalen, die niet gebaseerd in op piekdetectie en daardoor iets nauwkeuriger is. Deze alternatieve manier is gebaseerd op frequentieanalyse.
+Er bestaat een andere manier om de hartslag te bepalen, die niet gebaseerd is op piekdetectie en daardoor iets nauwkeuriger is. Deze alternatieve manier is gebaseerd op frequentieanalyse.
 
 \subsection{Geluid: zuivere en samengestelde tonen}
 
 We nemen even afstand van onze hartslagmonitor. Om goed te kunnen uitleggen wat we met frequentieanalyse bedoelen, kijken we even naar geluid.
 
-Geluid is een kleine verandering in luchtdruk, die zich door de lucht voortplant. Elk luchtdeeltje ondervindt een trilling en geeft die trilling door aan de luchtdeeltjes in zijn buurt. De trilling van een luchtdeeltje in functie van de tijd kan er uitzien als volgt:
+Geluid is een kleine verandering in luchtdruk, die zich door de lucht voortplant. Elk luchtdeeltje ondervindt een trilling en geeft die trilling door aan de luchtdeeltjes in zijn buurt. De trilling van een luchtdeeltje in functie van de tijd kan er uitzien zoals hieronder links.
 
 \gewonefiguur{width=\linewidth}{module4/sinusTrilling}
 
-De trilling hierboven is een harmonische trilling, die als een sinusvormig signaal voorgesteld wordt en met als functievoorschrift 
+De trilling hierboven (links) is een harmonische trilling, die als een sinusvormig signaal voorgesteld wordt en met als functievoorschrift 
 
 \begin{equation*}
-y(t) = A \sin(2\pi f t)
-\end{equation*}. 
+y(t) = A \sin(2\pi f t).
+\end{equation*}
 
 Links is de trilling voorgesteld in het tijdsdomein: de uitwijking in functie van de tijd is een sinusoidaal verloop. Rechts is de trilling voorgesteld in het frequentiedomein. Deze voorstelling noemen we dan ook het \emph{frequentiespectrum}. De frequentie van een trilling is gedefineerd als het aantal trillingen per seconde. De eenheid is $1/s$ of Hertz ($Hz$). Hoe het frequentiespectrum gevonden wordt, bespreken we later.
 
@@ -211,7 +211,7 @@ Meer algemeen kan je om het even welk periodiek signaal opbouwen door sinussen m
 Je kan elk periodiek signaal dus schrijven als een reeks
 
 \begin{equation*}
-y(t) = a_0 + \sum_{k=1}^{\inf} (a_k \cos(2 \pi k f_0 t) + b_k \sin(2 \pi k f_0 t)).
+y(t) = a_0 + \sum_{k=1}^{\infty} (a_k \cos(2 \pi k f_0 t) + b_k \sin(2 \pi k f_0 t)).
 \end{equation*}
 
 Frequentieanalyse of fourieranalyse is het ontleden van een oneindig lang periodiek signaal in de verschillende frequentiecomponenten waaruit het bestaat. 
@@ -235,7 +235,7 @@ Gebruik Fourieranalyse om de hartslag in een roodwaarde signaal te bepalen.
 	
 	\item Voorzie een aantal knoppen: \emph{readCSV}, \emph{calculateFFT} en \emph{plotFFT}. Voorzie ook een textbox waarin de gebruiker de frame rate ($fs$) kan aanpassen en een knop \emph{fsChanged} waarmee de gebruiker kan aangeven dat hij de frame rate aangepast heeft. Als de knop \emph{fsChanged} aangeklikt wordt, moet een globale variabele aangepast worden aan de inhoud van de textbox.
 	
-	\item Gebruik nu een lijst met berekende roodwaarden, die we in de vorige module hebben opgeslaan in een CSV-bestand. Gebruik zoveel mogelijk code uit vorige opdrachten. Voeg daarom een \emph{File}-component toe je aan je app. Wanneer een knop \emph{Read CSV} ingedrukt wordt, moet het CSV-bestand die je opgeslaan hebt in de vorige module ingelezen worden. Kijk indien nodig even terug in je vorige project waar en onder welke naam je het CSV-bestand hebt opgeslaan. Als het CSV-bestand is ingelezen, moet de inhoud omgezet worden in een lijst en in een lijst geplaatst worden. Geef die lijst weer in een label en vergelijk de tekst met het CSV-bestand op een computer om te controleren dat dit correct gebeurde. 
+	\item Gebruik nu een lijst met berekende roodwaarden, die we in de vorige module hebben opgeslaan in een CSV-bestand. Gebruik zoveel mogelijk code uit vorige opdrachten. Voeg daarom een \emph{File}-component toe je aan je app. Wanneer een knop \emph{Read CSV} ingedrukt wordt, moet het CSV-bestand dat je opgeslaan hebt in de vorige module ingelezen worden. Kijk indien nodig even terug in je vorige project waar en onder welke naam je het CSV-bestand hebt opgeslaan. Als het CSV-bestand is ingelezen, moet de inhoud omgezet worden in een lijst en in een lijst geplaatst worden. Geef die lijst weer in een label en vergelijk de tekst met het CSV-bestand op een computer om te controleren dat dit correct gebeurde. 
 	
 	\item Kopieer de code uit een van de vorige opdrachten om opeenvolgende roodwaarden uit te middelen. Maak een nieuwe lijst, bv \emph{smoothRedValuesList}, waarin elk element een gemiddelde is van vier opeenvolgende elementen uit de originele lijst. 
 	
@@ -245,7 +245,7 @@ Gebruik Fourieranalyse om de hartslag in een roodwaarde signaal te bepalen.
 		%TODO indien onduidelijk tekening van Dimitri invoegen
 	\end{opmerking}
 	
- 	\item De implementatie van de Fourieranalyse hebben we al voor jullie gedaan. Voeg daarom de extensie \emph{FFTCalculator1} toe aan je app.
+ 	\item De implementatie van de Fourieranalyse hebben we al voor jullie gedaan. Voeg daarom de extensie \emph{FFTCalculator} toe aan je app.
  	
 	\item Gebruik het blok \emph{FFTCalculator - CalculateFft} om een Fourieranalyse uit te voeren wanneer de knop \emph{calculateCSV} aangeklikt wordt. Het resultaat is een lijst \emph{redValuesFFT}. 
 	
@@ -256,7 +256,7 @@ Gebruik Fourieranalyse om de hartslag in een roodwaarde signaal te bepalen.
 	\item Op de $x$-as staan de mogelijke hartslagfrequenties. De sprong tussen twee opeenvolgende hartslagfrequenties is $\frac{60 \cdot fs}{\text{aantal roodwaarden}}$. Pas de \emph{scalingFactor} hieraan aan.
 
 	
-	\item Welke hartslag meten we nu op? De grootste piek in de grafiek toont welke frequentie \textquotedblleft het meeste in het signaal aanwezig is \textquotedblright. De $x$-waarde van de grootste piek toont dus de meest waarschijnlijke hartslag. Je kan de $x$- en $y$- waarde van een punt op de grafiek zien door erop te klikken. Komt de hoogste piek overeen met de hartslag die je zelf berekende? En met de hartslag die je app berekende via automatische piekdetectie?
+	\item Welke hartslag meten we nu op? De grootste piek in de grafiek toont welke frequentie \textquotedblleft het meeste in het signaal aanwezig is\textquotedblright. De $x$-waarde van de grootste piek toont dus de meest waarschijnlijke hartslag. Je kan de $x$- en $y$- waarde van een punt op de grafiek zien door erop te klikken. Komt de hoogste piek overeen met de hartslag die je zelf berekende? En met de hartslag die je app berekende via automatische piekdetectie?
 
 	
 	\begin{opmerking}

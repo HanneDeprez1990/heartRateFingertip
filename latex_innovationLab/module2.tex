@@ -26,7 +26,7 @@ Je komt op het startscherm terecht. Er zijn twee \textquoteleft views\textquoter
 
 \figuurmetlabel[\label{fig:view_designer}]{width=.8\linewidth}{module2/overviewAI}{Designer view in MIT App Inventor 2. Overschakelen tussen views doe je rechtsbovenaan (blauwe rechthoek). Tabs zijn aangeduid in rood.}
 
-Hierin kan je de componenten toevoegen die je zal zien op het scherm tijdens het uitvoeren van je app. In de tab \emph{Palette} (links) vind je alle componenten die je kan toevoegen. Dit is bijvoorbeeld een knop (Engels: button), een label, een afbeelding (Engels: image) enz. Je voegt componenten toe door ze vast te nemen en ze naar het scherm van de afgebeelde smartphone te slepen. Componenten kan je groeperen m.b.v. \texttt{HorizontalArrangement}, \texttt{VerticalArrangement} of \texttt{TableArrangement}. Componenten kan je een naam geven onder de tab \emph{Components} door de component aan te klikken en op \emph{Rename} te drukken. In de tab \emph{Properties} (rechts) kan je de eigenschappen van de component veranderen: Welke tekst moet op de knop staan? Wat is de lettergrootte? Wil je de tekst in een andere kleur weergeven? ... Als je wilt weten wat een component doet, kan je het vraagteken naast de component in de tab Palette aanklikken voor een korte uitleg.
+Hierin kan je de componenten toevoegen die je zal zien op het scherm tijdens het uitvoeren van je app. In de tab \emph{Palette} (links) vind je alle componenten die je kan toevoegen. Dit is bijvoorbeeld een knop (Engels: button), een label, een afbeelding (Engels: image) enz. Je voegt componenten toe door ze vast te nemen en ze naar het scherm van de afgebeelde smartphone te slepen. Componenten kan je groeperen m.b.v. \texttt{HorizontalArrangement}, \texttt{VerticalArrangement} of \texttt{TableArrangement}. Componenten kan je een naam geven onder de tab \emph{Components} door de component aan te klikken en op \emph{Rename} te drukken. In de tab \emph{Properties} (rechts) kan je de eigenschappen van de component veranderen: Welke tekst moet op de knop staan? Wat is de lettergrootte? Wil je de tekst in een andere kleur weergeven? ... Als je wilt weten wat een component doet, kan je het vraagteken naast de component in de tab \emph{Palette} aanklikken voor een korte uitleg.
 
 De andere view is de \emph{blocks view}, weergegeven in Figuur \ref{fig:view_block}.
 
@@ -44,6 +44,10 @@ Probeer een eerste app te maken. De app bevat een knop met de tekst \textquotedb
 Om de app te testen moet je de MIT App Inventor 2 Companion App (te vinden in de Google Play Store) installeren op je smartphone. 
 Zorg ervoor dat je computer en smartphone met hetzelfde wifi-netwerk verbonden zijn. 
 Klik op connect, rechtsboven in Figuur \ref{fig:view_designer}, en kies de eerste optie \textquotedblleft AI companion\textquotedblright. Er verschijnt een QR-code die je kan scannen met je smartphone met de MIT App Inventor 2 Companion App. De app opent op je smartphone, zodat je de werking van de app kan testen.
+
+Als je smartphone geconnecteerd is via de Companion App, verandert de app op je smartphone mee wanneer je aanpassingen doet aan de componenten op het scherm. Soms werkt dit echter niet zo goed. Breek dan de connectie met de smartphone af via \texttt{Connection - reset connection} en maak de verbinding opnieuw via \texttt{Connection - AI companion}.
+
+Als je de app die je ontworp getest hebt via de App Inventor 2 Companion App en de app aan de vereisten voldoet, kan je de app downloaden. Dan hoef je niet meer steeds de QR code te scannen als je de app wilt gebruiken. De app kan je installeren via \emph{Build - App (provide QR code for .apk)}. Door een QR code te scannen met je GSM kan je het installatie-bestand (.apk) downloaden op je smartphone. Wanneer je het .apk-bestand opent, installeert de app.
 
 \begin{opdracht}{Good morning app}
 	Toon \textquotedblleft Good morning!\textquotedblright \ in drie verschillende talen op het scherm, nl. Italiaans, Spaans en Duits.
@@ -84,7 +88,7 @@ Met MIT App Inventor 2 kan je heel gemakkelijk zelf aan de slag. De betekenis va
 Hieronder bespreken we enkele belangrijke blokken uit de blocks view, waarvan de bedoeling misschien iets minder vanzelfsprekend is.
 
 \subsection{Controle (control)}
-Elke programmeertaal is opgebouwd rond drie belangrijke controlestructuren: \textquoteleft if\textquoteright-loops om beslissingen te nemen, en \textquoteleft for\textquoteright-loops en \textquoteleft while\textquoteright-loops om herhaling in te bouwen.
+De meeste programmeertalen zijn opgebouwd rond drie belangrijke controlestructuren: \textquoteleft if\textquoteright-loops om beslissingen te nemen, en \textquoteleft for\textquoteright-loops en \textquoteleft while\textquoteright-loops om herhaling in te bouwen.
 
 \subsubsection{Beslissingen nemen: \emph{If then} blok}
 

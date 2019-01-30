@@ -58,7 +58,7 @@ MH = 220-LT
 
 met volgende notatie:
 \begin{itemize}
-	\item MH: maximale hartslag met als eenheid slagen per minuut of \textquotedblleft beats per minute \textquotedblright (kortweg: \emph{bpm}). 
+	\item MH: maximale hartslag met als eenheid slagen per minuut of \textquotedblleft beats per minute \textquotedblright (kortweg: bpm). 
 	Dit noteren we als MH [bpm].
 	\item LT [jaar]: leeftijd
 \end{itemize}
@@ -132,7 +132,7 @@ De hartslag, of het rondpompen van je bloed, voel je als je je hand op je hart l
 \end{opdracht}
 
 \begin{oef}
-	Met welke factor moet je het aantal hartslagen gemeten gedurende een telperiode van 10 seconden vermenigvuldigen om de hartslag in \emph{bpm} te bekomen? 
+	Met welke factor moet je het aantal hartslagen gemeten gedurende een telperiode van 10 seconden vermenigvuldigen om de hartslag in bpm te bekomen? 
 	
 	En wat als de telperiode 20 seconden is?
 	
@@ -156,22 +156,9 @@ Maar hoe kunnen we met onze smartphone onze hartslag gaan meten? We hebben al ge
 
 We zullen gebruik maken van de camera die in je smartphone ingebouwd is. We zullen onze vingertop zachtjes op de lens van de camera plaatsen. De kleine pulsaties in de aders van je vinger resulteren in kleine veranderingen in de kleur van je vinger. Met het blote oog kan je die miniscule kleurveranderingen niet waarnemen, maar gelukkig kan je die subtiele veranderingen wel met je smartphone detecteren. De kleurveranderingen in functie van de tijd zijn gerelateerd aan het pompen van je hart. Een grafiek van de kleurverandering in functie van de tijd zie je hieronder. Door opnieuw het aantal pieken in de telperiode van 15 seconden te tellen en te vermenigvuldigen met vier bekom je opnieuw de hartslag.
 
-%TODO figuur maken en invoegen (Excel?)
+\gewonefiguur{width=\linewidth}{module3/MSExcel_GraphRedValues}
 
-De opeenvolging van uit te voeren stappen kunnen we voorstellen in een blokdiagram, zoals hieronder. Dit blokdiagram toont welke stappen we moeten doorlopen om de hartslag te bepalen, zonder in detail uit te werken wat precies moet gebeuren in elk blok. Dit laat ons toe een bondig overzicht te geven van het project, zonder dat we nu al precies moeten weten wat in elke stap moet gebeuren.
-
-We willen de kleurwaarde van je vingertop in functie van de tijd analyseren. 
-De kleurwaarde van je vingertop wordt geregistreerd met de camera van je smartphone en opgeslaan als een filmpje.
-Een video of een filmpje is in feite niet meer dan een aantal foto's die heel snel na elkaar getoond worden op een scherm.
-Die foto's laten ons toe om te bepalen wat de kleurwaarde van je vingertop was op het moment dat de foto werd genomen.
-We hebben drie verschillende manieren om vanuit die kleurwaarden de hartslag te bepalen.
-Ten eerste, als we de kleurwaarde van alle foto's op die verschillende tijdstippen achter elkaar zetten in een grafiek, zien we een aantal pieken zoals hieronder. 
-Daaruit kunnen we zelf berekenen wat onze hartslag was op het moment dat het filmpje werd opgenomen, door zoals voordien het aantal pieken te tellen en te vermenigvuldigen met een factor om het aantal pieken per minuut te bekomen.
-Ten tweede kunnen we de smartphone ook automatisch die pieken laten herkennen, het aantal pieken laten tellen en dit aantal herleiden naar het aantal pieken per minuut.
-Dit bespaart ons heel wat rekenwerk.
-Ten derde bestaat er nog een andere methode, met een Fouriertransformatie die op complexere wiskunde gebaseerd is, die ons toelaat de hartslag te bepalen. 
-Vooral wanneer de meting een beetje ruizig is, wanneer als we de pieken moeilijk kunnen herkennen, zal deze methode nauwkeuriger zijn.
-Hoe deze methode concreet werkt, wordt uitgelegd in Sectie \ref{sec:piekdetectie}.
+De opeenvolging van uit te voeren stappen kunnen we voorstellen in een blokdiagram, zoals hieronder. Dit blokdiagram toont welke stappen we moeten doorlopen om de hartslag te bepalen. Dit laat ons toe een bondig overzicht te geven van het project, zonder dat we nu al precies en in alle detail moeten weten wat in elke stap moet gebeuren.
 
 \begin{tikzpicture}[thick]
 \node[draw,rectangle] at (0,0) (a) {Video opnemen};
@@ -198,6 +185,21 @@ Hoe deze methode concreet werkt, wordt uitgelegd in Sectie \ref{sec:piekdetectie
 \draw[->,dashed] (h) -- (i) ;
 
 \end{tikzpicture}
+
+We willen de kleurwaarde van je vingertop in functie van de tijd analyseren. 
+De kleurwaarde van je vingertop wordt geregistreerd met de camera van je smartphone en opgeslaan als een filmpje.
+Een video of een filmpje is in feite niet meer dan een aantal foto's die heel snel na elkaar getoond worden op een scherm.
+Die foto's laten ons toe om te bepalen wat de kleurwaarde van je vingertop was op het moment dat de foto werd genomen.
+We hebben drie verschillende manieren om vanuit die kleurwaarden de hartslag te bepalen.
+Ten eerste, als we de kleurwaarde van alle foto's op die verschillende tijdstippen achter elkaar zetten in een grafiek, zien we een aantal pieken zoals hierboven. 
+Daaruit kunnen we zelf berekenen wat onze hartslag was op het moment dat het filmpje werd opgenomen, door zoals voordien het aantal pieken te tellen en te vermenigvuldigen met een factor om het aantal pieken per minuut te bekomen.
+Ten tweede kunnen we de smartphone ook automatisch die pieken laten herkennen, het aantal pieken laten tellen en dit aantal herleiden naar het aantal pieken per minuut.
+Dit bespaart ons heel wat rekenwerk.
+Ten derde bestaat er nog een andere methode, met een Fouriertransformatie die op complexere wiskunde gebaseerd is, die ons toelaat de hartslag te bepalen. 
+Vooral wanneer de meting een beetje ruizig is, wanneer we de pieken moeilijk kunnen herkennen, zal deze methode nauwkeuriger zijn.
+Hoe deze methode concreet werkt, wordt uitgelegd in Module 4 Sectie \ref{sec:Mod4_Sec3}.
+
+
 
 %\begin{tikzpicture}
 %\sbEntree{n1}
