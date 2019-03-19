@@ -24,18 +24,20 @@ Om jullie te laten kennis maken met de basisprincipes achter digitale afbeelding
 
 In het filmpje wordt uitgelegd dat digitale afbeeldingen opgebouwd zijn als een rooster. De vakjes uit het rooster noemen we \textquotedblleft pixels\textquotedblright. 
 
+\gewonefiguur{width=.7\linewidth}{module3/voetballer-raster}
+
 Elk pixel heeft een roodwaarde, een groenwaarde en een blauwwaarde. Met de combinatie van drie kleuren, nl. rood, groen en blauw, kan je quasi elke bestaande kleur genereren. 
 
 De rood-, groen- en blauwwaarde van een pixel is steeds een getal tussen 0 en 255. Hoe kleiner het getal, hoe donkerder de kleur. Een roodwaarde van 0 komt dus overeen met een rood dat bijna zwart is. Omgekeerd: hoe groter het getal, hoe lichter de kleur. Een roodwaarde van 255 komt dus overeen met een rood dat bijna helemaal wit is. De drie getalwaarden voor rood, groen en zwart samen bepalen volledig de kleur die je zal zien. Dit drietal noemen we de RGB-waarde (R van rood/red, G van groen/green en B van blauw/blue) van de pixel.
 
 \begin{oef}
-	Hoeveel verschillende RGB-kleuren kan je genereren als de rood-, groen- en blauwwaarde steeds een waarde tussen 0 en 255 aannemen? 
+	Hoeveel verschillende RGB-kleuren kan je genereren als de rood-, groen- en blauwwaarden steeds een waarde tussen 0 en 255 aannemen? 
 \end{oef}
 \oplos{Je kan $255 \cdot 255 \cdot 255 = 16 581 375$ verschillende kleuren genereren.}
 
-In Figuur XXX zie je hoe een digitale afbeelding in een computer voorgesteld wordt.
+Hieronder zie je hoe een digitale afbeelding in een computer voorgesteld wordt: van elk pixel wordt bijgehouden hoeveel rood, groen en blauw die bevat. 
 
-%TODO invoegen figuur Dimitri
+\gewonefiguur{width=.7\linewidth}{module3/voetballer-opgesplitst_RGB}
 
 Je kan ook zelf experimenteren met de RGB-waarden van een foto. 
 
@@ -58,7 +60,7 @@ Die verandering in roodwaarde van je vinger kan je met het blote oog niet detect
 
 We maken een filmpje van onze vingertop. In dit filmpje worden de kleurveranderingen van je vingertop ten gevolge van je hartslag geregistreerd. Een filmpje dat afspeelt is in feite niet meer dan een aantal foto's die heel snel na elkaar getoond worden. Hier gaan we zo dadelijk, in Sectie \ref{sec:Mod3_Sec2} verder op in. Als we het opgenomen filmpje splitsen in de achterliggende foto's en van elke foto bepalen \textquotedblleft hoe rood\textquotedblright \  die is, kennen de roodwaarde van je vingertop in functie van de tijd. Dit is een grafiek, die net zoals de grafiek in hieronder (die je opmat via \emph{Science Journal}) een piek heeft voor elke hartslag. Door het aantal pieken in een beperkt tijdsinterval (bv $15~s$) te tellen en dit aantal te herleiden naar het aantal pieken per minuut (bv door het aantal pieken in $15~s$ te vermenigvuldigen met vier), kan je de hartslag berekenen.
 
-\gewonefiguur{width=.5\linewidth}{module1/metingScienceJournal}
+\gewonefiguur{width=.3\linewidth}{module1/metingScienceJournal}
 
 Om het project tot een goed einde te brengen, moeten we dus \textquotedblleft de roodwaarde\textquotedblright\  van een foto kunnen berekenen. 
 De roodwaarde van een foto zullen we bepalen als het gemiddelde van de roodwaarde van elke pixel van de foto.
@@ -69,7 +71,7 @@ Bepaal de roodwaarde van een foto in App Inventor 2.
 
 Volg daarvoor de volgende stappen:
 \begin{enumerate}
-	\item Voeg een canvas component toe aan je scherm. 
+	\item Voeg een \emph{canvas(E)/doek(NL)} component toe aan je scherm. 
 	\item Upload een foto naar keuze en stel de foto in als achtergrond van het canvas.
 	Pas de afmetingen van het canvas aan zodat de verhoudingen van de foto goed zijn. 
 	
@@ -136,7 +138,7 @@ Onderzoek heeft aangetoond dat een gemiddelde mens individuele afbeeldingen niet
 Elk frame heeft een breedte $B$ en een hoogte $H$, uitgedrukt in pixels.
 We weten uit de vorige sectie dat een pixel in feite het kleinste bouwblokje van een digitale afbeelding is en dat elk pixel een RBG-waarde heeft.
 
-%TODO invoegen figuur Dimitri
+\gewonefiguur{width=.7\linewidth}{module3/video_1}
 
 De hoogte $H$ bepaalt de kwaliteit van het beeld. Hoe groter H, hoe scherper het beeld. Sommigen onder jullie hebben misschien al gehoord van standard definition (SD), high definition (HD) en full-HD beeldresolutie. 
 De hoogte $H$ van de frames bepaalt of de beeldresolutie SD (als $H=480$ pixels), dan wel HD (als $H=720$ pixels), dan wel full-HD (als $H=1080$ pixels) is.
@@ -172,7 +174,7 @@ Als je een willekeurig filmpje in foto's splitst, zie je hoe de foto's verandere
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
 
-\begin{opdracht}{Roodwaarden bepalen, opslaan en analyseren in MS Excel}
+\begin{opdracht}{Opdracht: roodwaarden bepalen en weergeven in MS Excel}
 	In de vorige twee opdrachten hebben jullie een filmpje gemaakt van je vingertop en dit gesplitst in afzonderlijke afbeeldingen. Daarnaast hebben jullie geleerd hoe je in app inventor de roodwaarde van een individuele foto kan bepalen. Hier zullen we die twee combineren om de roodwaarden van de afzonderlijke foto's van je filmpje te bepalen. Die waarden slaan we op, en analyseren we in MS Excel, zodat we de hartslag kunnen berekenen.
 	
 \begin{enumerate}
@@ -219,7 +221,7 @@ Als je een willekeurig filmpje in foto's splitst, zie je hoe de foto's verandere
 			
 			Gebruik het blok \emph{File - SaveFile} en het blok \emph{List - list to csv table} om de lijst met roodwaarden (\emph{redValueList}) eerst om te zetten in een CSV tabel. Die CSV tabel is de \emph{text} input van het blok \emph{SaveFile}. De \emph{filename}-input mag je zelf kiezen, maar zorg dat de bestandsnaam eindigt op \textquotedblleft .csv\textquotedblright. Het csv-bestand zou moeten opgeslaan worden op je smartphone in de map AppInventor/data.
 			
-			Ga na dat het CSV-bestand inderdaad op de voorziene plaats en onder de voorziene naam opgeslaan is op je smartphone. Je kan navigeren door de bestanden op je smartphone via de app \textquotedblleft Bestanden\textquotedblright, die normaal gezien per default ge\"installeerd is op Android smartphones.
+			Ga na dat het CSV-bestand inderdaad op de voorziene plaats en onder de voorziene naam opgeslaan is op je smartphone. Je kan navigeren door de bestanden op je smartphone via de app \textquotedblleft Bestanden\textquotedblright, die normaal gezien standaard ge\"installeerd is op Android smartphones.
 			
 			
 		\end{itemize}
@@ -262,7 +264,7 @@ Als je een willekeurig filmpje in foto's splitst, zie je hoe de foto's verandere
 	
 \end{opdracht}
 
-\begin{opdracht}{Roodwaarden bepalen en weergeven}
+\begin{opdracht}{Opdracht: roodwaarden bepalen en weergeven in de app}
 	In de vorige opdracht konden we voor het eerst onze hartslag bepalen o.b.v. een opgenomen video. De omweg via MS Excel is wel een beetje vervelend. In deze opdracht wijzigen we de app uit de vorige opdracht, zodat we de grafiek rechtstreeks in onze app kunnen maken en bekijken.
 	
 	\begin{enumerate}
@@ -276,6 +278,8 @@ Als je een willekeurig filmpje in foto's splitst, zie je hoe de foto's verandere
 		\item Voeg een nieuwe knop \emph{plotValues} en een webviewer toe. Voeg ook de extensie \emph{Chartmaker} toe door de extensie te importeren en dan de componenten te slepen naar het afgebeelde smartphonescherm.
 		
 		Gebruik het blok \emph{Chartmaker - DrawLineGraph} om een lijngrafiek te maken. Je kan de grafiek een titel, $x$- en $y$-labels geven. De input $scalingFactor$ geeft aan met welke stapgrootte de waarden op de $x$-as veranderen. Dit is de duurtijd per foto $d$, die je in de vorige opdracht bepaalde. De input \emph{maxXValue} limiteert het bereik dat afgebeeld wordt op de $x$-as. Ten slotte moet je een label-naam meegeven, welke waarden je wilt uitzetten in de grafiek, en in welke webviewer je de grafiek wilt weergeven.
+		
+		Controleer dat de grafiek correct wordt weergegeven alvorens verder te gaan!
 		
 		\begin{opmerking}
 			Als je geen internet connectie hebt, zal je de grafiek niet kunnen weergeven! 

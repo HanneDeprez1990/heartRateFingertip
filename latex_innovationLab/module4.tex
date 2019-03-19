@@ -41,14 +41,14 @@ Schrijf een app die automatisch pieken detecteert in een lijst. Hou bij (1) op w
 	
 	\item Gebruik nu een lijst met berekende roodwaarden, die we in de vorige module hebben opgeslaan in een CSV-bestand. Voeg daarom een \emph{File}-component toe je aan je app. Wanneer een knop \emph{Read CSV} ingedrukt wordt, moet het CSV-bestand die je opgeslaan hebt in de vorige module ingelezen worden. Kijk indien nodig even terug in je vorige project waar en onder welke naam je het CSV-bestand hebt opgeslaan. Als het CSV-bestand is ingelezen, moet de inhoud omgezet worden in een lijst en in een lijst geplaatst worden. Geef die lijst weer in een label en vergelijk de tekst met het CSV-bestand op een computer om te controleren dat dit correct gebeurde. 
 	
-	\item Gebruik de code uit stap 1 om automatisch pieken te detecteren in de lijst met roodwaarden. Komt dit overeen met het aantal pieken dat jij telt. Waarom (niet)?
-	
 	\begin{opmerking}
 		Afhankelijk van het CSV-bestand dat je inleest, kan het zijn dat de lijst met roodwaarden in plaats van getallen als elementen lijsten met 1 element als elementen bevat. Om aan de roodwaarde te raken, moet je dan het eerste element halen uit elke lijst (die ook weer een element van de oorspronkelijke lijst is).
 		
-	%TODO indien onduidelijk tekening van Dimitri invoegen
+		%TODO indien onduidelijk tekening van Dimitri invoegen
 	\end{opmerking}
 	
+	\item Gebruik de code uit stap 1 om automatisch pieken te detecteren in de lijst met roodwaarden. Komt dit overeen met het aantal pieken dat jij telt. Waarom (niet)?
+
 	\begin{opmerking}
 		Vaak is de lijst met roodwaarden een beetje \textquotedblleft ruizig\textquotedblright. Dit zorgt ervoor dat de app meer pieken detecteert dan wij zouden doen. Soms zien we een klein piekje in het signaal, dat we negeren, omdat het maar een kleine piek is, of omdat de piek te snel na een grote hartslagpiek komt. 
 	\end{opmerking}
@@ -95,7 +95,7 @@ Stel dat $\{ u_1, u_2, \ldots, u_n\}$ een signaal is, bv. een lijst met roodwaar
 	
 	Naast \emph{discrete} signalen bestaan ook \emph{continue} signalen (in de figuur hieronder in zwart aangeduid), waarvoor op elk moment een meetwaarde beschikbaar is. Het signaal loopt dus - zoals de naam het zegt - continu door.
 	
-	\gewonefiguur{width=.5\linewidth}{module4/discreetvscontinu}
+	\gewonefiguur{width=\linewidth}{module4/discreetvscontinu}
 	
 	Vaak spreekt men ook over \emph{digitale} en \emph{analoge} signalen. \emph{Digitale} signalen zijn vergelijkbaar met \emph{discrete} signalen, terwijl \emph{analoge} signalen te vergelijken zijn met \emph{continue} signalen, hoewel niet exact dezelfde zaken bedoeld worden met de termen \emph{digitaal/discreet} en \emph{analoog/continu}.
 
@@ -117,7 +117,7 @@ u_i-u_{i-1}
 
 Immers, als $u_{i}-u_{i-1}>0$ en $u_{i+1}-u_{i}<0$ wordt een lokaal maximum, of een piek, bereikt op het tijdstip $i$.
 
-Deze uitdrukking is sterk gerelateerd aan het differentiequoti\"ent $D$ voor een functie $f$:
+Deze uitdrukking is sterk gerelateerd aan het differentiequoti\"ent $D$ voor een functie $f$ in het punt $(a,f(a))$:
 
 \begin{equation}
 D = \frac{f(a+\Delta h) - f(a)}{\Delta h}
@@ -130,7 +130,7 @@ f'(a) &=& \lim\limits_{\Delta h \to 0} D \\
 &=& \lim\limits_{\Delta h \to 0} \frac{f(a+\Delta h)-f(a)}{\Delta h}
 \end{eqnarray*}
 
-Uit de wiskundelessen weet je dat een functie een extremum (= een maximum of een minimum) bereikt waar de afgeleide nul wordt. Om een \emph{minimum} te vinden zoeken we voor welke waarde(n) van $x$ de functie overgaat van dalend (afgeleide $f'(x)< 0$) naar dalend (afgeleide $f'(x)> 0$). Om een \emph{minimum} te vinden zoeken we voor welke waarde van $x$ de functie overgaat van stijgend (afgeleide $f'(x)>0$) naar dalend (afgeleide $f'(x)<0$).
+Uit de wiskundelessen weet je dat een functie een extremum (= een maximum of een minimum) bereikt waar de afgeleide nul wordt. Om een \emph{minimum} te vinden zoeken we voor welke waarde(n) van $x$ de functie overgaat van dalend (afgeleide $f'(x)< 0$) naar stijgend (afgeleide $f'(x)> 0$). Om een \emph{maximum} te vinden zoeken we voor welke waarde van $x$ de functie overgaat van stijgend (afgeleide $f'(x)>0$) naar dalend (afgeleide $f'(x)<0$).
 
 Wat we in dit project doen, is zeer gelijkaardig: we kijken voor welke waarde van $i$ de waarde van $u_{i}-u_{i-1}$ overgaat van een positieve naar een negatieve waarde om een piek (= een maximum) te detecteren. 
 
@@ -153,8 +153,9 @@ Wat we in dit project doen, is zeer gelijkaardig: we kijken voor welke waarde va
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
 \emph{Bedoeld voor leerlingen uit de 3e graad.}
+\footnote{Gebaseerd op de Junior College STEM over cochleaire implantaten.}
 
-Je zal al ondervonden hebben dat de nauwkeurigheid van de hartslagmeting afhangt van de kwaliteit van het opgenomen filmpje. Als je vingertop of de smartphone bewoog tijdens de opname, is de grafiek van de roodwaarde in functie van de tijd ruiziger. Hoe ruiziger het signaal, hoe moeilijker de detectie van pieken wordt. En hoe moeilijker de piekdetectie, hoe meer kans op fouten en hoe onnauwkeuriger de meting.
+Je zal al ondervonden hebben dat de nauwkeurigheid van de hartslagmeting afhangt van de kwaliteit van het opgenomen filmpje. Als je vingertop of de smartphone bewoog tijdens de opname, is de grafiek van de roodwaarde in functie van de tijd ruiziger. Hoe ruiziger het signaal, hoe moeilijker de detectie van pieken wordt. En hoe moeilijker de piekdetectie, hoe meer kans op fouten en hoe onnauwkeuriger de hartslagmeting.
 
 Er bestaat een andere manier om de hartslag te bepalen, die niet gebaseerd is op piekdetectie en daardoor iets nauwkeuriger is. Deze alternatieve manier is gebaseerd op frequentieanalyse.
 
@@ -196,7 +197,7 @@ Het functievoorschrift van de afgebeelde trilling is
 y(t) = 0.5 \sin(2 \pi 10 t) + 1 \sin(2 \pi 20 t) + 1 \sin(2 \pi 30 t).
 \end{equation*}
 
-De amplitude en frequentie van de samengestelde toon kan je uit het functievoorschrift afleiden: $A_1 = 0.5$, $f_1 = 10$ Hz, $A_2 = 1$, $f_2 = 20$ Hz, $A_3 = 1$ en $f_3 = 30$ Hz. Uit de linkergrafiek in het tijdsdomein kunnen die grootheden echter niet zo eenvoudig afgeleid worden. Gelukkig toont het frequentiespectrum ons wel de nodige informatie: er zijn drie zuivere trillingen, \'e\'en op 10 Hz met amplitude 0.5, \'e\'en op 20 Hz met amplitude 1 en \'e\'en op 30 Hz met amplitude 1.
+De amplitude en frequentie van de samengestelde toon kan je uit het functievoorschrift afleiden: $A_1 = 0.5$, $f_1 = 10$ Hz, $A_2 = 1$, $f_2 = 20$ Hz, $A_3 = 1$ en $f_3 = 30$ Hz. Uit de linkergrafiek in het tijdsdomein kunnen die grootheden echter niet zo eenvoudig afgeleid worden. Gelukkig toont het frequentiespectrum ons wel de nodige informatie: de samengestelde trilling is opgebouwd uit drie zuivere trillingen, \'e\'en op 10 Hz met amplitude 0.5, \'e\'en op 20 Hz met amplitude 1 en \'e\'en op 30 Hz met amplitude 1.
 
 In het algemeen kan een samengestelde toon geschreven worden als een som van $N$ zuivere tonen, elk met amplitude $A_n$ en frequentie $f_n$:
 
@@ -235,15 +236,18 @@ Gebruik Fourieranalyse om de hartslag in een roodwaarde signaal te bepalen.
 	
 	\item Voorzie een aantal knoppen: \emph{readCSV}, \emph{calculateFFT} en \emph{plotFFT}. Voorzie ook een textbox waarin de gebruiker de frame rate ($fs$) kan aanpassen en een knop \emph{fsChanged} waarmee de gebruiker kan aangeven dat hij de frame rate aangepast heeft. Als de knop \emph{fsChanged} aangeklikt wordt, moet een globale variabele aangepast worden aan de inhoud van de textbox.
 	
-	\item Gebruik nu een lijst met berekende roodwaarden, die we in de vorige module hebben opgeslaan in een CSV-bestand. Gebruik zoveel mogelijk code uit vorige opdrachten. Voeg daarom een \emph{File}-component toe je aan je app. Wanneer een knop \emph{Read CSV} ingedrukt wordt, moet het CSV-bestand dat je opgeslaan hebt in de vorige module ingelezen worden. Kijk indien nodig even terug in je vorige project waar en onder welke naam je het CSV-bestand hebt opgeslaan. Als het CSV-bestand is ingelezen, moet de inhoud omgezet worden in een lijst en in een lijst geplaatst worden. Geef die lijst weer in een label en vergelijk de tekst met het CSV-bestand op een computer om te controleren dat dit correct gebeurde. 
+	\item Gebruik nu een lijst met berekende roodwaarden, die we in de vorige module hebben opgeslaan in een CSV-bestand. Gebruik zoveel mogelijk code uit vorige opdrachten. Code kopi\"eren tussen verschillende projecten doe je door de blokken code binnen het ene project vanuit het witte venster naar de rugzak rechtsboven te slepen en die vervolgens binnen een ander project vanuit de rugzak naar het witte venster te slepen.
 	
-	\item Kopieer de code uit een van de vorige opdrachten om opeenvolgende roodwaarden uit te middelen. Maak een nieuwe lijst, bv \emph{smoothRedValuesList}, waarin elk element een gemiddelde is van vier opeenvolgende elementen uit de originele lijst. 
+	Voeg een \emph{File}-component toe je aan je app om het CSV-bestand in te lezen. Wanneer een knop \emph{Read CSV} ingedrukt wordt, moet het CSV-bestand dat je opgeslaan hebt in de vorige module ingelezen worden. Kijk indien nodig even terug in je vorige project waar en onder welke naam je het CSV-bestand hebt opgeslaan. Als het CSV-bestand is ingelezen, moet de inhoud omgezet worden in een lijst en in een lijst geplaatst worden. Geef die lijst weer in een label en vergelijk de tekst met het CSV-bestand op een computer om te controleren dat dit correct gebeurde. 
 	
 	\begin{opmerking}
 		Afhankelijk van het CSV-bestand dat je inleest, kan het zijn dat de lijst met roodwaarden in plaats van getallen als elementen lijsten met 1 element als elementen bevat. Om aan de roodwaarde te raken, moet je dan het eerste element halen uit elke lijst (die ook weer een element van de oorspronkelijke lijst is).
 		
 		%TODO indien onduidelijk tekening van Dimitri invoegen
 	\end{opmerking}
+	
+	\item Kopieer de code uit een van de vorige opdrachten om opeenvolgende roodwaarden uit te middelen. Maak een nieuwe lijst, bv \emph{smoothRedValuesList}, waarin elk element een gemiddelde is van vier opeenvolgende elementen uit de originele lijst. 
+	
 	
  	\item De implementatie van de Fourieranalyse hebben we al voor jullie gedaan. Voeg daarom de extensie \emph{FFTCalculator} toe aan je app.
  	

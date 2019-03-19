@@ -20,14 +20,14 @@
 \contentsline {section}{\numberline {1}Digitale afbeeldingen}{18}{section.3.1}
 \contentsline {subsection}{\numberline {1.1}Hoe zijn digitale afbeeldingen opgebouwd?}{18}{subsection.3.1.1}
 \contentsline {subsection}{\numberline {1.2}Toepassing op de hartslagmonitor: roodwaarde berekenen in MIT App Inventor 2}{20}{subsection.3.1.2}
-\contentsline {section}{\numberline {2}Digitale video}{23}{section.3.2}
+\contentsline {section}{\numberline {2}Digitale video}{22}{section.3.2}
 \contentsline {section}{\numberline {3}Toepassing: de hartslagmonitor}{24}{section.3.3}
 \contentsline {chapter}{\numberline {}Module 4. Automatische piekdetectie}{29}{chapter.4}
 \contentsline {section}{\numberline {1}Wat is een piek in een signaal?}{29}{section.4.1}
 \contentsline {section}{\numberline {2}Intermezzo: differentiequoti\"ent}{31}{section.4.2}
 \contentsline {section}{\numberline {3}Intermezzo: Frequentieanalyse}{33}{section.4.3}
-\contentsline {subsection}{\numberline {3.1}Geluid: zuivere en samengestelde tonen}{33}{subsection.4.3.1}
-\contentsline {subsection}{\numberline {3.2}Frequentieanalyse: het idee van Fourier}{35}{subsection.4.3.2}
+\contentsline {subsection}{\numberline {3.1}Geluid: zuivere en samengestelde tonen}{34}{subsection.4.3.1}
+\contentsline {subsection}{\numberline {3.2}Frequentieanalyse: het idee van Fourier}{36}{subsection.4.3.2}
 \contentsline {subsection}{\numberline {3.3}Toepassing: fourieranalyse voor onze hartslagmonitor}{36}{subsection.4.3.3}
 \contentsline {chapter}{\numberline {}Module 5. Bouwen van de complete app}{39}{chapter.5}
 \contentsline {section}{\numberline {1}Video opnemen}{39}{section.5.1}
