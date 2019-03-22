@@ -71,7 +71,7 @@ Bepaal de roodwaarde van een foto in App Inventor 2.
 
 Volg daarvoor de volgende stappen:
 \begin{enumerate}
-	\item Voeg een \emph{canvas(E)/doek(NL)} component toe aan je scherm. 
+	\item Voeg een \hl{canvas(E)/doek(NL)} component toe aan je scherm. 
 	\item Upload een foto naar keuze en stel de foto in als achtergrond van het canvas.
 	Pas de afmetingen van het canvas aan zodat de verhoudingen van de foto goed zijn. 
 	
@@ -79,10 +79,12 @@ Volg daarvoor de volgende stappen:
 	 
 	\item Voeg een knop en een label component toe.
 	
-	\item Ga nu naar de Designer view. Voeg de nodige blokken toe zodat de roodwaarde van de foto berekend wordt als de knop ingedrukt wordt. De berekende roodwaarde verschijnt in de label component.
+	\item Ga nu naar de \emph{Blocks view}. Voeg de nodige blokken toe zodat de gemiddelde roodwaarde van de foto berekend wordt als de knop ingedrukt wordt. De berekende roodwaarde verschijnt in de label component.
 	
 	\begin{itemize}
-		\item \emph{Tip:} De canvas component heeft een methode/blok waarmee je de RGB-waarde van een pixel op breedte $x$ en hoogte $y$ in het rooster van de foto kan berekenen. De RGB-waarde wordt opgeslaan als een lijst met drie elementen.
+		\item \emph{Tip:} De canvas component heeft een methode/blok waarmee je de kleurwaarde van een pixel op breedte $x$ en hoogte $y$ in het rooster van de foto kan berekenen. 
+		
+		\item \emph{Tip:} Gebruik \hl{\texttt{Split color}} om de kleurwaarde van een foto op te splitsen in een lijst met drie elementen: de RGB-waarde.
 		
 		\item \emph{Tip:} Om de roodwaarde te bekomen, selecteer je het eerste element uit de lijst met de drie kleurwaarden. Je krijgt dus de R van de RGB-waarde.
 		
