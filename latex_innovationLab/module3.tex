@@ -6,7 +6,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{samenvatting}
-Het meten van je hartslag met de smartphone is gebaseerd op kleurveranderingen in je vingertop, die we met de smartphone camera registreren in een video. Om goed te begrijpen hoe we die kleurveranderingen precies kunnen detecteren, is het belangrijk de basisprincipes achter digitale afbeeldingen en video te begrijpen. Daar gaan we in deze module dieper op in.
+Het meten van je hartslag met de smartphone is gebaseerd op voor ons oog quasi onzichtbare kleurveranderingen in je vingertop. Deze kleurveranderingen filmen we met de smartphone camera, die ze wel kan zien. Om goed te begrijpen hoe we die kleurveranderingen precies kunnen detecteren, is het belangrijk de basisprincipes achter digitale afbeeldingen en video te begrijpen. Daar gaan we in deze module dieper op in.
 \end{samenvatting}
 %
 
@@ -18,22 +18,22 @@ Het meten van je hartslag met de smartphone is gebaseerd op kleurveranderingen i
 
 \subsection{Hoe zijn digitale afbeeldingen opgebouwd?}
 
-Om jullie te laten kennis maken met de basisprincipes achter digitale afbeeldingen, raden we jullie aan onderstaand filmpje te bekijken. Het is een Engelstalig filmpje, maar je kan het ondertitelen (in het Engels) en eventueel ook vertraagd bekijken.
+Om jullie te laten kennis maken met de basisprincipes achter digitale afbeeldingen, raden we jullie aan het filmpje te bekijken dat je via de QR-code online kan terugvinden. \footnote{\url{https://www.youtube.com/watch?v=UBX2QQHlQ_I} of zoek \textquotedblleft Stand-up comedy about spreadsheet \textquotedblright op YouTube.} Bekijk zeker het stukje tussen minuut 2 en minuut 8. Het is een Engelstalig filmpje, maar je kan het ondertitelen (in het Engels) en eventueel ook vertraagd bekijken. 
 
 \gewonefiguur{width=4cm}{module3/qrcode_youtubespreadsheets}
 
-In het filmpje wordt uitgelegd dat digitale afbeeldingen opgebouwd zijn als een rooster. De vakjes uit het rooster noemen we \textquotedblleft pixels\textquotedblright. 
+Het filmpje legt uit hoe digitale afbeeldingen opgebouwd zijn als een rooster. De vakjes uit het rooster noemen we \textquotedblleft pixels\textquotedblright. De term pixels komt uit het Engels en is een afkorting van \textquotedblleft picture elements \textquotedblright, \textquotedblleft foto-elementen\textquotedblright.
 
 \gewonefiguur{width=.7\linewidth}{module3/voetballer-raster}
 
-Elk pixel heeft een roodwaarde, een groenwaarde en een blauwwaarde. Met de combinatie van drie kleuren, nl. rood, groen en blauw, kan je quasi elke bestaande kleur genereren. 
+Elk pixel heeft een roodwaarde, een groenwaarde en een blauwwaarde. Met de combinatie van drie kleuren, nl. rood, groen en blauw, kan je quasi elke bestaande kleur genereren. Dit kan je een beetje vergelijken met een schilderspalet: een schilder mengt basiskleuren (rood, geel en blauw) tot hij de gewenste kleur bekomt. Bij een foto gebeurt iets vergelijkbaars: licht uit verschillende basiskleuren(rood, groen en blauw) mengt samen tot een nieuwe kleur.
 
 De rood-, groen- en blauwwaarde van een pixel is steeds een getal tussen 0 en 255. Hoe kleiner het getal, hoe donkerder de kleur. Een roodwaarde van 0 komt dus overeen met een rood dat bijna zwart is. Omgekeerd: hoe groter het getal, hoe lichter de kleur. Een roodwaarde van 255 komt dus overeen met een rood dat bijna helemaal wit is. De drie getalwaarden voor rood, groen en zwart samen bepalen volledig de kleur die je zal zien. Dit drietal noemen we de RGB-waarde (R van rood/red, G van groen/green en B van blauw/blue) van de pixel.
 
 \begin{oef}
 	Hoeveel verschillende RGB-kleuren kan je genereren als de rood-, groen- en blauwwaarden steeds een waarde tussen 0 en 255 aannemen? 
 \end{oef}
-\oplos{Je kan $255 \cdot 255 \cdot 255 = 16 581 375$ verschillende kleuren genereren.}
+\oplos{Je kan $255 \cdot 255 \cdot 255 = 16 581 375$ verschillende kleuren genereren. Dit zijn wellicht meer kleuren dan jij met het blote oog kan onderscheiden.}
 
 Hieronder zie je hoe een digitale afbeelding in een computer voorgesteld wordt: van elk pixel wordt bijgehouden hoeveel rood, groen en blauw die bevat. 
 
@@ -41,7 +41,7 @@ Hieronder zie je hoe een digitale afbeelding in een computer voorgesteld wordt: 
 
 Je kan ook zelf experimenteren met de RGB-waarden van een foto. 
 
-Via \url{http://makeanddo4d.com/spreadsheet/} of onderstaande QR-code kan je een foto omzetten in een Excel-werkblad. Inzoomen in het werkblad toont je de RBG-waarden van de inviduele pixels. Uitzoomen in het werkblad toont je de volledige foto, weliswaar met een beperkte resolutie.
+Via \url{http://makeanddo4d.com/spreadsheet/} of onderstaande QR-code kan je een foto omzetten in een Excel-werkblad. Inzoomen in het werkblad toont je de RBG-waarden van de inviduele pixels. Uitzoomen in het werkblad toont je de volledige foto. De resolutie van de foto, dit is de hoeveelheid detail of de scherpte, is weliswaar beperkt.
 
 \gewonefiguur{width=4cm}{module3/qrcode_spreadsheetmaker}
 
@@ -52,13 +52,13 @@ Als je de RGB waarden van enkele pixels aanpast en een beetje uitzoomt, zal je e
 
 \subsection{Toepassing op de hartslagmonitor: roodwaarde berekenen in MIT App Inventor 2}
 
-Voor de hartslagmonitor gaan we de roodwaarde van je vingertop analyseren. 
+Voor de hartslagmonitor hebben we enkel de roodwaarde van het filmpje van je vingertop nodig. Deze waarden gaan we analyseren.
 
 Gedurende 1 hartslag verandert je vingertop heel subtiel van kleur. 
-Wanneer het bloed door je aders gepompt wordt, zetten je aders een heel klein beetje uit. Daardoor komt het bloed net iets dichter bij de oppervlakte van je huid en kleurt je vingertop net iets meer rood dan daarvoor.
-Die verandering in roodwaarde van je vinger kan je met het blote oog niet detecteren, maar als je een filmpje maakt van je vinger, kan een computer, of zelfs je smartphone, die subtiele kleurverschillen wel waarnemen.
+Wanneer je hart je bloed door je aders pompt, dan zetten je aders een heel klein beetje uit. Daardoor komt het bloed net iets dichter bij de oppervlakte van je huid en kleurt je vingertop net iets meer rood dan daarvoor.
+Die verandering in roodwaarde van je vinger kan je met het blote oog niet detecteren, maar als je een filmpje maakt van je vinger, kan een computer of je smartphone die subtiele kleurverschillen w\'el waarnemen.
 
-We maken een filmpje van onze vingertop. In dit filmpje worden de kleurveranderingen van je vingertop ten gevolge van je hartslag geregistreerd. Een filmpje dat afspeelt is in feite niet meer dan een aantal foto's die heel snel na elkaar getoond worden. Hier gaan we zo dadelijk, in Sectie \ref{sec:Mod3_Sec2} verder op in. Als we het opgenomen filmpje splitsen in de achterliggende foto's en van elke foto bepalen \textquotedblleft hoe rood\textquotedblright \  die is, kennen de roodwaarde van je vingertop in functie van de tijd. Dit is een grafiek, die net zoals de grafiek in hieronder (die je opmat via \emph{Science Journal}) een piek heeft voor elke hartslag. Door het aantal pieken in een beperkt tijdsinterval (bv $15~s$) te tellen en dit aantal te herleiden naar het aantal pieken per minuut (bv door het aantal pieken in $15~s$ te vermenigvuldigen met vier), kan je de hartslag berekenen.
+We maken een filmpje van onze vingertop. Dit filmpje registreert de kleurveranderingen van je vingertop ten gevolge van je hartslag. Een filmpje dat afspeelt is in feite niet meer dan een aantal foto's die heel snel na elkaar getoond worden. Hier gaan we in Sectie \ref{sec:Mod3_Sec2} straks verder op in. Als we het opgenomen filmpje splitsen in de achterliggende foto's en van elke foto bepalen \textquotedblleft hoe rood\textquotedblright \  die is dan kennen we de roodwaarde van je vingertop in functie van de tijd. Dit is een grafiek, die net zoals de grafiek in hieronder (die je opmat via \emph{Science Journal}) een piek heeft voor elke hartslag. Door het aantal pieken in een beperkt tijdsinterval (bv $15~s$) te tellen en dit aantal te herleiden naar het aantal pieken per minuut (bvb. door het aantal pieken in $15~s$ te vermenigvuldigen met vier), kan je de hartslag berekenen.
 
 \gewonefiguur{width=.3\linewidth}{module1/metingScienceJournal}
 
@@ -71,7 +71,7 @@ Bepaal de roodwaarde van een foto in App Inventor 2.
 
 Volg daarvoor de volgende stappen:
 \begin{enumerate}
-	\item Voeg een \hl{canvas(E)/doek(NL)} component toe aan je scherm. 
+	\item Voeg  in de \hl{Designer view} een \hl{canvas(E)/doek(NL)} component toe aan je scherm. 
 	\item Upload een foto naar keuze en stel de foto in als achtergrond van het canvas.
 	Pas de afmetingen van het canvas aan zodat de verhoudingen van de foto goed zijn. 
 	
@@ -79,7 +79,9 @@ Volg daarvoor de volgende stappen:
 	 
 	\item Voeg een knop en een label component toe.
 	
-	\item Ga nu naar de \emph{Blocks view}. Voeg de nodige blokken toe zodat de gemiddelde roodwaarde van de foto berekend wordt als de knop ingedrukt wordt. De berekende roodwaarde verschijnt in de label component.
+	\item Jouw opdracht luidt: kies de juiste blokken uit om ervoor te zorgen dat het indrukken van een knop resulteert in het berekenen van de roodwaarde van de foto. Het resultaat van die berekening dient te verschijnen in een label component. 
+	
+	Op dit moment duiken we in het echte programmeerwerk. We geven je deze handige tips:
 	
 	\begin{itemize}
 		\item \emph{Tip:} De canvas component heeft een methode/blok waarmee je de kleurwaarde van een pixel op breedte $x$ en hoogte $y$ in het rooster van de foto kan berekenen. 
@@ -101,6 +103,10 @@ Volg daarvoor de volgende stappen:
 		\overline{a_5} = \text{Gemiddelde van $a_1$, $a_2$, ..., $a_5$} = \frac{a_1+a_2+\ldots+a_5}{n} = \frac{\sum_{i=1}^{5} a_i}{5}
 		\end{equation*}
 		
+		We  noteren het gemiddelde van 5 willekeurige getallen als $\overline{a}_5$. Het streepje boven de $\overline{a}$ duidt aan dat het om een gemiddelde gaat.
+		
+		Om een som van veel getallen kort te noteren, gebruiken we het sommatie-teken $\sum_{i=1}^{5}$.
+		
 		Nog algemener, voor het gemiddelde van $n$ willekeurige getallen:
 		\begin{equation*}
 		\overline{a_n} = \text{Gemiddelde van $a_1$, $a_2$, ..., $a_n$} = \frac{a_1+a_2+\ldots+a_n}{n} = \frac{\sum_{i=1}^{n} a_i}{n}
@@ -111,7 +117,7 @@ Volg daarvoor de volgende stappen:
 	\begin{opmerking}
 		De gemiddelde roodwaarde van een foto berekenen kan even duren!
 		
-		Daarom gaan we in de toekomst niet werken via deze omslachtige manier, maar gebruiken we een apart blok dat een foto als input neemt en meteen de gemiddelde roodwaarde van de foto als output teruggeeft.
+		Daarom gaan we in de toekomst niet werken via deze omslachtige manier, maar we zullen dit oplossen door een apart blok te gebruiken dat een foto als input neemt en meteen de gemiddelde roodwaarde van de foto als output teruggeeft.
 	\end{opmerking}
 \end{enumerate}
 \end{opdracht}
@@ -122,20 +128,24 @@ Volg daarvoor de volgende stappen:
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
 
-In onderstaand filmpje (Engelstalig, met de mogelijkheid te ondertitelen en indien nodig te vertragen) worden de basisprincipes achter digitale video uitgelegd. 
+\subsection{Bewegende beelden}
+
+In onderstaand filmpje (Engelstalig, met de mogelijkheid te ondertitelen en indien nodig te vertragen) worden de basisprincipes achter digitale video uitgelegd. \footnote{\url{https://www.youtube.com/watch?v=-1s-SuUQYs4} of zoek \text{The very basics of digital video} op YouTube.} 
 
 \gewonefiguur{width=4cm}{module3/qrcode_youtubeDigitalVideo}
 
-We vatten de inhoud van het filmpje hieronder nog even samen. Zoals eerder gezegd is digitale video een opeenvolging van digitale afbeeldingen, die snel na elkaar getoond worden met een vaste snelheid.
+We vatten de inhoud van het filmpje hieronder nog even samen. Zoals eerder gezegd is digitale video een opeenvolging van digitale afbeeldingen, die snel na elkaar in beeld komen tegen een vaste snelheid.
 De digitale afbeeldingen waaruit een video is opgebouwd, noemen we frames.
 De snelheid waarmee frames na elkaar getoond worden is de frame rate, uitgedrukt in frames per seconde (of kortweg $fps$).
-Onderzoek heeft aangetoond dat een gemiddelde mens individuele afbeeldingen niet meer kan onderscheiden als ze op een snelheid van 24 $fps$ of sneller getoond worden.
+Onderzoek toonde aan dat een gemiddelde mens vanaf een snelheid van 24 $fps$ de individuele afbeeldingen als bewegende beelden zal waarnemen.
 
 \begin{oef}
 	Hoelang is elke afbeelding zichtbaar als afbeeldingen in een video elkaar opvolgen aan een snelheid van 24 $fps$? 
 	En wat als de frame rate 30 $fps$ is?
 \end{oef}
 \oplos{Voor een frame rate van 24 $fps$ wordt elke afbeelding gedurende 0.042 $s$ (of 42 $ms$) getoond. Voor een frame rate van 30 $fps$ wordt elke afbeelding gedurende 0.033 $s$ (of 33 $ms$) getoond.}
+
+\subsection{Afmetingen van een frame}
 
 Elk frame heeft een breedte $B$ en een hoogte $H$, uitgedrukt in pixels.
 We weten uit de vorige sectie dat een pixel in feite het kleinste bouwblokje van een digitale afbeelding is en dat elk pixel een RBG-waarde heeft.
@@ -145,21 +155,23 @@ We weten uit de vorige sectie dat een pixel in feite het kleinste bouwblokje van
 De hoogte $H$ bepaalt de kwaliteit van het beeld. Hoe groter H, hoe scherper het beeld. Sommigen onder jullie hebben misschien al gehoord van standard definition (SD), high definition (HD) en full-HD beeldresolutie. 
 De hoogte $H$ van de frames bepaalt of de beeldresolutie SD (als $H=480$ pixels), dan wel HD (als $H=720$ pixels), dan wel full-HD (als $H=1080$ pixels) is.
 
+\subsection{Encodering}
+
 Encodering is een proces dat gebruikt wordt om de grootte van de video te reduceren m.b.v. wiskundige bewerkingen. Met de grootte van de video bedoelen we hoeveel ruimte nodig is op je computer of smartphone om de video op te slaan. De video-grootte wordt meestal uitgedrukt in megabytes (MB). Ongecomprimeerde video is video waarop geen encodering is toegepast en neemt veel geheugenruimte in op je smartphone of computer. Encodering past een wiskundige bewerking toe op je video die ervoor zorgt dat de geheugenruimte beperkt blijft, zonder de kwaliteit van de video te veel aan te tasten. Afhankelijk van de gebruikte wiskundige bewerkingen krijgen we een ander encoderingsformaat. Vaak gebruikte encoderingsformaten zijn .mp4 en .mov, maar er bestaan nog veel andere formaten.
 
 
-\begin{opdracht}{Opdracht: een willekeurig filmpje splitsen in foto's}
-Pluk een filmpje van het internet of maak zelf een filmpje. Gebruik de app \textquotedblleft Video naar afbeeldingen\textquotedblright \ om het filmpje te splitsen in opeenvolgende foto's. 
+\begin{opdracht}{Opdracht: een willekeurig filmpje splitsen in aparte beelden}
+Pluk een filmpje van het internet of maak zelf een filmpje. Gebruik de app \textquotedblleft Video naar afbeeldingen\textquotedblright \ om het filmpje te splitsen in opeenvolgende beelden. 
 
 \begin{opmerking}
 Het splitsen van video in afbeeldingen kan even duren!
 \end{opmerking}
 
-De foto's worden na het splitsen getoond. Deze foto's worden ook apart op de smartphone opgeslaan. De map waar de foto's worden opgeslaan wordt ook weergegeven. Je kan deze foto's dus ook achteraf nog raadplegen of gebruiken.
+De app toont na het splitsen de aparte beelden. Deze beelden komen ook als aparte bestanden terecht op het geheugen van de smartphone. De map waar de beelden worden opgeslaan wordt ook weergegeven. Je kan deze beelden dus ook achteraf nog raadplegen of gebruiken.
 
 \end{opdracht}
 
-Als je een willekeurig filmpje in foto's splitst, zie je hoe de foto's veranderen doorheen de tijd. Als de foto's snel genoeg na elkaar getoond worden, kan je oog de individuele foto's niet meer onderscheiden, waardoor je een continue beweging ziet.
+Als je een willekeurig filmpje in beelden splitst, zie je hoe de beelden veranderen doorheen de tijd. Als de beelden snel genoeg na elkaar getoond worden, kan je oog de individuele beelden niet meer onderscheiden, waardoor je een continue beweging waarneemt.
 
 \begin{opdracht}{Opdracht: een filmpje van je vingertop splitsen in foto's}
 	Maak een filmpje van $15~s$ van de vingertop van je wijsvinger. Zet de flits van je smartphone aan. Leg je vinger op de lens van je camera en zorg dat je vinger de lens volledig bedekt. Het beeld zou volledig rood moeten zijn. Laat de camera gewoon rusten op je vingertop, je hoeft je vinger niet tegen de lens te duwen. 
@@ -177,7 +189,7 @@ Als je een willekeurig filmpje in foto's splitst, zie je hoe de foto's verandere
 %
 
 \begin{opdracht}{Opdracht: roodwaarden bepalen en weergeven in MS Excel}
-	In de vorige twee opdrachten hebben jullie een filmpje gemaakt van je vingertop en dit gesplitst in afzonderlijke afbeeldingen. Daarnaast hebben jullie geleerd hoe je in app inventor de roodwaarde van een individuele foto kan bepalen. Hier zullen we die twee combineren om de roodwaarden van de afzonderlijke foto's van je filmpje te bepalen. Die waarden slaan we op, en analyseren we in MS Excel, zodat we de hartslag kunnen berekenen.
+	In de vorige twee opdrachten hebben jullie een filmpje gemaakt van je vingertop en dit gesplitst in afzonderlijke afbeeldingen. Daarnaast hebben jullie geleerd hoe je in App Inventor de roodwaarde van een individuele foto kan bepalen. Hier zullen we die twee combineren om de roodwaarden van de afzonderlijke foto's van je filmpje te bepalen. Die waarden slaan we op, en analyseren we in MS Excel, zodat we de hartslag kunnen berekenen.
 	
 \begin{enumerate}
 	
@@ -187,7 +199,7 @@ Als je een willekeurig filmpje in foto's splitst, zie je hoe de foto's verandere
 	
 	\item Splits het filmpje in foto's met de app \textquotedblleft Video naar afbeeldingen\textquotedblright.
 	
-	Als je dit in de vorige opdracht al gedaan hebt, mag je deze stap overslaan. Noteer de map waarin de afzonderlijke digitale afbeeldingen werden opgeslaan, dit heb je straks nodig.
+	Als je dit in de vorige opdracht al gedaan hebt, mag je deze stap overslaan. Noteer de map waarin de afzonderlijke digitale afbeeldingen terecht kwamen, dit heb je straks nodig.
 	
 	\item Maak een nieuw project aan in MIT App Inventor 2 en geef het een passende naam, bv \texttt{Hartslagmonitor\_redToExcel}. 
 	
@@ -197,31 +209,52 @@ Als je een willekeurig filmpje in foto's splitst, zie je hoe de foto's verandere
 %	\begin{oef}
 		\begin{itemize}
 			\item Voeg de knoppen/labels/\ldots die je denkt nodig te hebben toe aan je scherm.
-			\item Wanneer de knop \emph{BerekenRoodwaarden} wordt ingedrukt, moet je de roodwaarden van alle afbeeldingen in de map bepalen. Maak daarom eerst een lijst van alle afbeeldingen die in de genoteerde map opgeslaan zijn. 
+			\item Indrukken van de knop \hl{\texttt{BerekenRoodwaarden}} dient de roodwaarden van alle afbeeldingen in de map te bepalen. Maak daarom eerst een lijst van alle afbeeldingen die in de genoteerde map opgeslaan zijn. 
 			
-			Hiervoor moet je een extensie gebruiken: \emph{TaifunFile}. Voeg in de \emph{Designer}-view de extensie toe in de tab \emph{Palette} via \emph{Import extension}. Sleep de extensie dan naar het afgebeelde smartphone-scherm. De extensie zou onder de afgebeelde smartphone moeten verschijnen. 
+			Hiervoor moet je een extensie gebruiken: \hl{\texttt{TaifunFile}}. Voeg in de \hl{\texttt{Designer}}-view de extensie toe in de tab \hl{\texttt{}Palette} via \hl{\texttt{Importeer extensie}}. Sleep de extensie dan naar het afgebeelde smartphone-scherm. De extensie zou onder de afgebeelde smartphone moeten verschijnen. 
 			
-			In de \emph{Blocks}-view gebruik je het blok \emph{TaifunFile - FileListAsync} om alle bestanden in de genoteerde map op te lijsten. Dit blok gaat alle bestanden in de gevraagde map \emph{directoryName} en met de gevraagde extensie \emph{extension} oplijsten. Als je bij \emph{includeSubDirectories} \texttt{true} zet, worden ook submappen meegenomen in de oplijsting. Als \emph{includeSubDirectories} \texttt{false} is, wordt enkel de map zelf bekeken. 
+			In de \emph{Blocks}-view gebruik je het blok \hl{\texttt{TaifunFile - FileListAsync}} om alle bestanden in de genoteerde map op te lijsten. Dit blok gaat alle bestanden in de gevraagde map \hl{\texttt{directoryName}} en met de gevraagde extensie \hl{\texttt{extension}} oplijsten. Als je bij \hl{\texttt{includeSubDirectories}} \texttt{true} zet, worden ook submappen meegenomen in de oplijsting. Als \hl{\texttt{includeSubDirectories}} \texttt{false} is, wordt enkel de map zelf bekeken. 
 
-			De oplijsting is \emph{asynchroon}: dat wil zeggen dat de smartphone andere processen kan uitvoeren tijdens de oplijsting. Maar dat betekent ook dat we niet weten wanneer de bestanden opgelijst zijn. Daarom gebruiken we ook het blok \emph{TaifunFile - AfterFileListAsync}. Dit blok wordt geactiveerd wanneer alle bestanden opgelijst zijn, en dan kunnen we verder met onze berekeningen. Binnen dit blok hebben we een variabele \emph{fileList} waarin alle bestanden in de gevraagde map met de gevraagde extensie opgenomen zijn.
+			De oplijsting is \emph{asynchroon}: dat wil zeggen dat de smartphone andere processen kan uitvoeren tijdens de oplijsting. Maar dat betekent ook dat we niet weten wanneer de bestanden opgelijst zijn. Daarom gebruiken we ook het blok \hl{\texttt{TaifunFile - AfterFileListAsync}}. Dit blok treedt in werking wanneer alle bestanden opgelijst zijn, en dan kunnen we verder met onze berekeningen. Binnen dit blok hebben we een variabele \emph{fileList} waarin alle bestanden in de gevraagde map met de gevraagde extensie opgenomen zijn.
 			
-			Ga even na dat de bestanden in de gevraagde map correct opgelijst worden, door de variabele \emph{filelist} als label te tonen op het scherm van je smartphone. Ga pas verder naar de volgende stap als dit correct werkt.
+			Ga even na af de oplijsting van de bestanden in de gevraagde map correct is verlopen. Dit doe je door de variabele \hl{\texttt{fileList}} als label te tonen op het scherm van je smartphone. Ga pas verder naar de volgende stap als je zeker bent dat dit juist is.
 			
-			\item Je zal merken dat de bestanden niet noodzakelijk in numeriek oplopende volgende in \emph{fileList} staan. Daarom gaan we de lijst eerst sorteren. We willen immers eerst de roodwaarde van de eerste foto (met naam 001.jpg) berekenen, vervolgens van de tweede foto (met naam 002.jpg), enzovoort.
+			\item Je zal merken dat de bestanden niet noodzakelijk in numeriek oplopende volgorde in \hl{\texttt{fileList}} staan. Daarom gaan we de lijst eerst sorteren. We willen immers eerst de roodwaarde van de eerste foto (met naam 001.jpg) berekenen, vervolgens die van de tweede foto (met naam 002.jpg), enzovoort.
 			
-			Om de lijst te sorteren, hebben we een tweede extensie gemaakt: \emph{ListProcessing}. Voeg de extensie toe zoals voorheen via \emph{Import extension} en door de extensie naar het scherm van de afgebeelde smartphone te slepen.
+			Om de lijst te sorteren, hebben we een tweede extensie gemaakt: \hl{\texttt{LijstVerwerken}}. Voeg de extensie toe zoals voorheen via \hl{\texttt{Importeer extensie}} en door de extensie naar het scherm van de afgebeelde smartphone te slepen.
 			
 			Gebruik het blok \emph{ListProcessing - SortList} om de lijst te sorteren. Ga na dat dit correct gebeurde door de bekomen lijst als label te tonen op het scherm van je smartphone. Ga pas verder naar de volgende stap als dit correct werkt.
 			
-			\item Itereer over de items/bestanden in de lijst met gesorteerde bestanden en bereken van elk bestand (en dus van elke afbeelding) de roodwaarde. Voeg de bekomen roodwaarden telkens toe aan een lijst, die je bijvoorbeeld \emph{redValueList} noemt.
+			\item Itereer over de items/bestanden in de lijst met gesorteerde bestanden en bereken van elk bestand (en dus van elke afbeelding) de roodwaarde. Voeg de bekomen roodwaarden telkens toe aan een lijst, die je bijvoorbeeld \hl{\texttt{roodwaardeLijst}} noemt.
 			
-			Ga even na dat de roodwaarden berekend worden, door de variabele \emph{redValueList} als label te tonen op het scherm van je smartphone. Ga pas verder naar de volgende stap als dit correct werkt.
+			Controleer even of het proces de roodwaarden berekent door de variabele \hl{\texttt{roodwaardeLijst}} als label te tonen op het scherm van je smartphone. Ga pas verder naar de volgende stap als dit correct werkt.
 			
-			\item Ten slotte willen we de roodwaarden opslaan in een bestand dat we kunnen inlezen in MS Excel. Daarom moet de lijst omgezet worden in een CSV tabel. CSV staat voor \emph{Comma Separated Value}. Dit is een formaat dat vaak gebruikt wordt om gegevens op te slaan in een tekstbestand, dat eenvoudig kan ingelezen worden in MS Excel.
+			\item Ten slotte willen we de roodwaarden opslaan in een bestand dat we kunnen inlezen in MS Excel. Daarom moet de lijst omgezet worden in een CSV tabel. CSV staat voor \emph{Comma Separated Value} wat we kunnen vertalen als \textquotedblleft waarden gescheiden door komma's\textquotedblright. Dit formaat komt vaak van pas om gegevens op te slaan in een tekstbestand, dat vervolgens eenvoudig kan ingelezen worden in MS Excel.
 			
-			Voeg een nieuwe \emph{File}-component toe aan je scherm. De component zou onder de afgebeelde smartphone moeten verschijnen. 
+			Voeg een nieuwe \hl{\texttt{File}}-component toe aan je scherm. De component zou onder de afgebeelde smartphone moeten verschijnen. 
 			
-			Gebruik het blok \emph{File - SaveFile} en het blok \emph{List - list to csv table} om de lijst met roodwaarden (\emph{redValueList}) eerst om te zetten in een CSV tabel. Die CSV tabel is de \emph{text} input van het blok \emph{SaveFile}. De \emph{filename}-input mag je zelf kiezen, maar zorg dat de bestandsnaam eindigt op \textquotedblleft .csv\textquotedblright. Het csv-bestand zou moeten opgeslaan worden op je smartphone in de map AppInventor/data.
+			Gebruik het blok \hl{\texttt{File - SaveFile}} en het blok \hl{\texttt{List - list to csv table}} om de lijst met roodwaarden (\hl{\texttt{roodwaardeLijst}}) eerst om te zetten in een CSV tabel. Die CSV tabel is de \hl{\texttt{text}} input van het blok \hl{\texttt{SaveFile}}. De \hl{\texttt{filename}}-input mag je zelf kiezen, maar zorg dat de bestandsnaam eindigt op \textquotedblleft .csv\textquotedblright. Dit achtervoegsel na de punt heet de \textquotedblleft bestandsextensie \textquotedblright. Op basis van deze letters weet de computer met welk soort bestand het te maken heeft. De computer weet daarmee ook met welk programma hij het bestand moet openen wanneer we het willen bewerken of gebruiken.
+			
+			\begin{oef}
+			Ken jij de bestandsextensies geassocieerd met volgende programma's?
+						
+			\begin{itemize}
+			\item Word
+			\item Excel
+			\item Powerpoint
+			\item Tekstbestand
+			\end{itemize}
+			\end{oef}
+			\oplos{			
+			\begin{itemize}
+					\item Word $\rightarrow$ .docx
+					\item Excel $\rightarrow$ .xlsx
+					\item Powerpoint $\rightarrow$ .pptx
+					\item Tekstbestand $\rightarrow$ .txt
+			\end{itemize}
+			}
+			
+			Het csv-bestand zou moeten opgeslaan worden op je smartphone in de map AppInventor/data.
 			
 			Ga na dat het CSV-bestand inderdaad op de voorziene plaats en onder de voorziene naam opgeslaan is op je smartphone. Je kan navigeren door de bestanden op je smartphone via de app \textquotedblleft Bestanden\textquotedblright, die normaal gezien standaard ge\"installeerd is op Android smartphones.
 			
@@ -232,13 +265,13 @@ Als je een willekeurig filmpje in foto's splitst, zie je hoe de foto's verandere
 %			\item Knop \emph{BerekenRoodwaarden}, 
 %		\end{itemize}
 	
-	\item Kopieer het CSV-bestand van je smartphone naar je computer. Je kan dit doen door het bestand naar jezelf te mailen of het bestand op te laden naar je google drive en dan te downloaden vanaf je computer. Alternatief sluit je je smartphone aan op je computer via een USB-kabel en kopieer je het bestand rechtstreeks. 
+	\item Kopieer het CSV-bestand van je smartphone naar je computer. Je kan dit doen door het bestand naar jezelf te mailen of het bestand op te laden naar je google drive en dan te downloaden vanaf je computer. Een alternatieve manier is het aansluiten van je smartphone aan op je computer via een USB-kabel en het bestand rechtstreeks te kopi\"eren. 
 	
 	Het CSV-bestand bevat zoals gezegd de roodwaarden van de digitale afbeeldingen waaruit de video bestaat. Je kan deze waarden inlezen in MS Excel. 
 	
 	\begin{itemize}
 		\item Open een nieuwe MS Excel werkmap.
-		\item Lees de gegevens in via het tabblad \emph{Gegevens} - Van tekst. Verplaats de roodwaarden naar kolom B. Voeg bovenaan een lege rij toe en geef kolom B een passende titel.
+		\item Lees de gegevens in via het tabblad \hl{\emph{Gegevens} $>$ Van tekst}. Verplaats de roodwaarden naar kolom B. Voeg bovenaan een lege rij toe en geef kolom B een passende titel.
 		\item Voeg de tijdstippen toe in kolom A. 
 		
 		De eerste foto werd geregistreerd op tijdstip 0,00. Gebruik de frame rate om de registratietijden van de volgende foto's toe te voegen. Ga indien nodig even terug naar oefening 1 in Sectie \ref{sec:Mod3_Sec2} om de duurtijd per foto $d$ te berekenen a.d.h.v. de frame rate.
@@ -257,9 +290,9 @@ Als je een willekeurig filmpje in foto's splitst, zie je hoe de foto's verandere
 		
 		In de grafiek hierboven tellen we 19 pieken op 15 seconden. De hartslag is dus $19 \cdot 4 = 76$ bpm.
 		
-		\item Als de grafiek niet mooi genoeg is om pieken te kunnen tellen, maak dan een nieuw filmpje en herhaal de bovenstaande stappen. 
+		\item Als de grafiek niet duidelijk genoeg is om pieken te kunnen tellen, maak dan een nieuw filmpje en herhaal de bovenstaande stappen. 
 		
-		Ga na welke factoren (bv flits aan/uit, hoe hard je op de lens drukt, hoe je je vinger houdt, ...) de kwaliteit van de meting be\"invloeden. Hou hiermee rekening als je later nog pogingen onderneemt om de hartslag te meten. Schrijf indien nodig je bevindingen ergens op.
+		Ga na welke factoren (bvb. flits aan/uit, hoe hard je op de lens drukt, hoe je je vinger houdt, ...) de kwaliteit van de meting be\"invloeden. Hou hiermee rekening als je later nog pogingen onderneemt om de hartslag te meten. Schrijf indien nodig je bevindingen ergens op.
 	\end{itemize}	
 
 \end{enumerate}
