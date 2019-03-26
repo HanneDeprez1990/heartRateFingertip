@@ -71,7 +71,7 @@ Bepaal de roodwaarde van een foto in App Inventor 2.
 
 Volg daarvoor de volgende stappen:
 \begin{enumerate}
-	\item Voeg  in de \hl{Designer view} een \hl{canvas(E)/doek(NL)} component toe aan je scherm. 
+	\item Voeg  in de \hl{\emph{Ontwerper view}} een \hl{\texttt{canvas(E)/doek(NL)}} component toe aan je scherm. 
 	\item Upload een foto naar keuze en stel de foto in als achtergrond van het canvas.
 	Pas de afmetingen van het canvas aan zodat de verhoudingen van de foto goed zijn. 
 	
@@ -201,9 +201,9 @@ Als je een willekeurig filmpje in beelden splitst, zie je hoe de beelden verande
 	
 	Als je dit in de vorige opdracht al gedaan hebt, mag je deze stap overslaan. Noteer de map waarin de afzonderlijke digitale afbeeldingen terecht kwamen, dit heb je straks nodig.
 	
-	\item Maak een nieuw project aan in MIT App Inventor 2 en geef het een passende naam, bv \texttt{Hartslagmonitor\_redToExcel}. 
+	\item Maak een nieuw project aan in MIT App Inventor 2 en geef het een passende naam, bv \texttt{Hartslagmonitor\_roodwaardenNaarExcel}. 
 	
-	\item Schrijf een app die, wanneer je de knop \emph{BerekenRoodwaarden} klikt, de roodwaarde van alle digitale afbeeldingen in de map berekent en toevoegt aan een lijst. Zet vervolgens deze lijst om naar een CSV-tabel en sla de tabel op op je smartphone.
+	\item Schrijf een app die, wanneer je de knop \hl{\texttt{BerekenRoodwaarden}} klikt, de roodwaarde van alle digitale afbeeldingen in de map berekent en toevoegt aan een lijst. Zet vervolgens deze lijst om naar een CSV-tabel en sla de tabel op op je smartphone.
 
 	
 %	\begin{oef}
@@ -211,11 +211,11 @@ Als je een willekeurig filmpje in beelden splitst, zie je hoe de beelden verande
 			\item Voeg de knoppen/labels/\ldots die je denkt nodig te hebben toe aan je scherm.
 			\item Indrukken van de knop \hl{\texttt{BerekenRoodwaarden}} dient de roodwaarden van alle afbeeldingen in de map te bepalen. Maak daarom eerst een lijst van alle afbeeldingen die in de genoteerde map opgeslaan zijn. 
 			
-			Hiervoor moet je een extensie gebruiken: \hl{\texttt{TaifunFile}}. Voeg in de \hl{\texttt{Designer}}-view de extensie toe in de tab \hl{\texttt{}Palette} via \hl{\texttt{Importeer extensie}}. Sleep de extensie dan naar het afgebeelde smartphone-scherm. De extensie zou onder de afgebeelde smartphone moeten verschijnen. 
+			Hiervoor moet je een extensie gebruiken: \hl{\texttt{TaifunFile}}. Voeg in de \hl{\texttt{Designer}}-view de extensie toe in de tab \hl{\emph{Palet}} via \hl{\texttt{Importeer extensie}}. Sleep de extensie dan naar het afgebeelde smartphone-scherm. De extensie zou onder de afgebeelde smartphone moeten verschijnen. 
 			
 			In de \emph{Blocks}-view gebruik je het blok \hl{\texttt{TaifunFile - FileListAsync}} om alle bestanden in de genoteerde map op te lijsten. Dit blok gaat alle bestanden in de gevraagde map \hl{\texttt{directoryName}} en met de gevraagde extensie \hl{\texttt{extension}} oplijsten. Als je bij \hl{\texttt{includeSubDirectories}} \texttt{true} zet, worden ook submappen meegenomen in de oplijsting. Als \hl{\texttt{includeSubDirectories}} \texttt{false} is, wordt enkel de map zelf bekeken. 
 
-			De oplijsting is \emph{asynchroon}: dat wil zeggen dat de smartphone andere processen kan uitvoeren tijdens de oplijsting. Maar dat betekent ook dat we niet weten wanneer de bestanden opgelijst zijn. Daarom gebruiken we ook het blok \hl{\texttt{TaifunFile - AfterFileListAsync}}. Dit blok treedt in werking wanneer alle bestanden opgelijst zijn, en dan kunnen we verder met onze berekeningen. Binnen dit blok hebben we een variabele \emph{fileList} waarin alle bestanden in de gevraagde map met de gevraagde extensie opgenomen zijn.
+			De oplijsting is \emph{asynchroon}: dat wil zeggen dat de smartphone andere processen kan uitvoeren tijdens de oplijsting. Maar dat betekent ook dat we niet weten wanneer de bestanden opgelijst zijn. Daarom gebruiken we ook het blok \hl{\texttt{TaifunFile - AfterFileListAsync}}. Dit blok treedt in werking wanneer alle bestanden opgelijst zijn, en dan kunnen we verder met onze berekeningen. Binnen dit blok hebben we een variabele \hl{\texttt{fileList}} waarin alle bestanden in de gevraagde map met de gevraagde extensie opgenomen zijn.
 			
 			Ga even na af de oplijsting van de bestanden in de gevraagde map correct is verlopen. Dit doe je door de variabele \hl{\texttt{fileList}} als label te tonen op het scherm van je smartphone. Ga pas verder naar de volgende stap als je zeker bent dat dit juist is.
 			
@@ -223,7 +223,7 @@ Als je een willekeurig filmpje in beelden splitst, zie je hoe de beelden verande
 			
 			Om de lijst te sorteren, hebben we een tweede extensie gemaakt: \hl{\texttt{LijstVerwerken}}. Voeg de extensie toe zoals voorheen via \hl{\texttt{Importeer extensie}} en door de extensie naar het scherm van de afgebeelde smartphone te slepen.
 			
-			Gebruik het blok \emph{ListProcessing - SortList} om de lijst te sorteren. Ga na dat dit correct gebeurde door de bekomen lijst als label te tonen op het scherm van je smartphone. Ga pas verder naar de volgende stap als dit correct werkt.
+			Gebruik het blok \hl{\texttt{LijstVerwerken $>$ SorteerLijst}} om de lijst te sorteren. Ga na dat dit correct gebeurde door de bekomen lijst als label te tonen op het scherm van je smartphone. Ga pas verder naar de volgende stap als dit correct werkt.
 			
 			\item Itereer over de items/bestanden in de lijst met gesorteerde bestanden en bereken van elk bestand (en dus van elke afbeelding) de roodwaarde. Voeg de bekomen roodwaarden telkens toe aan een lijst, die je bijvoorbeeld \hl{\texttt{roodwaardeLijst}} noemt.
 			
@@ -233,7 +233,7 @@ Als je een willekeurig filmpje in beelden splitst, zie je hoe de beelden verande
 			
 			Voeg een nieuwe \hl{\texttt{File}}-component toe aan je scherm. De component zou onder de afgebeelde smartphone moeten verschijnen. 
 			
-			Gebruik het blok \hl{\texttt{File - SaveFile}} en het blok \hl{\texttt{List - list to csv table}} om de lijst met roodwaarden (\hl{\texttt{roodwaardeLijst}}) eerst om te zetten in een CSV tabel. Die CSV tabel is de \hl{\texttt{text}} input van het blok \hl{\texttt{SaveFile}}. De \hl{\texttt{filename}}-input mag je zelf kiezen, maar zorg dat de bestandsnaam eindigt op \textquotedblleft .csv\textquotedblright. Dit achtervoegsel na de punt heet de \textquotedblleft bestandsextensie \textquotedblright. Op basis van deze letters weet de computer met welk soort bestand het te maken heeft. De computer weet daarmee ook met welk programma hij het bestand moet openen wanneer we het willen bewerken of gebruiken.
+			Gebruik het blok \hl{\texttt{File $>$ BewaarBestand}} en het blok \hl{\texttt{Lijst $>$ lijst naar .csv tabel}} om de lijst met roodwaarden (\hl{\texttt{roodwaardeLijst}}) eerst om te zetten in een CSV tabel. Die CSV tabel is de \hl{\texttt{tekst}} input van het blok \hl{\texttt{BewaarBestand}}. De \hl{\texttt{bestandsNaam}}-input mag je zelf kiezen, maar zorg dat de bestandsnaam eindigt op \textquotedblleft .csv\textquotedblright. Dit achtervoegsel na de punt heet de \textquotedblleft bestandsextensie \textquotedblright. Op basis van deze letters weet de computer met welk soort bestand het te maken heeft. De computer weet daarmee ook met welk programma hij het bestand moet openen wanneer we het willen bewerken of gebruiken.
 			
 			\begin{oef}
 			Ken jij de bestandsextensies geassocieerd met volgende programma's?
@@ -254,7 +254,7 @@ Als je een willekeurig filmpje in beelden splitst, zie je hoe de beelden verande
 			\end{itemize}
 			}
 			
-			Het csv-bestand zou moeten opgeslaan worden op je smartphone in de map AppInventor/data.
+			Het csv-bestand zou moeten opgeslaan worden op je smartphone in de map A\emph{ppInventor/data}.
 			
 			Ga na dat het CSV-bestand inderdaad op de voorziene plaats en onder de voorziene naam opgeslaan is op je smartphone. Je kan navigeren door de bestanden op je smartphone via de app \textquotedblleft Bestanden\textquotedblright, die normaal gezien standaard ge\"installeerd is op Android smartphones.
 			
@@ -303,18 +303,18 @@ Als je een willekeurig filmpje in beelden splitst, zie je hoe de beelden verande
 	In de vorige opdracht konden we voor het eerst onze hartslag bepalen o.b.v. een opgenomen video. De omweg via MS Excel is wel een beetje vervelend. In deze opdracht wijzigen we de app uit de vorige opdracht, zodat we de grafiek rechtstreeks in onze app kunnen maken en bekijken.
 	
 	\begin{enumerate}
-		\item Kopieer het vorige project en geef het een passende naam, bv \texttt{Hartslagmonitor\_redToGraph}. 
+		\item Kopieer het vorige project en geef het een passende naam, bv \texttt{Hartslagmonitor\_roodwaardeNaarGrafiek}. 
 		\item Om de tijd op de $x$-as correct te kunnen berekenen, moeten we de frame rate kennen. In de meeste nieuwe smartphones is de frame rate 30 $fps$. Dit is dus de standaardwaarde die we in de app zullen gebruiken.
 		
-		We moeten wel functionaliteit aan de app toevoegen die toelaat de frame rate te veranderen, mocht die niet overeenkomen met onze standaardwaarde van 30 $fps$. Voeg daarom een tekstinput \emph{fsInput} en een knop \emph{fsChanged} toe aan je app. Wanneer je de tekstinput verandert, moet je de op knop \emph{fsChanged} drukken, waarna een globale variabele \emph{fs} aangepast wordt.
+		We moeten wel functionaliteit aan de app toevoegen die toelaat de frame rate te veranderen, mocht die niet overeenkomen met onze standaardwaarde van 30 $fps$. Voeg daarom een tekstinput \hl{\texttt{fsInput}} en een knop \hl{\texttt{fsVeranderd}} toe aan je app. Wanneer je de tekstinput verandert, moet je de op knop \hl{\texttt{fsVeranderd}} drukken, waarna een globale variabele \texttt{fs} aangepast wordt.
 		
 		In de vorige opdracht berekende je de frame rate voor de smartphone die jij gebruikte. Ga na of je de standaardwaarde van 30 $fps$ inderdaad moet veranderen.
 		
-		\item Voeg een nieuwe knop \emph{plotValues} en een webviewer toe. Voeg ook de extensie \emph{Chartmaker} toe door de extensie te importeren en dan de componenten te slepen naar het afgebeelde smartphonescherm.
+		\item Voeg een nieuwe knop \hl{\texttt{MaakGrafiek}} en een webviewer toe. Voeg ook de extensie \hl{\texttt{GrafiekMaken}} toe door de extensie te importeren en dan de componenten te slepen naar het afgebeelde smartphonescherm.
 		
-		Gebruik het blok \emph{Chartmaker - DrawLineGraph} om een lijngrafiek te maken. Je kan de grafiek een titel, $x$- en $y$-labels geven. De input $scalingFactor$ geeft aan met welke stapgrootte de waarden op de $x$-as veranderen. Dit is de duurtijd per foto $d$, die je in de vorige opdracht bepaalde. De input \emph{maxXValue} limiteert het bereik dat afgebeeld wordt op de $x$-as. Ten slotte moet je een label-naam meegeven, welke waarden je wilt uitzetten in de grafiek, en in welke webviewer je de grafiek wilt weergeven.
+		Gebruik het blok \hl{\texttt{GrafiekMaken $>$ MaakLijnGrafiek}} om een lijngrafiek te maken. Je kan de grafiek een titel, $x$- en $y$-labels geven. De input \texttt{stapgrootteX} geeft aan met welke stapgrootte de waarden op de $x$-as veranderen. Dit is de duurtijd per foto $d$, die je in de vorige opdracht bepaalde. Gebruik de duurtijd per foto in milliseconden $ms$. De input \texttt{maximumXwaarde} limiteert het domein dat afgebeeld wordt op de $x$-as. Ten slotte moet je meegeven welke waarden je wilt uitzetten in de grafiek, en in welke webviewer je de grafiek wilt weergeven.
 		
-		Controleer dat de grafiek correct wordt weergegeven alvorens verder te gaan!
+		Controleer dat de webviewer zichtbaar is en dat de grafiek correct wordt weergegeven alvorens verder te gaan!
 		
 		\begin{opmerking}
 			Als je geen internet connectie hebt, zal je de grafiek niet kunnen weergeven! 

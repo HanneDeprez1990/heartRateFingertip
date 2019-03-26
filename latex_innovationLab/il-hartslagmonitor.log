@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6800 64-bit) (preloaded format=pdflatex 2018.9.18)  25 MAR 2019 16:29
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6800 64-bit) (preloaded format=pdflatex 2018.9.18)  26 MAR 2019 10:00
 entering extended mode
 **./il-hartslagmonitor.tex
 (il-hartslagmonitor.tex
@@ -1401,12 +1401,12 @@ Package pdftex.def Info: inputs/logo-innovationlab.png  used on input line 3.
 (pdftex.def)             Requested size: 24.18501pt x 22.73pt.
  [10]
 Hoofdstuk .
-<inputs/module2/overviewAI2_tabs.png, id=224, 1427.3325pt x 681.29532pt>
+<inputs/module2/overviewAI2_tabs.png, id=224, 1428.08531pt x 684.30656pt>
 File: inputs/module2/overviewAI2_tabs.png Graphic file (type png)
 <use inputs/module2/overviewAI2_tabs.png>
 Package pdftex.def Info: inputs/module2/overviewAI2_tabs.png  used on input lin
 e 33.
-(pdftex.def)             Requested size: 388.00148pt x 185.19968pt.
+(pdftex.def)             Requested size: 388.00148pt x 185.91382pt.
 File: inputs/logo-innovationlab.png Graphic file (type png)
 <use inputs/logo-innovationlab.png>
 Package pdftex.def Info: inputs/logo-innovationlab.png  used on input line 33.
@@ -1419,16 +1419,16 @@ File: inputs/module2/palette.png Graphic file (type png)
 <use inputs/module2/palette.png>
 Package pdftex.def Info: inputs/module2/palette.png  used on input line 39.
 (pdftex.def)             Requested size: 145.50148pt x 386.88768pt.
-<inputs/module2/layout.png, id=232, 197.23688pt x 287.57437pt>
+File: inputs/logo-innovationlab.png Graphic file (type png)
+<use inputs/logo-innovationlab.png>
+Package pdftex.def Info: inputs/logo-innovationlab.png  used on input line 49.
+(pdftex.def)             Requested size: 24.18501pt x 22.73pt.
+ [12 <./inputs/module2/overviewAI2_tabs.png> <./inputs/module2/palette.png>]
+<inputs/module2/layout.png, id=239, 197.23688pt x 287.57437pt>
 File: inputs/module2/layout.png Graphic file (type png)
 <use inputs/module2/layout.png>
 Package pdftex.def Info: inputs/module2/layout.png  used on input line 50.
 (pdftex.def)             Requested size: 145.50148pt x 212.1435pt.
-File: inputs/logo-innovationlab.png Graphic file (type png)
-<use inputs/logo-innovationlab.png>
-Package pdftex.def Info: inputs/logo-innovationlab.png  used on input line 57.
-(pdftex.def)             Requested size: 24.18501pt x 22.73pt.
- [12 <./inputs/module2/overviewAI2_tabs.png> <./inputs/module2/palette.png>]
 <inputs/module2/components.png, id=240, 185.19188pt x 465.23813pt>
 File: inputs/module2/components.png Graphic file (type png)
 <use inputs/module2/components.png>
@@ -1490,32 +1490,32 @@ File: inputs/module2/if.jpg Graphic file (type jpg)
 <use inputs/module2/if.jpg>
 Package pdftex.def Info: inputs/module2/if.jpg  used on input line 172.
 (pdftex.def)             Requested size: 199.16928pt x 199.1689pt.
-<inputs/module2/ifStructures.png, id=273, 233.07076pt x 193.32225pt>
+<inputs/module2/ifStructures.png, id=273, 238.64156pt x 238.64156pt>
 File: inputs/module2/ifStructures.png Graphic file (type png)
 <use inputs/module2/ifStructures.png>
 Package pdftex.def Info: inputs/module2/ifStructures.png  used on input line 17
 5.
-(pdftex.def)             Requested size: 199.16928pt x 165.2067pt.
+(pdftex.def)             Requested size: 199.16928pt x 199.16847pt.
 
 Overfull \hbox (2.61108pt too wide) in paragraph at lines 171--177
 $[]$ $[]$ 
  []
 
-<inputs/module2/ifthen.png, id=274, 151.3153pt x 97.86563pt>
+<inputs/module2/ifthen.png, id=274, 103.88812pt x 103.13531pt>
 File: inputs/module2/ifthen.png Graphic file (type png)
 <use inputs/module2/ifthen.png>
 Package pdftex.def Info: inputs/module2/ifthen.png  used on input line 191.
-(pdftex.def)             Requested size: 87.98457pt x 56.9055pt.
+(pdftex.def)             Requested size: 57.32094pt x 56.9055pt.
 
 Overfull \hbox (2.61108pt too wide) in paragraph at lines 186--193
 []$ $[]$ 
  []
 
-<inputs/module2/ifelse.png, id=275, 229.60782pt x 234.1247pt>
+<inputs/module2/ifelse.png, id=275, 305.64188pt x 246.9225pt>
 File: inputs/module2/ifelse.png Graphic file (type png)
 <use inputs/module2/ifelse.png>
 Package pdftex.def Info: inputs/module2/ifelse.png  used on input line 198.
-(pdftex.def)             Requested size: 167.43013pt x 170.71652pt.
+(pdftex.def)             Requested size: 211.31284pt x 170.71652pt.
 
 Overfull \hbox (2.61108pt too wide) in paragraph at lines 193--200
 []$ $[]$ 
@@ -1528,23 +1528,23 @@ Package pdftex.def Info: inputs/logo-innovationlab.png  used on input line 200.
 (pdftex.def)             Requested size: 24.18501pt x 22.73pt.
 [17 <./inputs/module2/if.jpg> <./inputs/module2/ifStructures.png> <./inputs/mod
 ule2/ifthen.png>]
-<inputs/module2/ifelseifelse.png, id=286, 260.47313pt x 344.03531pt>
+<inputs/module2/ifelseifelse.png, id=286, 310.91156pt x 353.82187pt>
 File: inputs/module2/ifelseifelse.png Graphic file (type png)
 <use inputs/module2/ifelseifelse.png>
 Package pdftex.def Info: inputs/module2/ifelseifelse.png  used on input line 20
 5.
-(pdftex.def)             Requested size: 172.33409pt x 227.62204pt.
+(pdftex.def)             Requested size: 200.01692pt x 227.62204pt.
 
 Overfull \hbox (2.61108pt too wide) in paragraph at lines 200--207
 []$ $[]$ 
  []
 
-<inputs/module2/repititionStructures2.png, id=287, 547.2947pt x 191.9672pt>
+<inputs/module2/repititionStructures2.png, id=287, 547.2947pt x 193.47281pt>
 File: inputs/module2/repititionStructures2.png Graphic file (type png)
 <use inputs/module2/repititionStructures2.png>
 Package pdftex.def Info: inputs/module2/repititionStructures2.png  used on inpu
 t line 214.
-(pdftex.def)             Requested size: 485.0pt x 170.11797pt.
+(pdftex.def)             Requested size: 485.0pt x 171.45221pt.
 File: inputs/logo-innovationlab.png Graphic file (type png)
 <use inputs/logo-innovationlab.png>
 Package pdftex.def Info: inputs/logo-innovationlab.png  used on input line 214.
@@ -1557,23 +1557,24 @@ Package pdftex.def Info: inputs/logo-innovationlab.png  used on input line 247.
 
 (pdftex.def)             Requested size: 24.18501pt x 22.73pt.
  [19 <./inputs/module2/repititionStructures2.png>]
-<inputs/module2/variabelen.png, id=303, 290.88675pt x 127.677pt>
+<inputs/module2/variabelen.png, id=303, 239.39438pt x 140.02313pt>
 File: inputs/module2/variabelen.png Graphic file (type png)
 <use inputs/module2/variabelen.png>
 Package pdftex.def Info: inputs/module2/variabelen.png  used on input line 256.
 
-(pdftex.def)             Requested size: 227.62204pt x 99.91104pt.
-<inputs/module2/lijst.png, id=305, 316.18124pt x 147.55125pt>
+(pdftex.def)             Requested size: 227.62204pt x 133.13872pt.
+File: inputs/logo-innovationlab.png Graphic file (type png)
+<use inputs/logo-innovationlab.png>
+Package pdftex.def Info: inputs/logo-innovationlab.png  used on input line 264.
+
+(pdftex.def)             Requested size: 24.18501pt x 22.73pt.
+ [20 <./inputs/module2/variabelen.png>]
+<inputs/module2/lijst.png, id=311, 348.55219pt x 162.6075pt>
 File: inputs/module2/lijst.png Graphic file (type png)
 <use inputs/module2/lijst.png>
 Package pdftex.def Info: inputs/module2/lijst.png  used on input line 265.
-(pdftex.def)             Requested size: 227.62204pt x 106.22554pt.
-File: inputs/logo-innovationlab.png Graphic file (type png)
-<use inputs/logo-innovationlab.png>
-Package pdftex.def Info: inputs/logo-innovationlab.png  used on input line 265.
-
-(pdftex.def)             Requested size: 24.18501pt x 22.73pt.
- [20 <./inputs/module2/variabelen.png>]) (module3.tex
+(pdftex.def)             Requested size: 227.62204pt x 106.18985pt.
+) (module3.tex
 File: inputs/logo-innovationlab.png Graphic file (type png)
 <use inputs/logo-innovationlab.png>
 Package pdftex.def Info: inputs/logo-innovationlab.png  used on input line 3.
@@ -1687,6 +1688,11 @@ Package pdftex.def Info: inputs/logo-innovationlab.png  used on input line 237.
 
 (pdftex.def)             Requested size: 24.18501pt x 22.73pt.
  [30]
+Overfull \hbox (38.93393pt too wide) in paragraph at lines 257--258
+[]\OT1/cmr/m/n/12 Het csv-bestand zou moe-ten op-ge-slaan wor-den op je smartph
+one in de map A\OT1/cmr/m/it/12 ppInventor/data\OT1/cmr/m/n/12 . 
+ []
+
 <inputs/module3/MSExcel_graphRedValues.png, id=389, 889.82437pt x 536.75531pt>
 File: inputs/module3/MSExcel_graphRedValues.png Graphic file (type png)
 <use inputs/module3/MSExcel_graphRedValues.png>
@@ -1698,10 +1704,10 @@ File: inputs/logo-innovationlab.png Graphic file (type png)
 Package pdftex.def Info: inputs/logo-innovationlab.png  used on input line 287.
 
 (pdftex.def)             Requested size: 24.18501pt x 22.73pt.
- [31]
-Overfull \hbox (8.9658pt too wide) in paragraph at lines 306--307
+[31]
+Overfull \hbox (76.89084pt too wide) in paragraph at lines 306--307
 []\OT1/cmr/m/n/12 Kopieer het vo-rige pro-ject en geef het een pas-sende naam, 
-bv \OT1/cmtt/m/n/12 Hartslagmonitor[]redToGraph\OT1/cmr/m/n/12 . 
+bv \OT1/cmtt/m/n/12 Hartslagmonitor[]roodwaardeNaarGrafiek\OT1/cmr/m/n/12 . 
  []
 
 File: inputs/logo-innovationlab.png Graphic file (type png)
@@ -1906,7 +1912,7 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 89.
 Here is how much of TeX's memory you used:
  33314 strings out of 492973
  798517 string characters out of 3135923
- 1006151 words of memory out of 3000000
+ 1007159 words of memory out of 3000000
  36354 multiletter control sequences out of 15000+200000
  21762 words of font info for 86 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -1940,7 +1946,7 @@ ts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1
 msfonts/cm/cmsy8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/c
 m/cmti12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt10
 .pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on il-hartslagmonitor.pdf (54 pages, 13548616 bytes).
+Output written on il-hartslagmonitor.pdf (54 pages, 13563156 bytes).
 PDF statistics:
  638 PDF objects out of 1000 (max. 8388607)
  161 named destinations out of 1000 (max. 500000)
