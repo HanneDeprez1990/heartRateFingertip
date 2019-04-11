@@ -41,6 +41,7 @@
 
 \definecolor{fac-color}{cmyk}{0.65,0,0,0.15}
 \definecolor{fac-color-dark}{cmyk}{0.65,0,0,0.35}
+\definecolor{fac-color-orange}{cmyk}{0,0.38,0.99,0.13}
 
 \newlength{\evenlengte}
 
@@ -339,9 +340,9 @@
 \newcommand{\opdrachttypeset}[1]{\settowidth{\eenbreedte}{\bf\large\boldmath#1}%
 \setlength{\overschot}{\textwidth-\linkerlijn-\eenbreedte-4ex}%
 \begin{tikzpicture}
-\fill[fill=fac-color-dark] (0,\streepdikte/2) rectangle (\linkerlijn,-\streepdikte/2);
+\fill[fill=fac-color-orange] (0,\streepdikte/2) rectangle (\linkerlijn,-\streepdikte/2);
 \node at (\linkerlijn+2ex,0) [anchor=west,inner sep=0pt] {{\bf\large\boldmath#1}};
-\fill[fill=fac-color-dark] (\textwidth-\overschot,\streepdikte/2) rectangle (\textwidth,-\streepdikte/2);
+\fill[fill=fac-color-orange] (\textwidth-\overschot,\streepdikte/2) rectangle (\textwidth,-\streepdikte/2);
 \end{tikzpicture}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

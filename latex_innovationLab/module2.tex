@@ -120,31 +120,49 @@ Zolang je smartphone  via wifi gekoppeld is aan de Companion App, verandert de a
 Als je de app die je ontworpen hebt getest hebt via de App Inventor 2 Companion App en de app aan de vereisten voldoet, kan je de app downloaden. Zo heb je een zelfstandig werkende app op je smartphone, zonder dat je een wifi-verbinding met je computer of de MIT ontwikkelomgeving nodig hebt. Dan hoef je ook niet meer steeds de QR code te scannen als je de app wilt gebruiken. De app kan je installeren via \hl{\texttt{Bouwen $>$ App (toon QR-code voor .apk)}}. Door een QR-code te scannen met je smartphone kan je het installatie-bestand (.apk) downloaden op je smartphone. Wanneer je het .apk-bestand opent, installeert de app.
 
 \begin{opdracht}{Good morning app}
-	Toon \textquotedblleft Good morning!\textquotedblright \ in drie verschillende talen op het scherm, nl. Italiaans, Spaans en Duits.
-	
+	\begin{minipage}{.1\linewidth}
+	\includegraphics[width=1.5cm]{inputs/opdracht}
+	\vspace{5cm}
+	\end{minipage}
 	\begin{minipage}{.5\linewidth}
+	 Toon \textquotedblleft Good morning!\textquotedblright \ in drie verschillende talen op het scherm, nl. Italiaans, Spaans en Duits. 
+	 Zorg ervoor dat:
+	 \begin{itemize}
+	 	\item een klik op de \hl{\texttt{knopItaliaans}} \textquotedblleft Buongiorno!\textquotedblright toont
+	 	\item een klik op de \hl{\texttt{knopSpaans}} \textquotedblleft Buenos dias!\textquotedblright toont
+	 	\item een klik op de \hl{\texttt{knopDuits}} \textquotedblleft Guten Morgen!\textquotedblright toont
+	 \end{itemize}
+	\end{minipage}
+	\begin{minipage}{.3\linewidth}
 		\gewonefiguur{width=5cm}{module2/goedemorgenApp}
 	\end{minipage}
-	\begin{minipage}{.5\linewidth}
-		\begin{enumerate}
-			\item Cre\"eer een nieuw project.
-			\item Start met de \emph{ontwerper view}:
-			\begin{itemize}
-				\item Welke layout kies je?
-				\item Welke componenten heb je nodig?
-				\item Welke naam geef je aan iedere component?
-				\item Welke eigenschappen heeft elke component nodig?
-			\end{itemize}
-			\item Ga over naar de \emph{blokken view} om ervoor te zorgen dat:
-			\begin{itemize}
-				\item een klik op de \hl{\texttt{knopItaliaans}} \textquotedblleft Buongiorno!\textquotedblright toont
-				\item een klik op de \hl{\texttt{knopItaliaans}} \textquotedblleft Buenos dias!\textquotedblright toont
-				\item een klik op de \hl{\texttt{knopItaliaans}} \textquotedblleft Guten Morgen!\textquotedblright toont
-			\end{itemize}
-		\end{enumerate}
-	\end{minipage}
+
+	Het is belangrijk eerst goed na te denken welke componenten nodig zijn en hoe je het gewenste gedrag in code zal programmeren alvorens op de computer vanalles te doen. Bij opdrachten waarin code moet geschreven worden gebruiken we daarom volgende aanpak: we schrijven uit wat we willen bereiken in de DENK-kolom en denken na hoe we dit bekomen. De aanpak schrijven we uit in de DOE-kolom. 
+	
+	\begin{tabular}{c|L{8cm}|L{8cm}}
+	& \multicolumn{1}{>{\centering\arraybackslash}m{80mm}|}{\textbf{DENK}}  & \multicolumn{1}{>{\centering\arraybackslash}m{80mm}}{\textbf{DOE}}  \\
+	\hline
+	1 & & Cre\"eer een nieuw project, genaamd \textquotedblleft Goedemorgen \textquotedblright.  \\
+	\hline
+	2 & \emph{Ontwerper} view: & \\
+	&   Welke layout kies je? & De knoppen staan onder elkaar $\rightarrow$ \hl{\texttt{Indeling Verticaal}} \vspace{1cm}\\
+	&   Welke componenten heb je nodig? & \vspace{2cm} \\
+	&   Welke naam geef je aan iedere component? & \vspace{2cm} \\
+	&  	Welke eigenschappen heeft elke component nodig? & \vspace{2cm} \\
+	\hline
+	3 & \emph{Blokken} view: \newline 
+	Hoe zorg je ervoor dat: & \\
+	& 1. een klik op de \hl{\texttt{knopItaliaans}} \textquotedblleft Buongiorno!\textquotedblright toont  & \\
+	& & \includegraphics[width=\linewidth]{inputs/module2/goedemorgen_italiaans} \\
+	&  2. een klik op de \hl{\texttt{knopSpaans}} \textquotedblleft Buenos dias!\textquotedblright toont & 
+	\vspace{2cm} \\
+	&  3. een klik op de \hl{\texttt{knopDuits}} \textquotedblleft Guten Morgen!\textquotedblright toont & 
+	\vspace{2cm} \\
+	\end{tabular}
 
 Test de werking van je app grondig. Doet de app op elk moment wat je ervan verwacht? Indien niet, ga dan op zoek naar de onderliggende oorzaak. Het proces waarin je ongewenste fouten in de werking van de app opspoort en wegwerkt, heet \textquotedblleft debuggen \textquotedblright. Zelfs de beste programmeurs moeten hun apps debuggen. Dit is soms een frustrerend proces, maar het is helaas wel een wezenlijk onderdeel van programmeren.
+
+\opdrachteindbalk
 
 \end{opdracht}
 
@@ -156,6 +174,16 @@ Test de werking van je app grondig. Doet de app op elk moment wat je ervan verwa
 Met MIT App Inventor 2 kan je heel gemakkelijk zelf aan de slag. De betekenis van de componenten is vaak intu\"itief duidelijk en via het vraagteken kan je steeds extra uitleg oproepen. 
 
 Hieronder bespreken we enkele belangrijke blokken uit de blocks view, waarvan de bedoeling misschien iets minder vanzelfsprekend is.
+
+\subsection{Variabelen (Variables)}
+Variabelen worden gebruikt om waarden bij te houden. Een bij te houden waarde kan bvb. het resultaat van een wiskunde bewerking zijn, of een tekst input van de gebruiker die je later nog wilt aanpassen. 
+
+Belangrijk is dat er een onderscheid gemaakt wordt tussen \emph{lokale} en \emph{globale} variabelen, zie Figuur \ref{fig:variabele}. Globale variabelen worden aangemaakt bij de opstart van het programma en kunnen doorheen het hele programma gebruikt worden. We zouden kunnen zeggen dat je vanuit elk blok \textquotedblleft aan de globale variabele kan\textquotedblright.
+Lokale variabelen worden aangemaakt binnen een blok en kunnen enkel door blokken binnen de grenzen van de lokale variabele gebruikt worden. Je \textquotedblleft kan er dus enkel aan\textquotedblright \ binnen het oranje blok zelf. Vandaar dat het blok voor een lokale variabele onderaan nog een oranje staartje heeft. Dit staartje duidt aan binnen welke grenzen \textquotedblleft je aan de variabele kan\textquotedblright.
+
+\figuurmetlabel[\label{fig:variabele}]{width=8cm}{module2/variabelen}{Het bovenste blok toont hoe je een globale variabele kan aanmaken, die doorheen het hele programma gebruikt kan worden. Het onderste blok toont hoe je een lokale variabele kan aanmaken, die enkel toegankelijk is binnen het blok van de variabele.}
+
+De \hl{\texttt{Krijg}}-instructie wordt gebruikt om de waarde van een variabele op te halen. De \hl{\texttt{Zet}}-instructie wordt gebruikt om de waarde van een variabele te wijzigen.
 
 \subsection{Controle (control)}
 De meeste programmeertalen zijn opgebouwd rond drie belangrijke controlestructuren: 
@@ -206,6 +234,46 @@ In App Inventor zijn er verschillende implementaties van deze structuur mogelijk
 	\end{minipage}	
 \end{itemize}
 
+\begin{opdracht}{Gemiddelde app}
+	\begin{minipage}{.1\linewidth}
+		\includegraphics[width=1.5cm]{inputs/opdracht}
+		\vspace{3cm}
+	\end{minipage}
+	\begin{minipage}{.5\linewidth}
+		De gebruiker geeft drie getallen in. Bij het indrukken van de knop wordt het gemiddelde van de drie getallen berekend en in het onderste tekstvak geplaatst. Als het gemiddelde hoger is dan 95, wordt de tekst \textquotedblleft Mooi gedaan  \textquotedblright \ weergegeven in het bovenste label. Bij het indrukken van de knop worden alle velden opnieuw op hun oorspronkelijke waarde gezet.
+	\end{minipage}
+	\begin{minipage}{.3\linewidth}
+		\gewonefiguur{width=5cm}{module2/gemiddeldeApp}
+	\end{minipage}
+	
+	\begin{tabular}{c|L{8cm}|L{8cm}}
+		& \multicolumn{1}{>{\centering\arraybackslash}m{80mm}|}{\textbf{DENK}}  & \multicolumn{1}{>{\centering\arraybackslash}m{80mm}}{\textbf{DOE}}  \\
+		\hline
+		1 & & Cre\"eer een nieuw project, genaamd \textquotedblleft Gemiddelde\textquotedblright.  \\
+		\hline
+		2 & \emph{Ontwerper} view: & \\
+		&   1. Welke layout kies je? & \\
+		&   2. Welke componenten heb je nodig? & \vspace{2cm} \\
+		&   3. Welke naam geef je aan iedere component? & \vspace{2cm} \\
+		&  	4. Welke eigenschappen heeft elke component nodig? & \vspace{2cm} \\
+		\hline
+		3 & \emph{Blokken} view: \newline 
+		Hoe zorg je ervoor dat: & \\
+		&  1. een lokale variabele gemiddelde aangemaakt wordt? & \\
+		& & \includegraphics[width=\linewidth]{inputs/module2/gemiddeldeLokaal} \\
+		&  2. het gemiddelde berekend wordt? & 
+		\vspace{2cm} \\
+		&  3. het gemiddelde in het juiste tekstvak getoond wordt? & 
+		\vspace{2cm} \\
+		& 4. \textquotedblleft Mooi gedaan! \textquotedblright getoond wordt als het gemiddelde groter is dan 95? & \vspace{2cm} \\
+	\end{tabular}
+	
+	Test de werking van je app grondig. 
+	
+	\opdrachteindbalk
+	
+\end{opdracht}
+
 \subsubsection{Herhaling: \emph{Terwijl test} lus of \emph{for each} lus}
 
 Voor zaken die je veelvuldig wil uitvoeren, kan je gebruik maken van een een repetitie-blok, zoals een \hl{\texttt{Terwijl test}}-lus of \hl{\texttt{Voor elke}}-lus. 
@@ -224,6 +292,90 @@ Zo'n herhaling zou kunnen zijn: de tekst op een label laten optellen van 1 tot 1
 	Bij het programmeren van een herhalingslus moet de booleaanse uitdrukking ooit \texttt{false} worden. Anders blijft het programma eindeloos in cirkeltjes draaien en zal het lijken alsof er niets gebeurt, ook al is de computer aan het rekenen!
 	Pas dus op dat je geen oneindige lussen maakt: ooit moet de \texttt{Boolean} expressie \texttt{false} worden, anders blijf je vastzitten in de \hl{\texttt{Terwijl test}}-lus!!!
 \end{itemize}
+
+\begin{opdracht}{Sommeer getallen app}
+	\begin{minipage}{.1\linewidth}
+		\includegraphics[width=1.5cm]{inputs/opdracht}
+		\vspace{1cm}
+	\end{minipage}
+	\begin{minipage}{.5\linewidth}
+		Bereken de som van de getallen tussen nul en een bovengrens die de gebruiker ingeeft.
+	\end{minipage}
+	\begin{minipage}{.3\linewidth}
+		\gewonefiguur{width=5cm}{module2/sommeerGetallen}
+	\end{minipage}
+	
+	\begin{tabular}{c|L{8cm}|L{8cm}}
+		& \multicolumn{1}{>{\centering\arraybackslash}m{80mm}|}{\textbf{DENK}}  & \multicolumn{1}{>{\centering\arraybackslash}m{80mm}}{\textbf{DOE}}  \\
+		\hline
+		1 & & Cre\"eer een nieuw project, genaamd \textquotedblleft Sommeer getallen\textquotedblright.  \\
+		\hline
+		2 & \emph{Ontwerper} view: & \\
+		&  1. Welke layout kies je? & \\
+		&  2. Welke componenten heb je nodig? & \vspace{2cm} \\
+		&  3. Welke naam geef je aan iedere component? & \vspace{2cm} \\
+		&  4. Welke eigenschappen heeft elke component nodig? & \vspace{2cm} \\
+		\hline
+		3 & \emph{Blokken} view: & \\
+		&  1.  Maak een lokale variabele \texttt{Totaal} aan.& 1. Maak een lokale variabele \texttt{Totaal} aan. \vspace{.5cm}\\
+		& 2. Beslis of je met een \hl{\texttt{Voor elke}}-lus of met een \hl{\texttt{Terwijl test}}-lus wilt werken. Beide kunnen, maar een \hl{\texttt{Voor elke}}-lus is hier net iets eenvoudiger. \vspace{.5cm} & \\
+		&  3. Stel de \hl{\texttt{Voor elke}}-lus correct in. & 
+		\vspace{2cm} \\
+		&  4. Welke code moet binnen de lus uitgevoerd worden? Herinner je dat we telkens getallen bij de variabele \texttt{Totaal} willen optellen.  & 
+		\vspace{2cm} \\
+		&  5. Geef de waarde van de variabele \texttt{Totaal} weer in het tekstvak. & 4. Geef de waarde van de variabele \texttt{Totaal} weer in het tekstvak.\\
+	\end{tabular}
+	
+	Test de werking van je app grondig. 
+	
+	\opdrachteindbalk
+	
+\end{opdracht}
+
+\begin{opdracht}{Sommeer getallen app}
+	\begin{minipage}{.1\linewidth}
+		\includegraphics[width=1.5cm]{inputs/opdracht}
+		\vspace{1cm}
+	\end{minipage}
+	\begin{minipage}{.5\linewidth}
+		Ontwikkel een app die het \texttt{Eindbedrag} berekent van een \texttt{Startbedrag} dat gedurende een \texttt{aantalJaar} op de bank staat tegen een bepaalde \texttt{rentevoet}.
+	\end{minipage}
+	\begin{minipage}{.3\linewidth}
+		\gewonefiguur{width=5cm}{module2/intrestApp}
+	\end{minipage}
+
+	Je krijgt interest op een bedrag dat gedurende een jaar op de bank heeft gestaan. Hoeveel interest je krijgt, hangt af van de rentevoet. De rentevoet wordt meestal in percent uitgedrukt. Vroeger waren er hoge rentevoeten van rond de 5\%, maar tegenwoordig zijn de rentevoeten gedaald naar hele lage waarden rond de 0.1\%. 
+	
+	Als een bedrag $b$ een jaar op je rekening stond tegen een rentevoet $r$, levert dat je een eindbedrag $B$ op:
+	\begin{equation*}
+	B = b(1+r)
+	\end{equation*}
+	In deze formule moet je $r$ als kommagetal schrijven, dus $r=0.05$ voor een rentevoet van 5\%.
+	
+	\begin{tabular}{c|L{8cm}|L{8cm}}
+		& \multicolumn{1}{>{\centering\arraybackslash}m{80mm}|}{\textbf{DENK}}  & \multicolumn{1}{>{\centering\arraybackslash}m{80mm}}{\textbf{DOE}}  \\
+		\hline
+		1 & & Cre\"eer een nieuw project, genaamd \textquotedblleft Sommeer getallen\textquotedblright.  \\
+		\hline
+		2 & \emph{Ontwerper} view: & \\
+		&  1. Welke layout kies je? & \\
+		&  2. Welke componenten heb je nodig? & \vspace{2cm} \\
+		&  3. Welke naam geef je aan iedere component? & \vspace{2cm} \\
+		&  4. Welke eigenschappen heeft elke component nodig? & \vspace{2cm} \\
+		\hline
+		3 & \emph{Blokken} view: & \\
+		&  1.  Maak een lokale variabele \texttt{Eindbedrag} aan. Wat is een goede startwaarde? \vspace{.5cm} &  \\
+		& 2. Maak een lokale variabele \texttt{Factor} aan. Dat is de waarde waarmee het bedrag op je rekening op het einde van elk jaar vermenigvuldigd wordt. \newline \emph{Hint:} de factor is gerelateerd aan de rentevoet $r$. \vspace{.5cm} & \\
+		&  3. Verhoog het eindbedrag op het einde van elk jaar. Welk soort lus zal je hiervoor gebruiken? \newline
+		\emph{Hint:} beide types lussen kunnen gebruikt worden; probeer ze allebei eens uit! & 
+		\vspace{3cm} \\
+		&  4. Geef de waarde van de variabele \texttt{Eindbedrag} weer in het tekstvak. & 4. Geef de waarde van de variabele \texttt{Eindbedrag} weer in het tekstvak.\\
+	\end{tabular}
+	
+	Test de werking van je app grondig. 
+	
+	\opdrachteindbalk
+\end{opdracht}
 
 \subsection{Logica (Logic)}
 
@@ -247,15 +399,6 @@ Uiteraard kunnen bewerkingen op getallen uitgevoerd worden. Je vindt het volledi
 \subsection{Tekst (Text)}
 Naast wiskundige bewerkingen kan je ook tekst input van de gebruiker verwerken. De mogelijke bewerkingen die je op tekst kan uitvoeren vind je onder \emph{Blokken - Tekst}.
 
-\subsection{Variabelen (Variables)}
-Variabelen worden gebruikt om waarden bij te houden. Een bij te houden waarde kan bvb. het resultaat van een wiskunde bewerking zijn, of een tekst input van de gebruiker die je later nog wilt aanpassen. 
-
-Belangrijk is dat er een onderscheid gemaakt wordt tussen \emph{lokale} en \emph{globale} variabelen, zie Figuur \ref{fig:variabele}. Globale variabelen worden aangemaakt bij de opstart van het programma en kunnen doorheen het hele programma gebruikt worden. We zouden kunnen zeggen dat je vanuit elk blok \textquotedblleft aan de globale variabele kan\textquotedblright.
-Lokale variabelen worden aangemaakt binnen een blok en kunnen enkel door blokken binnen de grenzen van de lokale variabele gebruikt worden. Je \textquotedblleft kan er dus enkel aan\textquotedblright \ binnen het oranje blok zelf. Vandaar dat het blok voor een lokale variabele onderaan nog een oranje staartje heeft. Dit staartje duidt aan binnen welke grenzen \textquotedblleft je aan de variabele kan\textquotedblright.
-
-\figuurmetlabel[\label{fig:variabele}]{width=8cm}{module2/variabelen}{Het bovenste blok toont hoe je een globale variabele kan aanmaken, die doorheen het hele programma gebruikt kan worden. Het onderste blok toont hoe je een lokale variabele kan aanmaken, die enkel toegankelijk is binnen het blok van de variabele.}
-
-De \hl{\texttt{Krijg}}-instructie wordt gebruikt om de waarde van een variabele op te halen. De \hl{\texttt{Zet}}-instructie wordt gebruikt om de waarde van een variabele te wijzigen.
 
 \subsection{Lijsten (Lists)}
 Een lijst kan meerdere items met gelijkaardige data bevatten. Zo kan je bijvoorbeeld een lijst van getallen hebben, of een lijst van tekstwaarden. Als je 100 getallen moet bijhouden, is het makkelijker een lijst te gebruiken dan 100 verschillende variabelen.
@@ -264,4 +407,43 @@ Nadat een lijst wordt aangemaakt zoals in Figuur \ref{fig:lijst}, kan je extra i
 
 \figuurmetlabel[\label{fig:lijst}]{width=8cm}{module2/lijst}{Je kan een lege lijst aanmaken (boven), of een lijst aanmaken die reeds een aantal elementen bevat (onder).}
 
+\begin{opdracht}{Boodschappenlijstje app}
+	\begin{minipage}{.1\linewidth}
+		\includegraphics[width=1.5cm]{inputs/opdracht}
+		\vspace{1cm}
+	\end{minipage}
+	\begin{minipage}{.5\linewidth}
+		Maak een lijst met boodschappen aan. Print de lijst af op het scherm. Voeg een item toe aan de lijst, vervang een item uit de lijst en verwijder een item uit de lijst.
+	\end{minipage}
+	\begin{minipage}{.3\linewidth}
+		\gewonefiguur{width=\linewidth}{module2/boodschappenlijst}
+	\end{minipage}
+	
+	\begin{tabular}{c|L{8cm}|L{8cm}}
+		& \multicolumn{1}{>{\centering\arraybackslash}m{80mm}|}{\textbf{DENK}}  & \multicolumn{1}{>{\centering\arraybackslash}m{80mm}}{\textbf{DOE}}  \\
+		\hline
+		1 & & Cre\"eer een nieuw project, genaamd \textquotedblleft Boodschappenlijst\textquotedblright.  \\
+		\hline
+		2 & \emph{Ontwerper} view: & \\
+		&  1. Welke layout kies je? & \\
+		&  2. Welke componenten heb je nodig? & \vspace{2cm} \\
+		&  3. Welke naam geef je aan iedere component? & \vspace{2cm} \\
+		&  4. Welke eigenschappen heeft elke component nodig? & \vspace{2cm} \\
+		\hline
+		3 & \emph{Blokken} view: & \\
+		&  1.  Maak een globale variabele \texttt{boodschappenLijst} aan, die boodschappen bevat. \vspace{.2cm} &  \\
+		& 2. Toon de lijst op het scherm. \vspace{.5cm} & \\
+		& 3. Voeg een item toe aan de lijst. & 
+		\vspace{1cm} \\
+		& 4. Verwijder een item uit de lijst. & 
+		\vspace{1cm} \\
+		& 5. Vervang een item uit de lijst door een ander item. & 
+		\vspace{1cm} \\
+	\end{tabular}
+	
+	Test de werking van je app grondig. 
+	
+	\opdrachteindbalk
+	
+\end{opdracht}
 

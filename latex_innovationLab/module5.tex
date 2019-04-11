@@ -5,7 +5,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{samenvatting}
-	Op dit moment heb je al alle stappen overlopen die nodig zijn om je hartslag te meten m.b.v. je smartphone: (1) een video opnemen, (2) de video splitsen in afbeeldingen, (3) de gemiddelde roodwaarde voor elke afbeelding berekenen, (4) een graiek van de gemiddelde roodwaarde i.f.v. de tijd maken, (5) automatische piekdetectie en berekening van de hartslag, en eventueeel (6) frequentie-analyse m.b.v. de Fouriertransformatie. 
+	Op dit moment heb je al alle stappen overlopen die nodig zijn om je hartslag te meten m.b.v. je smartphone: (1) een video opnemen, (2) de video splitsen in afbeeldingen, (3) de gemiddelde roodwaarde voor elke afbeelding berekenen, (4) een grafiek van de gemiddelde roodwaarde i.f.v. de tijd maken, (5) automatische piekdetectie en berekening van de hartslag, en eventueeel (6) frequentie-analyse m.b.v. de Fouriertransformatie. 
 	Elk bouwblok uit het schema uit Module 1 hebben we apart ge\"implementeerd, waarbij we abstractie maakten van wat in eerdere en latere bouwblokken moest gebeuren.
 	Bij de implementatie van de functionaliteit van een bouwblok houden we enkel rekening met welke inputs en outputs dat bouwblok heeft; verder negeren we de complexiteit en de functionaliteit van de andere bouwblokken.
 	Die segmentering (het opdelen van een probleem in segmenten of deelproblemen) laat ons toe onze volledige aandacht te richten op 1 deelprobleem van het meer complexe hartslagmonitor-probleem.
@@ -18,50 +18,50 @@
 \label{sec:Mod5_Sec1}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
-Importeer een bestaand project, nl. \emph{IL\_startapp\_allessamen} in MIT App Inventor 2. 
+Importeer een bestaand project, nl. \hl{\texttt{IL\_startapp}} in MIT App Inventor 2. 
 In dit project zijn alvast de nodige knoppen en extensies voorzien die nodig zijn voor de volledige hartslagmonitor. 
 De functionaliteit achter de knoppen moet je zelf nog implementeren.
 
-We starten met de eerste knop \textquotedblleft 1. Video opnemen\textquotedblright. Wanneer op de knop geklikt wordt moet de camcorder geopend worden zodat de gebruiker een video kan opnemen. De gebruiker moet zelf de flits aanzetten en beslissen hoelang hij video zal opnemen.
+We starten met de eerste knop\texttt{ 1. Video opnemen}. Klikken op de knop dient de camcorder te openen zodat de gebruiker een video kan opnemen. De gebruiker moet zelf de flits aanzetten en beslissen hoelang hij video zal opnemen.
 
-Nadat de video opgenomen is, keurt de gebruiker de video goed of af door op het vinkje of op het kruisje te klikken. Als de gebruiker de video goedkeurt, wordt de video opgeslaan op de smartphone.
+Nadat de video opgenomen is, keurt de gebruiker de video goed of af door op het vinkje of op het kruisje te klikken. Goedkeuren van de video door de gebruiker resulteert in opslaan van de video.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Video naar afbeeldingen m.b.v. app VideoNaarAfbeeldingen}
 \label{sec:Mod5_Sec2}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
-Nadat een video is opgenomen, moet de video gesplitst worden in afbeeldingen. Opnieuw gebruiken we de app \textquotedblleft Video naar afbeeldingen\textquotedblright \ die je in Module 3 Sectie \ref{sec:Mod3_Sec2} installeerde. Het verschil met vroeger is dat we de app \textquotedblleft Video naar afbeeldingen\textquotedblright niet handmatig openen, maar dat de app \textquotedblleft Video naar afbeeldingen\textquotedblright \ automatisch geopend wordt vanuit onze hartslagmonitor app wanneer we de knop \textquotedblleft 2. Video naar afb\textquotedblright \ aanklikken.
+De volgende stap bestaat erin de video op te splitsen in afbeeldingen. Opnieuw gebruiken we de app \textquotedblleft Video naar afbeeldingen\textquotedblright \ die je in Module 3 Sectie \ref{sec:Mod3_Sec2} installeerde. Het verschil met vroeger is dat we de app \textquotedblleft Video naar afbeeldingen\textquotedblright niet handmatig openen, maar dat de app \textquotedblleft Video naar afbeeldingen\textquotedblright \ automatisch geopend wordt vanuit onze hartslagmonitor app wanneer we de knop \textquotedblleft 2. Video naar afb\textquotedblright \ aanklikken.
 
-Hiervoor gebruiken we een component \textquotedblleft ActivityStarter\textquotedblright. In het project \emph{IL\_startapp\_allessamen} staat de ActivityStarter normaal gezien al correct ingesteld. Wanneer de knop \textquotedblleft 2. Video naar afb\textquotedblright\  aangeklikt wordt, moet de activiteit van de ActivityStarter gestart worden. 
+Hiervoor gebruiken we een component \hl{\texttt{ActivityStarter}}. In het project  \hl{\texttt{IL\_startapp}} staat de ActivityStarter normaal gezien al correct ingesteld. Wanneer de knop \texttt{2. Video naar afb} aangeklikt wordt, moet de activiteit van de ActivityStarter gestart worden. 
 
-Hierdoor opent de app \textquotedblleft Video naar afbeeldingen\textquotedblright, zodat de gebruiker de video die hij in afbeeldingen wil splitsen kan selecteren. Als hij klikt op \textquotedblleft Extract images\textquotedblright \ wordt de video gesplitst in afbeeldingen. Na enige tijd worden de afbeeldingen getoond, net als de map waar de afbeeldingen opgeslaan worden. Schrijf ergens neer welke map dit is.
+Hierdoor opent de app \textquotedblleft Video naar afbeeldingen\textquotedblright, zodat de gebruiker de video die hij in afbeeldingen wil splitsen kan selecteren. Als hij klikt op \texttt{Extraheer afbeeldingen} wordt de video gesplitst in afbeeldingen. Na enige tijd worden de afbeeldingen getoond, net als de map waar de afbeeldingen opgeslaan worden. Schrijf ergens op welke map dit is.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Gemiddelde roodwaarde voor elke afbeelding berekenen}
+\section{Gemiddelde roodwaarde per afbeelding}
 \label{sec:Mod5_Sec3}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
-Nadat de video gesplitst is in afbeeldingen, bereken je de roodwaarde van elke afbeelding. Gebruik hiervoor de code die je schreef in Module 3 Sectie \ref{sec:Mod3_Sec3} - opdracht 1. Code kopi\"eren tussen verschillende projecten doe je door de blokken code binnen het ene project vanuit het witte venster naar de rugzak rechtsboven te slepen en die vervolgens binnen een ander project vanuit de rugzak naar het witte venster te slepen. De roodwaarden worden opgeslaan in een lijst \emph{redValueList}. 
+Nadat de video gesplitst is in afbeeldingen, bereken je de roodwaarde van elke afbeelding. Gebruik hiervoor de code die je schreef in Module 3 Sectie \ref{sec:Mod3_Sec3} - opdracht 1. Code kopi\"eren tussen verschillende projecten doe je door de blokken code binnen het ene project vanuit het witte venster naar de rugzak rechtsboven te slepen en die vervolgens binnen een ander project vanuit de rugzak naar het witte venster te slepen. De roodwaarden worden opgeslaan in een lijst \texttt{roodwaardenLijst}. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Grafiek van de gemiddelde roodwaarde i.f.v. de tijd}
 \label{sec:Mod5_Sec4}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
-Nadat de roodwaarden van de afbeeldingen berekend werden, kan je de grafiek van de roodwaarden in functie van de tijd weergeven. Gebruik hiervoor de code die je schreef in Module 3 Sectie \ref{sec:Mod3_Sec3} - opdracht 2. Op basis van de grafiek kan je de hartslag berekenen.
+Eens de roodwaarden van de afbeeldingen berekend zijn, kan je de grafiek van de roodwaarden in functie van de tijd weergeven. Gebruik hiervoor de code die je schreef in Module 3 Sectie \ref{sec:Mod3_Sec3} - opdracht 2. Op basis van de grafiek kan je de hartslag berekenen.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Automatische piekdetectie en berekening van de hartslag}
 \label{sec:Mod5_Sec5}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
-Als de knop \textquotedblleft 5. Piekdetectie\textquotedblright \ aangeklikt wordt, moet de hartslag automatisch berekend worden d.m.v. automatische piekdetectie. Gebruik hiervoor de code die je schreef in Module 4 Sectie \ref{sec:Mod4_Sec1} - opdracht 1. Denk eraan opeenvolgende roodwaarden uit te middelen als je signaal heel ruizig is, zoals je ook deed in Module 4 Sectie \ref{sec:Mod4_Sec1} - opdracht 1. De ruizigheid van het signaal kan je op basis van de grafiek inschatten.
+Als de knop \texttt{5. Piekdetectie} aangeklikt wordt, moet de hartslag automatisch berekend worden d.m.v. automatische piekdetectie. Gebruik hiervoor de code die je schreef in Module 4 Sectie \ref{sec:Mod4_Sec1} - opdracht 1. Denk eraan opeenvolgende roodwaarden uit te middelen als je signaal heel ruizig is, zoals je ook deed in Module 4 Sectie \ref{sec:Mod4_Sec1} - opdracht 1. De ruizigheid van het signaal kan je op basis van de grafiek inschatten.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Extra: frequentie-analyse m.b.v. Fouriertransformatie}
+\section{Extra: frequentie-analyse}
 \label{sec:Mod5_Sec6}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %  
-Als de knop \textquotedblleft 6. DFT berekenen\textquotedblright \ aangeklikt wordt, moet een frequentieanalyse uitgevoerd worden en het frequentiespectrum getoond worden. Gebruik hiervoor de code die je schreef in Module 4 Sectie \ref{sec:Mod4_Sec3} - opdracht 1. Op basis van het frequentiespectrum kan je opnieuw de meest waarschijnlijke hartslag bepalen.
+Als de knop \texttt{6. DFT berekenen} aangeklikt wordt, moet een frequentieanalyse uitgevoerd worden en het frequentiespectrum getoond worden. Gebruik hiervoor de code die je schreef in Module 4 Sectie \ref{sec:Mod4_Sec3} - opdracht 1. Op basis van het frequentiespectrum kan je opnieuw de meest waarschijnlijke hartslag bepalen.
 
