@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6800 64-bit) (preloaded format=pdflatex 2018.9.18)  11 APR 2019 14:13
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6800 64-bit) (preloaded format=pdflatex 2018.9.18)  17 APR 2019 10:29
 entering extended mode
 **./il-hartslagmonitor.tex
 (il-hartslagmonitor.tex
@@ -2243,7 +2243,7 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 100.
 Here is how much of TeX's memory you used:
  33458 strings out of 492973
  802223 string characters out of 3135923
- 1007101 words of memory out of 3000000
+ 1006101 words of memory out of 3000000
  36476 multiletter control sequences out of 15000+200000
  21762 words of font info for 86 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -2280,7 +2280,7 @@ ts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1
 msfonts/cm/cmsy8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/c
 m/cmti12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt10
 .pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on il-hartslagmonitor.pdf (72 pages, 14253951 bytes).
+Output written on il-hartslagmonitor.pdf (72 pages, 14253954 bytes).
 PDF statistics:
  734 PDF objects out of 1000 (max. 8388607)
  166 named destinations out of 1000 (max. 500000)
